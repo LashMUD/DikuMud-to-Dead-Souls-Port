@@ -7,7 +7,5 @@ with those version licenses. Dead Souls releases are available at
 dead-souls.net
 
 Unless restricted by the DikuMud or current Dead Souls Mud Library 
-versions contained in this archive, all archive files may be freely
+license versions contained in this archive, all archive files may be freely
 distributed or modified.
-
-
