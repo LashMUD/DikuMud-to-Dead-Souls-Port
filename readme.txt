@@ -17,6 +17,8 @@ dds_pa0.1r00 (diku to dead souls pre-alpha major release 0.1 revision 00).
   the object files within the major release.
 - A change log will be included with the release.
 
+CURRENT VERSION: dds_pa0.9r01
+
 File system organization
 
 DikuMud uses numbers to refer to objects and areas in its library in contrast
