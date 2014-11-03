@@ -1,0 +1,37 @@
+Placement and description of Modified Base Files
+
+base_armor.c  dsx.x.x/lib/lib/std
+I forgot why I added this, Doh!
+
+combat.c      dsx.x.x/lib/lib
+Added to modify player morality based on kills
+
+config.h      dsx.x.x/lib/secure/include
+Changed default Mud time of 20 hrs/per day to 24 hours/day.
+Used by the Mayor for his wander routine. Change the times for 
+the wander routine in diku-alfa/room/31.zon/npc/3143_mayor.c
+to reflect the time for your Mud
+
+genetics.c    dsx.x.x/lib/lib
+Added a routine for certain npc's to cast "curse" on players
+during combat. Also see diku-alfa/etc/curse.c and magic_user.c
+for more info
+
+lead.c        dsx.x.x/lib/lib
+Added some lines to allow for the "pet" routine whereby the pet 
+will still be able to follow the player without evasion even if
+the player moves to a different area.
+
+light.c       dsx.x.x/lib/secure/sefun
+Added some code to emulate Diku style blindness
+
+npc.c         dsx.x.x/lib/lib
+Added code to allow for "AddActionsMap" ing capability for
+NPC's. See diku-alfa/room/41.zon/npc/4103_thief.c for an example.
+
+vendor_types.h  dsx.x.x/lib/include
+Cheated and added a "boat" type object to the header file.
+In order to acces the river in Midgaard the room function
+checks for a "boat" type object in the characters inventory
+to allow access to the room. It is not a "real" boat as pertains
+to the Dead Souls mudlib.

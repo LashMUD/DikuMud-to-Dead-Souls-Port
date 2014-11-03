@@ -1,0 +1,22 @@
+The files in this archive are for use with the Dead Souls Mud Library 
+Version 2 and above as maintained by Cratylus (http://dead-souls.net)
+
+1. Download and install the Dead Souls driver and mudlib within a
+   Windows or Unix based environment as per the installation 
+   instructions included with the MudLib.
+
+2. Start the Mud and create an Admin character.
+
+3. Create the diku-alfa domain by using the command: domaincreate diku-alfa
+
+4. Copy (or unzip) the files in this archive to the directory 
+   /domains/diku-alfa/ so that the room directory is overwritten.
+
+5. Copy the modified Dead Souls lib files to their respective locations.
+   Read the "Description and Placement of Modified DS base files" and 
+   look at the diffs and Diff Output folder for information on what and 
+   why these files were modified.
+
+6. The default start room in DikuMud is the Temple of Midgaard. This start room
+   can be set on the Dead Souls Mud by using the command:
+   mudconfig startroom /domains/diku-alfa/room/30.zon/3001

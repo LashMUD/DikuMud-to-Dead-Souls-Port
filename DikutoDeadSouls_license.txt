@@ -1,0 +1,13 @@
+LICENSE
+
+This document is the license for the DikuMud to Dead Souls 2 
+Mud Library. This license extends to Dead Souls mudlib 
+versions beyond version 2 as released by Cratylus in accordance 
+with those version licenses. Dead Souls releases are available at
+dead-souls.net
+
+Unless restricted by the DikuMud or current Dead Souls Mud Library 
+versions contained in this archive, all archive files may be freely
+distributed or modified.
+
+

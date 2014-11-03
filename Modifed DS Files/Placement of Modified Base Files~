@@ -1,0 +1,32 @@
+Placement of Modified Base Files
+
+base_armor.c  dsx.x.x/lib/lib/std
+I forgot why I added this, Doh!
+
+combat.c      dsx.x.x/lib/lib
+Added to modify player morality based on kills
+
+config.h      dsx.x.x/lib/secure/include
+Changed default Mud time of 20 hrs/per day to 24 hours/day.
+Used by the Mayor for his wander routine. Change the times for 
+the wander routine in diku-alfa/room/31.zon/npc/3143_mayor.c
+to reflect the time for your Mud
+
+genetics.c    dsx.x.x/lib/lib
+Added a routine for certain npc's to cast "curse" on players
+during combat. Also see diku-alfa/etc/curse.c and magic_user.c
+for more info
+
+global.h      dsx.x.x/lib/secure/include
+
+lead.c        dsx.x.x/lib/lib
+
+light.c       dsx.x.x/lib/secure/sefun
+
+npc.c         dsx.x.x/lib/lib
+
+score.c       dsx.x.x/lib/cmds/players
+
+timeinfo.c    dsx.x.x/lib/cmds/creators
+
+vendor_types.h  dsx.x.x/lib/include

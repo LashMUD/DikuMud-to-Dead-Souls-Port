@@ -1,0 +1,46 @@
+Changelog
+
+10/31/14
+Changed 3043.c so letters on the wall can be "looked at" and "read"
+
+Changed ticktock help output by adding the lines: "Diku->Dead
+Mudlib: ticktock 1200 = 1 hr in Mudtime"
+
+Started editing files with SetRead function so that when "look" 
+sign or letters, etc, the function (:Readsign:) is not in the 
+SetItems mapping. Instead the actual wording of the text "looked"
+at will return the text. If the SetRead() function is in the 
+SetItems mapping a "phantom" 1 will be returned at the bottom
+of the text that was "looked" at instead of "read". Completed
+Rooms with SetRead() function:
+3003.c, 3007.c, 3008.c, 3009.c, 3010.c, 3011.c, 3020.c, 3031.c,
+3034.c, 3035.c, 3034.c, 3110.c, 3111.c, 3118.c, 3120.c, 3129.c
+3301.c
+COMPLETED!
+
+11-02-14
+Replaced correct magic_user.c file in etc folder
+- Reformmated contents
+- Added comments for documentation
+- Note: if a player is 'cursed' and uses the 'stats' command 
+  changes in stats due to the curse will be noticable since 
+  the stats command uses the GetStatLevel() function. Affected
+  skills will NOT be noticed because the 'skills' command lists
+  the players max skill regardless of skill ability changes. A 
+  creator will be able to see the skill ability change by using
+  the GetSkillLevel("skill") function. May need to change the
+  skills.c command to reflect this.
+- Need to change the function used to determine if an appropriate
+  target for the magic_user is available. The current check is not
+  as efficient as it should be:
+    
+    if(ob && (!ob->GetInCombat() || !ob->GetCurrentEnemy())) return 0;
+
+    targets = filter(get_livings(env), (: !$1->GetInCombat() && !$1->GetSleeping() :));
+    tell_room(env, "\nsizeof(targets) is "+sizeof(targets)+"\n", ({ ob }));
+    if( sizeof(targets) < 1 ){
+        tell_room(env, "\nNO TARGETS\n", ({ ob}));
+    }
+    
+- Need to add functions for elevating the "magic defense" skill if
+  a player is able to resist the magic spell during combat.  

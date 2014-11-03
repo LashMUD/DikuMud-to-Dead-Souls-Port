@@ -1,0 +1,9 @@
+Uploaded Package Changelog
+
+* 11-03-14 
+-created new package dds_pa0.9r01
+-added licenses for Dead Souls Mudlib, DikuMud license, and 
+ the license for use of this package (dds_pa0.09r01: 
+ DikutoDeadSouls_license
+
+
