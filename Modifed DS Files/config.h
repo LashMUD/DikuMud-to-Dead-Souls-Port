@@ -3,7 +3,7 @@
 #define DEFAULT_PROMPT           "> "
 #define HOST_IP                  "127.0.0.1"
 #define MUD_STATUS               "mudlib development"
-#define ADMIN_EMAIL              "ccoker@intergate.com"
+#define ADMIN_EMAIL              "no-one@nowhere.net"
 #define DEBUGGER                 "lash"
 #define LOCAL_NEWS_PREFIX        "nm"
 #define MUD_IS_LOCKED            0
