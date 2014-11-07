@@ -6,4 +6,10 @@ Uploaded Package Changelog
  the license for use of this package (dds_pa0.09r01: 
  DikutoDeadSouls_license
 
+* 11-07-14
+Added Optional Files folder - contains files I modified
+and/or wrote for use with Dead Souls
+- score.c modified score output
+- timeinfo.c a command to give output of variables used 
+  in functions pertaining to time in the Mud
 
