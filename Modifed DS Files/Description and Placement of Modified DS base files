@@ -7,8 +7,9 @@ combat.c      dsx.x.x/lib/lib
 Added code to modify player morality based on kills
 
 config.h      dsx.x.x/lib/secure/include
-Changed default Mud time of 20 hrs/per day to 24 hours/day.
-Used by the Mayor for his wander routine. Change the times for 
+REMOVED
+Simply chang the default Mud time of 20 hrs/per day to 24 hours/day
+in config.h. Used by the Mayor for his wander routine. Change the times for 
 the wander routine in diku-alfa/room/31.zon/npc/3143_mayor.c
 to reflect the time for your Mud
 
