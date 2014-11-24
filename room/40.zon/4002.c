@@ -21,7 +21,7 @@ static void create() {
     SetAmbientLight(30);
     SetShort("End of the path");
     SetLong("   At this point the path has had enough. With a terrified shudder it cowers\n"+
-	"to the ground, only staying here because you're standing on it. with a slight\n"+
+	"to the ground, only staying here because you're standing on it. With a slight\n"+
 	"feeling of unease you look around noticing only a few bushes and a large sign\n"+
 	"carved into the mountain.\n"+
 	"You feel you can hear the cry of help from a thousand silent voices all coming\n"+
