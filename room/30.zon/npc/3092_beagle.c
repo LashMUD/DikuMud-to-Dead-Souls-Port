@@ -59,31 +59,43 @@ void Scavenge(){
 }
 
 int order(string str){
-      
-    string order;
+
     object ob = this_player();
-    string petid;
+    string petid, cmd, noun, doit;
+    string *stringarray;
+               
+    if(!stringp(str)) return notify_fail("Usage: order <pet> do something.");
         
     if(!str || !ob || !ob->GetProperty(this_object())) return 0;
+    stringarray=explode(str, " ");
+    if(sizeof(stringarray)<2) return notify_fail("Usage: order <pet> do something.");   
+    if(sizeof(stringarray) <3){
+        cmd = stringarray[1];
+    }
     
     /* The following has to be added if using unmodified /lib/lib/lead.c or player may evade pet.
-       With following code player re-establishes master/pet relationship
+       With following code player re-establishes master/pet relationship:
 
-       if(ob && ob->GetProperty(this_object()) && ob != this_object()->GetLeader()) eventForce("follow "+ob->GetKeyName());
+    //if(ob && ob->GetProperty(this_object()) && ob != this_object()->GetLeader()) eventForce("follow "+ob->GetKeyName());
     */
 
     if(ob && ob->GetProperty(this_object())){
-        sscanf(str, "%s %s", petid, order);
-        tell_player("lash", "petid = "+petid+" order = "+order+" and str = "+str+" stringp(order) is "+stringp(order));
-            if(!stringp(order) || !str || member_array(petid, this_object()->GetId()) == -1){
-                tell_player(ob, "The small, quick, loyal Beagle has an indifferent look.");
+        sscanf(str, "%s %s %s", petid, cmd, noun);
+        doit=cmd+" "+noun;
+            if(!stringp(cmd) || !str || member_array(petid, this_object()->GetId()) == -1 /*|| member_array(cmd, get_cmds() == -1*/){
+                tell_player(ob, "The large, trained wolf has an indifferent look.");
                 return 1;
             }
-
-    eventForce(order);
-    return 1;
     }
+    if(noun != 0){
+        command(doit);
+    }
+    else{
+        command(cmd);
+    }
+    return 1;
 }
+
 /* Extra Information Original Diku Output
 NEUTRAL-SEX MOB - Name : beagle [R-Number37], In room [3031] V-Number [3092]
 Short description: the Beagle
