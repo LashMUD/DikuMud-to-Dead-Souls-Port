@@ -12,6 +12,7 @@
 #include <lib.h>
 
 inherit LIB_SENTIENT;
+//inherit "/domains/diku-alfa/etc/sentient.c";
 
 void NpcSteal(object ob);
 void Scavenge();
@@ -29,24 +30,23 @@ static void create() {
     SetLevel(12);
     SetMelee(1);
     SetGender("male");
-    SetMorality(1000); //?
-    //SetWander(5);
+    SetMorality(-1000);
+    SetWander(5);
     AddCurrency("gold", 2000);
-    //SetInvis(1);
-    //SetActionsMap( ([ 
-      //               ( :Scavenge: ) : 10,
-        //             ( :NpcSteal: ) : 5,
-          //       ]) );
+    SetInvis(1);
+    SetActionsMap( ([ 
+                        ( :Scavenge: ) : 10,
+                        ( :NpcSteal: ) : 5,
+                 ]) );
     SetProperty("STAY_ZONE", 1);
     SetSkill("stealth", 50);
-    //SetProperty("stealth", 1);
-    eventForce("stealth on");
-    
-      
+    SetProperty("stealth", 1);
+          
     //Special Procedures - sneaking
 }
 
 void init(){
+    this_object()->eventForce("stealth on");
     ::init();
 }
 
