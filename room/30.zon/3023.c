@@ -25,9 +25,12 @@ static void create() {
         "down" : "You can't see what is down there, it is too dark. Looks like it would be\n"+
             "impossible to climb back up.",
         ]) );
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/npc/3023_f_guildmaster" : 1,
+        ]) );
     SetExits( ([
         "north" : "/domains/diku-alfa/room/30.zon/3022",
-        "down" : "/domains/diku-alfa/room70.zon/7048",
+        "down" : "/domains/diku-alfa/room/70.zon/7048",
         ]) );
 }
 
@@ -35,14 +38,14 @@ void init(){
     ::init();
 }
 
-/* NO_NPC's allowed in room*/
+/* NO_NPC's allowed in room
 int CanReceive(object ob) {
     if(ob && !inherits(LIB_NPC, ob)){
     return 1;
     }
     else
     return 0;
-}
+}*/
 
 /* Extra Information Original Diku Output 
 Room name: The Tournament and Practise Yard, Of zone : 1. V-Number : 3023, R-number : 29
