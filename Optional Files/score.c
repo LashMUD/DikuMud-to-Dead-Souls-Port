@@ -106,20 +106,25 @@ varargs mixed eventScore(string arg) {
     xp = who->GetExperiencePoints();
     lev = PLAYERS_D->GetLevelList()[(who->GetLevel()) + 1];
 
+    if(x){
+        str += ({ "Custom Points     "+x+
+                " customization points left. Type: help customize" });
+    }
+
     if(lev){
         if(REQUIRE_QUESTING){
             qp = lev["qp"] - qp;
-            if(qp > 0) tmp += ({capitalize(prn)+" require"+cnj+" "+
+            if(qp > 0) tmp += ({"Quest Points      "+capitalize(prn)+" require"+cnj+" "+
                     comma(qp)+" more quest points to advance."});
         }
-
+    
         xp = lev["xp"] - xp;
         if(xp > 0) tmp += ({"Advancement       "+capitalize(prn)+" require"+cnj+" "+
                 comma(xp)+" more experience points to advance."});
         if(!sizeof(tmp)) tmp = ({"Advancement       "+capitalize(prn)+" "+qual+
                 " to advance a level."});
         str += tmp; 
-    }
+        }    
 
     if( x = who->GetTrainingPoints() < 1 ) {
         y = who->GetLevel() + 1 + (x / -4);
@@ -130,10 +135,7 @@ varargs mixed eventScore(string arg) {
                 who->GetTrainingPoints(),
                 "one training point") + "." });
 
-    if(x){
-        str += ({ "Custom Points     "+x+
-                " customization points left. Type: help customize\n" });
-    }
+    
     this_player()->eventPage(str, "info");
     return 1;
 }
