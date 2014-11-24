@@ -1,36 +1,53 @@
 Placement and description of Modified Base Files
 
-base_armor.c  dsx.x.x/lib/lib/std
-I forgot why I added this, Doh!
+11-24-14
+Note: I REALLY need to put this code into the object files instaed of changing
+the Dead Souls lib files.
 
-combat.c      dsx.x.x/lib/lib
+-base_armor.c     dsx.x.x/lib/lib/std
+Added line to describe description of armor condition when "looked at"
+
+-base_trainer.c   dsx.x.x/lib/lib
+Added variables in eventTrain() function under if(verb == "teach") to 
+allow only spells from the trainers spellbook can be taught. Otherwise,
+due to searching the spells directory "object ob = SPELLS_D->GetSpell(skill);",
+all spells from every class would be able to be taught to a player.
+Great for classless MUDS. Also added output if the player already
+knows the spell -"if(playerspells[skill]){
+                      me->eventForce("say You already know that spell.");
+                      return 1;  
+                  }
+
+-combat.c         dsx.x.x/lib/lib
 Added code to modify player morality based on kills
 
-config.h      dsx.x.x/lib/secure/include
+-config.h         dsx.x.x/lib/secure/include
 REMOVED
 Simply change the default Mud time of 20 hrs/per day to 24 hours/day
 in config.h. Used by the Mayor for his wander routine. Change the times for 
 the wander routine in diku-alfa/room/31.zon/npc/3143_mayor.c
 to reflect the time for your Mud
 
-genetics.c    dsx.x.x/lib/lib
+-genetics.c       dsx.x.x/lib/lib
 Added a routine for certain npc's to cast "curse" on players
 during combat. Also see diku-alfa/etc/curse.c and magic_user.c
 for more info
 
-lead.c        dsx.x.x/lib/lib
+-lead.c           dsx.x.x/lib/lib
 Added some lines to allow for the "pet" routine whereby the pet 
 will still be able to follow the player without evasion even if
 the player moves to a different area.
 
-light.c       dsx.x.x/lib/secure/sefun
+
+-light.c          dsx.x.x/lib/secure/sefun
 Added some code to emulate Diku style blindness
 
-npc.c         dsx.x.x/lib/lib
+-npc.c            dsx.x.x/lib/lib
 Added code to allow for "AddActionsMap" ing capability for
 NPC's. See diku-alfa/room/41.zon/npc/4103_thief.c for an example.
 
-vendor_types.h  dsx.x.x/lib/include
+-vendor_types.h   dsx.x.x/lib/include
+REMOVED - is inherited from /diku-alfa/etc directory
 Cheated and added a "boat" type object to the header file.
 In order to acces the river in Midgaard the room function
 checks for a "boat" type object in the characters inventory
