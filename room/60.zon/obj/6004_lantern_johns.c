@@ -15,7 +15,7 @@
 inherit LIB_TORCH;
 
 void create(){
-    torch::create();
+    ::create();
 
     SetKeyName("lantern");
     SetId( ({"lantern"}) );
@@ -31,37 +31,12 @@ void create(){
     SetMaxFuel(1500);
     SetFuelAmount(1500);
     SetRefuelable(0);
-    SetVendorType(VT_LIGHT); 
-    SetItems( ([    
-        "letters" : "\nThey say: CARRY ME\n",
-        ]) );
-    SetRead( ([
-        ({"letters", "writing"}) : "\n\nThey say: CARRY ME\n",
-        ]) );
+    SetVendorType(VT_LIGHT);
 }
 
 void init(){
     ::init();
 }
-
-mixed eventMove(mixed dest){
-   
-    if(stringp(dest)){
-        dest = GetLastEnvironment();
-        eventDestruct();
-        return torch::eventMove(dest);
-    }
-       
-    if(objectp(dest) && living(dest)){
-       eventBurn();
-       return torch::eventMove(dest);
-    }
-    if(objectp(dest) && !living(dest)){
-        eventExtinguish();
-        return torch::eventMove(dest);
-    }
-    
-}    
 
 /* Extra Information Original Diku Output 
 Object name: [lantern], R-number: [155], V-number: [6004] Item type: LIGHT
