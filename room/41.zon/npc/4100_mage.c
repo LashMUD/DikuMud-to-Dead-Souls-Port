@@ -11,10 +11,12 @@
 
 #include <lib.h>
 
+//inherit "/domains/diku-alfa/etc/sentient.c";
 inherit LIB_SENTIENT;
 
 void CheckNPC();
 void Scavenge();
+void Spells();
 
 static void create() {
     sentient::create();
@@ -27,13 +29,14 @@ static void create() {
     SetLong("His IQ makes almost any dikumud player look stupid.");
     SetRace("human");
     SetClass("mage");
-    SetLevel(13);
+    SetLevel(14); //changed to use colour spray in magic_user.c
     SetMelee(1);
     SetGender("male");
     SetMorality(-250);
     AddCurrency("gold", 1500);
     SetEncounter( (: CheckNPC :) );
     SetAction(10, ( :Scavenge: ));
+    SetCombatAction(100, ( :Spells: ));
     //Other Special Procedures - Spell caster
 }
 
@@ -67,6 +70,11 @@ void Scavenge(){
             }
         }
     }
+}
+
+void Spells(){
+     eventForce("\nsay In Spells\n");
+     "/domains/diku-alfa/etc/magic_user.c"->SpellCombat(this_object());
 }
 
 /* Extra Information Original Diku Output 
