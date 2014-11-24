@@ -151,6 +151,7 @@ int eventTrain(object who, string verb, string skill){
 
     if( verb == "teach"){
         object ob = SPELLS_D->GetSpell(skill);
+       //added by Lash
         mapping myspells = me->GetSpellBook();
         mapping playerspells = who->GetSpellBook();
 
@@ -159,6 +160,7 @@ int eventTrain(object who, string verb, string skill){
             me->eventHelp();
             return 0;
         }
+        //modified by Lash
         if(!ob || !myspells[skill]){
             me->eventForce("speak I've never heard of such a spell.");
             return 0;
@@ -168,7 +170,7 @@ int eventTrain(object who, string verb, string skill){
             me->eventForce("speak You are not prepared for that spell!");
             return 0;
         }
-
+        //added by Lash
         if(playerspells[skill]){
             me->eventForce("say You already know that spell.");
             return 1;
