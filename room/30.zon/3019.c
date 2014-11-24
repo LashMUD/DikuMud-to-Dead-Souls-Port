@@ -31,6 +31,9 @@ static void create() {
         "down" : "You can't see what is down there, it is too dark. Looks like it would be\n"+
                  "impossible to climb back up.",
         ]) );
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/npc/3020_m_guildmaster" : 1,
+        ]) );
     SetExits( ([
         "west" : "/domains/diku-alfa/room/30.zon/3018",
         "down" : "/domains/diku-alfa/room/70.zon/7017",
@@ -41,14 +44,14 @@ void init(){
     ::init();
 }
 
-/* NO_NPC's allowed in room*/
+/* NO_NPC's allowed in room
 int CanReceive(object ob) {
     if(ob && !inherits(LIB_NPC, ob)){
     return 1;
     }
     else
     return 0;
-}
+}*/
 
 /* Extra Information Original Diku Output 
 Room name: Mage's Laboratory, Of zone : 1. V-Number : 3019, R-number : 25
