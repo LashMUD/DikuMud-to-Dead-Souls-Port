@@ -58,7 +58,7 @@ COMPLETED!
   and advance the player based on experience points and quest points.
 - Modified base_trainer.c lib file so that the guildmasters that teach spells can
   only teach spells that they know (ie from their spellbooks). Otherwise they will
-  be able to tech all spells from the spells (lib/secure/powers) directory regardless
+  be able to teach all spells from the spells (lib/secure/powers) directory regardless
   of class boundaries.
 
 11-24-14
