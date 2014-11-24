@@ -2,7 +2,7 @@
 // Sebastian Hammer, Michael Seifert, Hans Henrik Staerfeldt,
 // Tom Madsen, and Katja Nyboe.
 // http://www.dikumud.com
-//
+//m
 // Modified by Lash (Christopher Coker) for use with:
 //
 // The Dead Souls Mud Library version 2
@@ -24,6 +24,7 @@ static void create() {
         "/domains/diku-alfa/room/30.zon/obj/3030_torch" : 20,
         "/domains/diku-alfa/room/30.zon/obj/3031_lantern" : 20,
         "/domains/diku-alfa/room/30.zon/obj/3032_bag" : 20,
+        "/domains/diku-alfa/room/30.zon/obj/matchbox" : 20,
         "/domains/diku-alfa/room/30.zon/obj/3033_box" : 20,
         ]) );
     SetExits( ([ 
