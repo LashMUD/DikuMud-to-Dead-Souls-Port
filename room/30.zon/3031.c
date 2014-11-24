@@ -102,9 +102,9 @@ int buy(string str, string name){
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3094_wolf");
             if(name){
+                ob->SetId( ({"wolf", "dog", "pet", name, capitalize(name)}) );
                 ob->SetLong("The Wolf looks like a strong, fearless fighter.\n"+
                     "A small sign on a chain around the neck says 'My Name is "+capitalize(name)+"'");
-                ob->SetId( ({"wolf", "dog", "pet", name}) );
             }
             this_player()->AddCurrency("gold", -4800);
             ob->eventMove(this_object());
@@ -124,9 +124,9 @@ int buy(string str, string name){
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3093_rottweiler");
             if(name){
+                ob->SetId( ({"rottweiler", "dog", "pet", name, capitalize(name)}) );
                 ob->SetLong("The Rottweiler looks like a strong, fierce fighter.\n"+
                     "A small sign on a chain around the neck says 'My Name is "+capitalize(name)+"'");
-                ob->SetId( ({"rottweiler", "dog", "pet", name}) );
             }
             ob->eventMove(this_object());
             this_player()->AddCurrency("gold", -2400);
@@ -144,9 +144,9 @@ int buy(string str, string name){
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3092_beagle");
             if(name){
+                ob->SetId( ({"beagle", "dog", "pet", name, capitalize(name)}) );
                 ob->SetLong("The Beagle looks like a fierce fighter.\n"+
                     "A small sign on a chain around the neck says 'My Name is "+capitalize(name)+"'");
-                ob->SetId( ({"beagle", "dog", "pet", name}) );
             }
             this_player()->AddCurrency("gold", -600);
             ob->eventMove(this_object());
@@ -164,9 +164,9 @@ int buy(string str, string name){
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3091_puppy");
             if(name){
+                ob->SetId( ({"puppy", "dog", "pet", name, capitalize(name)}) );
                 ob->SetLong("The Puppy looks like a cute, little, fierce fighter.\n"+
                     "A small sign on a chain around the neck says 'My Name is "+capitalize(name)+"'");
-                ob->SetId( ({"puppy", "dog", "pet", name}) );
             }
             this_player()->AddCurrency("gold", -300);
             ob->eventMove(this_object());
@@ -184,9 +184,9 @@ int buy(string str, string name){
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3090_kitten");
             if(name){
+                ob->SetId( ({"kitten", "cat", "pet", name, capitalize(name)}) );
                 ob->SetLong("The Kitten looks like a cute, little, fierce fighter.\n"+
                     "A small sign on a chain around the neck says 'My Name is "+capitalize(name)+"'");
-                ob->SetId( ({"kitten", "cat", "pet", name}) );
             }
             this_player()->AddCurrency("gold", -300);
             ob->eventMove(this_object());
@@ -211,6 +211,7 @@ Description:
 various sorts and sizes.  There is a sign on the wall.
 
 Extra description keywords(s): 
+
 sign
 
 ------- Chars present -------
