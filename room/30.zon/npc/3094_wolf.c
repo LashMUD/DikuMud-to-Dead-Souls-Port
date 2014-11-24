@@ -11,14 +11,16 @@
 
 #include <lib.h>
 
-inherit LIB_SENTIENT;
+//inherit LIB_SENTIENT;
+inherit LIB_NPC;
 
 void Scavenge();
 int RemoveProp();
+void PetCmds();
 
 static void create() {
-    sentient::create();
-    
+    //sentient::create();
+    npc::create();
     SetKeyName("the Wolf");
     SetId( ({"wolf", "dog", "pet"}) );
     SetAdjectives(({"non-player", "non player"}));
@@ -27,6 +29,10 @@ static void create() {
     SetRace("dog");
     SetCanBite(1);
     SetLevel(4);
+    SetStat("strength", 50);
+    SetStat("agility", 50);
+    SetStat("coordination", 50);
+    SetStat("speed", 50);
     SetMelee(1);
     SetGender("neuter");
     SetMorality(0);
@@ -55,37 +61,73 @@ void Scavenge(){
         foreach(object thing in item){
             if(thing->GetBaseCost() == cost[0]){
                 thing->eventMove(this_object());
-                tell_room(env, this_object()->GetShort()+" gets a "+thing->GetShort(), ({this_object()}));
+                tell_room(env, this_object()->GetShort()+" gets "+thing->GetShort(), ({this_object()}));
                 break;
             }
         }
     }
 }
 
+
 int order(string str){
-      
-    string order;
+
     object ob = this_player();
-    
+    string petid, cmd, noun, doit;
+    //string *commands;
+    string *stringarray;
+    //int x, y;
+           
+    if(!stringp(str)) return notify_fail("Usage: order <pet> do something.");
+        
+    //commands = ({"go", "kill"});
+                    
     if(!str || !ob || !ob->GetProperty(this_object())) return 0;
-
+    //tell_player("lash", "commands[0] is "+commands[0]);
+    //tell_player("lash", "commands[1] is "+commands[1]);
+    //tell_player("lash", "ob is "+ob);
+    //tell_player("lash", "str is "+str);
+    stringarray=explode(str, " ");
+    //tell_player("lash", "sizeof(stringarray) is "+sizeof(stringarray));
+    //for(y=0;y<sizeof(stringarray);y++)
+    //    tell_player("lash", "stringarray["+y+"] is "+stringarray[y]);
+    if(sizeof(stringarray)<2) return notify_fail("Usage: order <pet> do something.");   
+    if(sizeof(stringarray) <3){
+        cmd = stringarray[1];
+    }
+    
     /* The following has to be added if using unmodified /lib/lib/lead.c or player may evade pet.
-       With following code player re-establishes master/pet relationship
+       With following code player re-establishes master/pet relationship:
 
-       if(ob && ob->GetProperty(this_object()) && ob != this_object()->GetLeader()) eventForce("follow "+ob->GetKeyName());
+    //if(ob && ob->GetProperty(this_object()) && ob != this_object()->GetLeader()) eventForce("follow "+ob->GetKeyName());
     */
 
     if(ob && ob->GetProperty(this_object())){
-        sscanf(str, "wolf %s", order);
-            if(!stringp(order)){
-                tell_player(ob, "The "+this_object()->GetShort()+" has an indifferent look.");
-                return 0;
+        sscanf(str, "%s %s %s", petid, cmd, noun);
+        //tell_player("lash", "str is "+str);
+        //tell_player("lash", "petid is "+petid);
+        //tell_player("lash", "cmd is "+cmd);
+        //tell_player("lash", "noun is "+noun);
+        doit=cmd+" "+noun;
+        //tell_player("lash", "doit = "+doit);
+        //tell_player("lash", "stringp(cmd) is "+stringp(cmd)+"; and str = "+str+"; petid = "+petid+"; cmd = "+cmd+"; noun = "+noun);
+        //x = member_array(petid, this_object()->GetId());
+            if(!stringp(cmd) || !str || member_array(petid, this_object()->GetId()) == -1 /*|| member_array(cmd, get_cmds() == -1*/){
+                tell_player(ob, "The large, trained wolf has an indifferent look.");
+                return 1;
             }
-
-    eventForce(order);
-    return 1;
     }
-}
+    if(noun != 0){
+        command(doit);
+        //eventForce(doit);
+        //tell_player("lash", "eventForce(doit)");
+    }
+    else{
+        command(cmd);
+        //eventForce(cmd);
+        //tell_player("lash", "eventForce(cmd)");
+    }
+    return 1;
+} 
 
 int RemoveProp(){
 
@@ -97,8 +139,6 @@ int RemoveProp(){
     }
    return 1;
 }
-
- 
 
 /* Extra Information Original Diku Output
 NEUTRAL-SEX MOB - Name : wolf [R-Number39], In room [3031] V-Number [3094]
