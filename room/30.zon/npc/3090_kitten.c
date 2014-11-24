@@ -51,7 +51,7 @@ void Scavenge(){
         foreach(object thing in item){
             if(thing->GetBaseCost() == cost[0]){
                 thing->eventMove(this_object());
-                tell_room(env, this_object()->GetShort()+" gets a "+thing->GetShort(), ({this_object()}));
+                tell_room(env, this_object()->GetShort()+" gets "+thing->GetShort(), ({this_object()}));
                 break;
             }
         }
@@ -62,9 +62,10 @@ int order(string str){
       
     string order;
     object ob = this_player();
-    
+    string petid;
+        
     if(!str || !ob || !ob->GetProperty(this_object())) return 0;
-
+    
     /* The following has to be added if using unmodified /lib/lib/lead.c or player may evade pet.
        With following code player re-establishes master/pet relationship
 
@@ -72,14 +73,15 @@ int order(string str){
     */
 
     if(ob && ob->GetProperty(this_object())){
-    sscanf(str, "kitten %s", order);
-        if(!stringp(order)){
-            tell_player(ob, "The "+this_object()->GetShort()+" has an indifferent look.");
-            return 0;
-        }
+        sscanf(str, "%s %s", petid, order);
+        tell_player("lash", "petid = "+petid+" order = "+order+" and str = "+str+" stringp(order) is "+stringp(order));
+            if(!stringp(order) || !str || member_array(petid, this_object()->GetId()) == -1){
+                tell_player(ob, "The small, loyal kitten has an indifferent look.");
+                return 1;
+            }
 
     eventForce(order);
-      return 1;
+    return 1;
     }
 }
 
