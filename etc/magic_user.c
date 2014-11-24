@@ -160,18 +160,19 @@ void curse(object ob){
     int save = target->GetMagicResistance();
     int s_throw = random(99)+1;
    
-    tell_room(env, "\nIN CURSE FUNCTION\n");
+    //tell_room(env, "\nIN CURSE FUNCTION\n");
     //tell_room(env, "\ntarget is "+target->GetShort()+"\n", ({ ob}));
     //tell_room(env, "\nsave is "+save+" and s_throw is "+s_throw+"\n", ({ ob}));
 
     /*if(target->GetCursed()){
         tell_room(env, "\nTarget is Cursed already!\n");
         return;
-    }*/
+    }
     if(!target->GetCursed()){
            tell_room(env, "\nTarget is NOT Cursed...\n");
     }
     tell_room(env, "\nsave = "+save+" and s_throw = "+s_throw+"\n");
+    */
     if(s_throw <= save){
         tell_room(env, "\n"+capitalize(target->GetShort())+" resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou resist "+ob->GetKeyName()+"'s magic attack!\n");
@@ -238,7 +239,7 @@ void curse(object ob){
         tell_room(env, capitalize(target->GetShort())+" briefly reveals a red aura!", ({ob, target}));
     }
     if(!target->GetClass() || target->GetClass() == "explorer"){
-        tell_room(env, "\nTrying to execute curse...\n");
+        //tell_room(env, "\nTrying to execute curse...\n");
         target->eventCurse(target, 100, -10,
                           ({"melee attack"}),
                           ({"luck"}),
@@ -305,7 +306,7 @@ void energy_drain(object ob){
         target->eventReceiveDamage(ob, MAGIC, dam, 1,);
         
         tell_player(target, "\nYour life energy is drained!\n");
-        tell_room(env, "\nHP drained is: "+dam+" Range is "+range+" and XP drained is "+xpdrain+"\n");
+        //tell_room(env, "\nHP drained is: "+dam+" Range is "+range+" and XP drained is "+xpdrain+"\n");
         tell_room(env, "\n"+capitalize(target->GetShort())+" drains "+target->GetKeyname()+" - what a waste of energy !\n", ({ob, target})); 
     }
 }
@@ -337,11 +338,11 @@ void magic_missile(object ob){
     range = dam_each[level] - dam_each[level]/2;
     roll = random(range);
     dam = dam_each[level]/2 + roll;
-    tell_room(env, "\nLEVEL is "+level+"\n");
-    tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
-    tell_room(env, "\nRANGE is "+range+"\n");
-    tell_room(env, "\nROLL is "+roll+"\n");
-    tell_room(env, "\nDAMAGE is "+dam+"\n");
+    //tell_room(env, "\nLEVEL is "+level+"\n");
+    //tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
+    //tell_room(env, "\nRANGE is "+range+"\n");
+    //tell_room(env, "\nROLL is "+roll+"\n");
+    //tell_room(env, "\nDAMAGE is "+dam+"\n");
 
     tell_player(target, "\nYou stagger as a magic missile from "+capitalize(ob->GetKeyName())+" hits you.\n");
     tell_room(env, "\n"+capitalize(ob->GetKeyName())+" throws a magic missile at "+target->GetKeyName()+" who staggers under the blow\n", ({ob, target}));
@@ -350,7 +351,7 @@ void magic_missile(object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        tell_room(env, "\nDAMAGE is "+dam+"\n");
+        //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
     target->eventReceiveDamage(ob, MAGIC | BLUNT, dam, 0, ({"torso"}));
 }
@@ -382,11 +383,11 @@ void burning_hands(object ob){
     range = dam_each[level] - dam_each[level]/2;
     roll = random(range);
     dam = dam_each[level]/2 + roll;
-    tell_room(env, "\nLEVEL is "+level+"\n");
-    tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
-    tell_room(env, "\nRANGE is "+range+"\n");
-    tell_room(env, "\nROLL is "+roll+"\n");
-    tell_room(env, "\nDAMAGE is "+dam+"\n");
+    //tell_room(env, "\nLEVEL is "+level+"\n");
+    //tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
+    //tell_room(env, "\nRANGE is "+range+"\n");
+    //tell_room(env, "\nROLL is "+roll+"\n");
+    //tell_room(env, "\nDAMAGE is "+dam+"\n");
 
     tell_player(target, "\nYou cry out in pain as "+capitalize(ob->GetKeyName())+" burns you.\n");
     tell_room(env, "\n"+capitalize(target->GetKeyName())+" cries out as "+capitalize(ob->GetKeyName())+" burns "+nominative(target)+".\n", ({ob, target}));
@@ -395,7 +396,7 @@ void burning_hands(object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        tell_room(env, "\nDAMAGE is "+dam+"\n");
+        //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
 
   target->eventReceiveDamage(ob, MAGIC | HEAT, dam, 0, ({"torso"}));
@@ -430,11 +431,11 @@ void lightning_bolt (object ob){
     range = dam_each[level] - dam_each[level]/2;
     roll = random(range);
     dam = dam_each[level]/2 + roll;
-    tell_room(env, "\nLEVEL is "+level+"\n");
-    tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
-    tell_room(env, "\nRANGE is "+range+"\n");
-    tell_room(env, "\nROLL is "+roll+"\n");
-    tell_room(env, "\nDAMAGE is "+dam+"\n");
+    //tell_room(env, "\nLEVEL is "+level+"\n");
+    //tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
+    //tell_room(env, "\nRANGE is "+range+"\n");
+    //tell_room(env, "\nROLL is "+roll+"\n");
+    //tell_room(env, "\nDAMAGE is "+dam+"\n");
 
     tell_player(target, "\nYou are hit by lightning by "+capitalize(ob->GetKeyName())+", ouch.\n");
     tell_room(env, "\n"+capitalize(target->GetKeyName())+" screams in pain as lightning from "+
@@ -444,7 +445,7 @@ void lightning_bolt (object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        tell_room(env, "\nDAMAGE is "+dam+"\n");
+        //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
     target->eventReceiveDamage(ob, MAGIC | SHOCK, dam, 0, ({"torso"}));
 }
@@ -471,14 +472,14 @@ void colour_spray (object ob){
     if(ob->GetLevel() <= 10 || ob->GetLevel() >= 31){
         return;
     }
-    tell_room(env, "\nLEVEL is "+level+"\n");
-    tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
+    //tell_room(env, "\nLEVEL is "+level+"\n");
+    //tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
     range = (dam_each[level]+20) - (dam_each[level]-20);
-    tell_room(env, "\nRANGE is "+range+"\n");
+    //tell_room(env, "\nRANGE is "+range+"\n");
     roll = random(range);
-    tell_room(env, "\nROLL is "+roll+"\n");
+    //tell_room(env, "\nROLL is "+roll+"\n");
     dam = dam_each[level]-20 + roll;
-    tell_room(env, "\nDAMAGE is "+dam+"\n");
+    //tell_room(env, "\nDAMAGE is "+dam+"\n");
 
     tell_player(target, "\nA sudden burst of colours sends you reeling.\n");
     tell_room(env, "\n"+capitalize(ob->GetKeyName())+" throws colours at "+capitalize(target->GetKeyName())+
@@ -489,8 +490,7 @@ void colour_spray (object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        tell_room(env, "\nDAMAGE is "+dam+"\n");
-        tell_room(env, "\nDAMAGE is "+dam+"\n");
+        //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
     target->eventReceiveDamage(ob, MAGIC | EMOTIONAL, dam, 0, ({"torso"}));
 }
@@ -523,11 +523,11 @@ void fireball(object ob){
     roll = random(range);
     dam = dam_each[level]-20 + roll;
     dam = dam_each[level]/2 + roll;
-    tell_room(env, "\nLEVEL is "+level+"\n");
-    tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
-    tell_room(env, "\nRANGE is "+range+"\n");
-    tell_room(env, "\nROLL is "+roll+"\n");
-    tell_room(env, "\nDAMAGE is "+dam+"\n");
+    //tell_room(env, "\nLEVEL is "+level+"\n");
+    //tell_room(env, "\ndam_each[level] is "+dam_each[level]+"\n");
+    //tell_room(env, "\nRANGE is "+range+"\n");
+    //tell_room(env, "\nROLL is "+roll+"\n");
+    //tell_room(env, "\nDAMAGE is "+dam+"\n");
 
     tell_player(target, "\nYou are enveloped in flames from a fireball sent by "+capitalize(ob->GetKeyName())+" - OUCH\n");
     tell_room(env, "\n"+capitalize(ob->GetKeyName())+" smirks as "+possessive(ob)+
@@ -537,7 +537,7 @@ void fireball(object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        tell_room(env, "\nDAMAGE is "+dam+"\n");
+        //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
     target->eventReceiveDamage(ob, MAGIC | HEAT, dam, 0, ({"torso"}));
 }
