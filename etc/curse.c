@@ -69,3 +69,16 @@ void RemoveCurse(){
         tell_player(who, "\nYou feel well again.\n");
     }
 }
+
+static void heart_beat(){
+
+    object who = Cursed->who;
+    
+    if(Cursed){
+        Cursed->duration--;
+        if(Cursed->duration < 1){
+            RemoveCurse();
+        }
+    }
+}
+
