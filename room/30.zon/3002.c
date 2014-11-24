@@ -32,20 +32,23 @@ static void create() {
        "down" : "You can't see what is down there, it is too dark. Looks like it would be "+
                 "impossible to climb back up.",
         ]) );
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/npc/3021_c_guildmaster" : 1,
+        ]) );
 }
 
 void init(){
     ::init();
 }
 
-/* NO_NPC's allowed in room*/
+/* NO_NPC's allowed in room
 int CanReceive(object ob) {
     if(ob && !inherits(LIB_NPC, ob)){
     return 1;
     }
     else
     return 0;
-}
+}*/
 
 /* Extra Information Original Diku Output 
 Room name: Cleric's Inner Sanctum, Of zone : 1. V-Number : 3002, R-number : 8
