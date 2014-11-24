@@ -36,31 +36,21 @@ void init(){
     ::init();
 }
 
-/* Torches amd other lights in Diku are automatically lit.
-   The following code allows for a burnng light source if 
-   a living object picks it up. Note that the light source 
-   can be extinguished, dropped, picked up (using the 'get'
-   command and will be relit. This code needs to be modified.
-*/
+/* If you drop a torch it goes out. */
 
 mixed eventMove(mixed dest){
    
-    if(stringp(dest)){
-        dest = GetLastEnvironment();
-        eventDestruct();
-        return torch::eventMove(dest);
-    }    
-        
     if(objectp(dest) && living(dest)){
-       eventBurn();
-       return torch::eventMove(dest);
+        return torch::eventMove(dest);
     }
-    if(objectp(dest) && !living(dest)){
+    if(objectp(dest) && !living(dest) && this_object()->GetLit() ==1){
         eventExtinguish();
         return torch::eventMove(dest);
     }
-    
-}    
+    if(objectp(dest) && !living(dest) && this_object()->GetLit() !=1){
+        return torch::eventMove(dest);
+    } 
+} 
 
 /*Extra Information Original Diku Output
 Object name: [torch], R-number: [13], V-number: [3030] Item type: LIGHT
