@@ -27,16 +27,16 @@ static void create() {
     SetLong("He is reading in his magic books.");
     SetRace("human");
     SetClass("mage");
-    SetLevel(15);
+    SetLevel(11); //uses lightningbolt in magic_user.c
     SetMelee(1);
     SetCanBite(0);    
     SetGender("male");
     SetMorality(-800); 
     SetEncounter( (:CheckNPC:) );
     SetAction(10, ( :Scavenge: ));
-    SetCombatAction(25, ( :Spells: ));
+    SetCombatAction(100, ( :Spells: ));
     AddCurrency("gold", 800);
-    //SetWander(5);
+    SetWander(5);
     SetProperty("STAY_ZONE", 1);
     //Special Procedures - casts spells
    
