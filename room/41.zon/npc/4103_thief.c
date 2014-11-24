@@ -12,17 +12,18 @@
 #include <lib.h>
 
 inherit LIB_SENTIENT;
+//inherit "/domains/diku-alfa/etc/sentient.c";
 
 void NpcSteal();
 void Scavenge();
 
-/* Used in checking SetActionsMap() map functionality
+/* Used in checking SetActionsMap() map functionality*/
 int count();
 int ntimes = 0;
 int stimes = 0;
 int tot = 0;
 int hb = 0;
-*/
+
 
 static void create() {
     
@@ -39,13 +40,16 @@ static void create() {
     SetMelee(1);
     SetCanBite(0);
     SetGender("male");
-    SetMorality(250); //?
+    SetMorality(-250); 
     AddCurrency("gold", 100);
     SetActionsMap( ([ 
                      ( :Scavenge: ) : 10,
                      ( :NpcSteal: ) : 5,
-                     //( :count: ) : 100,
+                     ( :count: ) : 100,
                  ]) );
+    /*SetAction(100, ( :Scavenge:));
+    SetAction(5, ( :NpcSteal:));
+    SetAction(100, ( :count:));*/
     SetWanderSpeed(5);
     SetInventory( ([
          "/domains/diku-alfa/room/41.zon/meals/4103_slime" :1,
@@ -59,7 +63,7 @@ void init(){
     ::init();
 }
 
-/*Used to count every heartbeat
+/*Used to count every heartbeat*/
 int count(){
     hb++;
 
@@ -69,7 +73,7 @@ int count(){
                                           "Scavenge() calls: "+stimes+"\n");
     return hb;
 }
-*/
+
 
 void NpcSteal(){
 
@@ -78,10 +82,10 @@ void NpcSteal(){
     int n1, n2, gold, level;
     level = this_object()->GetLevel();
    
-    /*
+    
     tot++;
     ntimes++;
-    */
+    
     
     potvictims = filter(get_livings(env), ( :living($1) && $1 != this_object() && playerp($1):) ); 
     
@@ -108,10 +112,10 @@ void Scavenge(){
     object *item, *cost;
     int s;
     
-    /*
+    
     tot++;
     stimes++;
-    */
+    
 
     item = filter(all_inventory(env), (: !living($1) && (inherits(LIB_ITEM, $1) || inherits(LIB_ARMOR, $1)):) );
     cost = sort_array(item->GetBaseCost(), -1);
