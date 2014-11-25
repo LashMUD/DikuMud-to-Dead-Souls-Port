@@ -54,7 +54,7 @@ static void create() {
 void wander(){
     if(movebool == 0) return;
     //eventForce("say hour "+hour+": minutes "+minutes);
-    if((hour == 6 && minutes >=0) | (hour ==23 && minutes >=0)){
+    if((hour == 4 && minutes >=30) | (hour ==15 && minutes >=30)){
         switch (path[index]) {
 
         case '0': eventForce("go north");
@@ -134,12 +134,12 @@ void time(){
     hour = time_of_day[0];
     minutes = time_of_day[1];
             
-    if (hour == 5 & minutes == 59) {
+    if (hour == 4 & minutes == 29) {
         movebool = 1;
         path = open_path;
         index = 0;
     }
-    else if (hour == 22 & minutes == 59) {
+    else if (hour == 15 & minutes == 29) {
         movebool = 1;
         path = close_path;
         index = 0;
