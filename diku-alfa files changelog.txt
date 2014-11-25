@@ -1,24 +1,23 @@
 Changelog
 
-10/31/14
-Changed 3043.c so letters on the wall can be "looked at" and "read"
+*10/31/14
+- Changed 3043.c so letters on the wall can be "looked at" and "read"
+- Changed ticktock help output by adding the lines: "Diku->Dead
+  Mudlib: ticktock 1200 = 1 hr in Mudtime"
 
-Changed ticktock help output by adding the lines: "Diku->Dead
-Mudlib: ticktock 1200 = 1 hr in Mudtime"
+- Started editing files with SetRead function so that when "look" 
+  sign or letters, etc, the function (:Readsign:) is not in the 
+  SetItems mapping. Instead the actual wording of the text "looked"
+  at will return the text. If the SetRead() function is in the 
+  SetItems mapping a "phantom" 1 will be returned at the bottom
+  of the text that was "looked" at instead of "read". Completed
+  Rooms with SetRead() function:
+  3003.c, 3007.c, 3008.c, 3009.c, 3010.c, 3011.c, 3020.c, 3031.c,
+  3034.c, 3035.c, 3034.c, 3110.c, 3111.c, 3118.c, 3120.c, 3129.c
+  3301.c
+  COMPLETED!
 
-Started editing files with SetRead function so that when "look" 
-sign or letters, etc, the function (:Readsign:) is not in the 
-SetItems mapping. Instead the actual wording of the text "looked"
-at will return the text. If the SetRead() function is in the 
-SetItems mapping a "phantom" 1 will be returned at the bottom
-of the text that was "looked" at instead of "read". Completed
-Rooms with SetRead() function:
-3003.c, 3007.c, 3008.c, 3009.c, 3010.c, 3011.c, 3020.c, 3031.c,
-3034.c, 3035.c, 3034.c, 3110.c, 3111.c, 3118.c, 3120.c, 3129.c
-3301.c
-COMPLETED!
-
-11-02-14
+*11-02-14
 - Replaced correct magic_user.c file in etc folder *NOT!* see 11-24-14 below
   Reformmated contents
   Added comments for documentation
@@ -43,17 +42,30 @@ COMPLETED!
     }
     
   Need to add functions for elevating the "magic defense" skill if
-  a player is able to resist the magic spell during combat. 
+  a player is able to resist the magic spell during combat.
 
-11-09-14
+* 11-03-14 
+- created new package dds_pa0.9r01
+- added licenses for Dead Souls Mudlib, DikuMud license, and 
+  the license for use of this package (dds_pa0.09r01: 
+  DikutoDeadSouls_license
+
+* 11-07-14
+- Added Optional Files folder - contains files I modified
+  and/or wrote for use with Dead Souls
+- score.c modified score output
+- timeinfo.c a command to give output of variables used 
+  in functions pertaining to time in the Mud 
+
+*11-09-14
 - replaced light objects with Dead Souls style objects instead
   of trying to emulate Diku torches and lanterns which are continually lit.
 
-11-19-14
+*11-19-14
 - tidied up pet functions. Need to figure out how to have a notify_fail
   message if the pet npc can't perform their "order" from the player.
 
-11-20-14
+*11-20-14
 - Added guildmasters for the four classes. They can train skills, teach spells,
   and advance the player based on experience points and quest points.
 - Modified base_trainer.c lib file so that the guildmasters that teach spells can
@@ -61,7 +73,7 @@ COMPLETED!
   be able to teach all spells from the spells (lib/secure/powers) directory regardless
   of class boundaries.
 
-11-24-14
+*11-24-14
 - Worked on magic user.c. Has copius comments to make sure the functions work.
   Uncomment if you like to see how they work.
 - Changed levels of 4100_mage.c and 4157_mage.c in /diku-alfa/room/41.zon/npc
