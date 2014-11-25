@@ -5,9 +5,11 @@ Note: I REALLY need to put this code into the object files instaed of changing
 the Dead Souls lib files.
 
 -base_armor.c     dsx.x.x/lib/lib/std
-Added line to describe description of armor condition when "looked at"
+REMOVED - not really relevant
+Added line to describe armor condition when "looked at"
 
 -base_trainer.c   dsx.x.x/lib/lib
+DO NOT NEED TO REPLACE - is inherited from /diku-alfa/etc directory for guildmaster NPC's
 Added variables in eventTrain() function under if(verb == "teach") to 
 allow only spells from the trainers spellbook can be taught. Otherwise,
 due to searching the spells directory "object ob = SPELLS_D->GetSpell(skill);",
@@ -22,7 +24,7 @@ knows the spell -"if(playerspells[skill]){
 Added code to modify player morality based on kills
 
 -config.h         dsx.x.x/lib/secure/include
-REMOVED
+REMOVED Not relevant. Recoded mayor for 20 hr day
 Simply change the default Mud time of 20 hrs/per day to 24 hours/day
 in config.h. Used by the Mayor for his wander routine. Change the times for 
 the wander routine in diku-alfa/room/31.zon/npc/3143_mayor.c
@@ -46,8 +48,12 @@ Added some code to emulate Diku style blindness
 Added code to allow for "AddActionsMap" ing capability for
 NPC's. See diku-alfa/room/41.zon/npc/4103_thief.c for an example.
 
+-trainer.c        dsx.x.x/lib/lib
+DO NOT NEED TO REPLACE - is inherited from /diku-alfa/etc directory by guildmaster NPC's
+Modifed to inherit base_trainer.c.
+
 -vendor_types.h   dsx.x.x/lib/include
-REMOVED - is inherited from /diku-alfa/etc directory
+DO NOT NEED TO REPLACE - is inherited from /diku-alfa/etc directory
 Cheated and added a "boat" type object to the header file.
 In order to acces the river in Midgaard the room function
 checks for a "boat" type object in the characters inventory
