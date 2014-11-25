@@ -74,5 +74,5 @@ COMPLETED!
   /diku-alfa/30.zon/npc. code is : tell_player("lash", "<whatever>);
   Change to your admin/creator name (ie not lash) to use after uncommenting.
   NOTE: right now pet combat abilities suck. Need to change.
-- Changed mayor file for default Dead Souls 20 hour day
+- Changed mayor file so he wanders within the default Dead Souls 20 hour day
   
