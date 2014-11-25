@@ -87,4 +87,8 @@ Changelog
   Change to your admin/creator name (ie not lash) to use after uncommenting.
   NOTE: right now pet combat abilities suck. Need to change.
 - Changed mayor file so he wanders within the default Dead Souls 20 hour day
+
+*11-25-14
+- Changed skills affected by curse in magic_user.c so that all primary class
+  skills are affected as well as the 'luck' stat.
   
