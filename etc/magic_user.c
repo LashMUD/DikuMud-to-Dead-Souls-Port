@@ -178,16 +178,22 @@ void curse(object ob){
         tell_object(target, "\nYou resist "+ob->GetKeyName()+"'s magic attack!\n");
         return;
     }
-    /* Note: Set up curse effects for individual classes. Those skills and stats deemed "class defining"
+    /* Note: Set up curse effects for individual classes. Primary skills and the luck stat
        will be targeted by the 'curse'
     */
     if(target->GetClass() == "mage"){
         target->eventCurse(target, 100, -1, 
-                          ({"magic attack", 
+                          ({"magic attack",
+                            "magic defense",
+                            "blunt defense", 
                             "blunt attack",
                             "melee attack",
                             "knife attack",
-                            "conjuring"}),
+                            "knife defense",
+                            "melee stack",
+                            "melee defense",
+                            "conjuring",
+                          }),
                           ({"luck"}), 
                           "\nYou feel very uncomfortable.\n", 
                           "\nYou feel well again.\n");
@@ -196,12 +202,18 @@ void curse(object ob){
     if(target->GetClass() == "fighter"){
         target->eventCurse(target, 100, -10, 
                           ({"blade attack",
+                            "blade defense",
+                            "blunt attack",
+                            "blunt defense",
                             "multi-hand",
                             "multi-weapon",
                             "melee attack",
-                            "blunt attack",
+                            "melee defense",
                             "knife attack",
-                            "projectile attack"}),
+                            "knife defense"
+                            "projectile attack"
+                            "projectile defense",
+                           }),
                            ({"luck"}),
                            "\nYou feel very uncomfortable.\n",
                            "\nYou feel well again.\n");
@@ -213,10 +225,17 @@ void curse(object ob){
                             "blunt attack",
                             "projectile attack",
                             "magic attack",
+                            "melee defense",
+                            "blade defense",
+                            "knife defense",
+                            "projectile defense",
                             "conjuring",
                             "stealth",
+                            "blunt defense",
+                            "magic defense",
                             "faith",
-                            "healing"}),
+                            "healing",
+                          }),
                           ({"luck"}),
                           "\nYou feel very uncomfortable.\n",
                           "\nYou feel well again.\n");
@@ -224,15 +243,18 @@ void curse(object ob){
     }
     if(target->GetClass() == "thief"){
         target->eventCurse(target, 100, -10,
-                          ({"melee attack",
-                            "blunt attack",
-                            "knife attack",
+                          ({"knife attack",
                             "projectile attack",
                             "stealth",
                             "stealing",
                             "detection",
                             "concealment",
-                            "murder"}),
+                            "murder"
+                            "melee defense",
+                            "blade defense",
+                            "knife defense"
+                            "projectile defense",
+                          }),
                           ({"luck"}),
                           "\nYou feel very uncomfortable.\n",
                           "\nYou feel well again.\n");
@@ -241,7 +263,12 @@ void curse(object ob){
     if(!target->GetClass() || target->GetClass() == "explorer"){
         //tell_room(env, "\nTrying to execute curse...\n");
         target->eventCurse(target, 100, -10,
-                          ({"melee attack"}),
+                          ({"blunt attack",
+                            "knife attack",
+                            "projectile attack",
+                            "blunt defense",
+                            "knife defense",
+                          }),
                           ({"luck"}),
                           "\nYou feel very uncomfortable.\n",
                           "\nYou feel well again.\n");
