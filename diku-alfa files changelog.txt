@@ -92,3 +92,6 @@ Changelog
 - Changed skills affected by curse in magic_user.c so that all primary class
   skills are affected as well as the 'luck' stat.
   
+*11-26-14
+- Modified genetics.c in /etc folder: added SetBlind() functionality
+- Modified light.c in /etc folder: removed unnecessary checks
