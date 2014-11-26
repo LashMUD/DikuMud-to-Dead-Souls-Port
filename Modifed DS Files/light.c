@@ -61,17 +61,14 @@ mixed check_light(object who) {
             return "You are in serious trouble. Ask an admin for help.";
         }
     }
-    /* added by Lash */
+   
+    /* added by Lash
+       modified 11-26-14
+    */
     if(who->GetBlind()){
         return "You can't see a damn thing, you're blinded!";
     }
-    light = who->GetEffectiveVision(env);
-    if( light < 3 ) {
-        return "It's too dark to see.";
-    }
-    else if( light > 6 ) {
-        return "It's too bright to see.";
-    }
+    
     else {
         return 1;
     }
