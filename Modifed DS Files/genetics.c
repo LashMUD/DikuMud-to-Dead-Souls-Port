@@ -50,6 +50,11 @@ int GetBlind(){
     }
 }
 
+/*added by Lash 11-26-14*/
+int SetBlind(int x){
+    return (Blind = x);
+}
+
 static void RemoveBlindness(){
     mixed val = Blind->end;
 
