@@ -1,4 +1,5 @@
 Placement and description of Modified Base Files
+Read the changelog for more info
 
 11-24-14
 Note: I REALLY need to put this code into the object files instaed of changing
@@ -34,6 +35,7 @@ to reflect the time for your Mud
 Added a routine for certain npc's to cast "curse" on players
 during combat. Also see diku-alfa/etc/curse.c and magic_user.c
 for more info
+11-26-14 added SetBlind() function
 
 -lead.c           dsx.x.x/lib/lib
 Added some lines to allow for the "pet" routine whereby the pet 
@@ -43,6 +45,7 @@ the player moves to a different area.
 
 -light.c          dsx.x.x/lib/secure/sefun
 Added some code to emulate Diku style blindness
+11-26-14 removed unnessary checks
 
 -npc.c            dsx.x.x/lib/lib
 Added code to allow for "AddActionsMap" ing capability for
