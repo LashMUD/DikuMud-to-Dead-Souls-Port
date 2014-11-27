@@ -38,7 +38,7 @@ static void create() {
         ]) );
     SetExits( ([
         "south" : "/domains/diku-alfa/room/30.zon/3045",
-        ]) );
+         ]) );
     SetRead( ([
         "sign" : (:ReadSign:),
         ]) );
