@@ -141,7 +141,7 @@ int RemoveProp(){
 
     if(ob && ob->GetProperty(this_object())){
         ob->RemoveProperty(this_object());
-        tell_player(ob, "Property removed.");
+        //tell_player(ob, "Property removed.");
         return 1;
     }
    return 1;
