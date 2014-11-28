@@ -13,7 +13,9 @@
 
 inherit LIB_SENTIENT;
 
-void Scavenge();
+int Scavenge();
+int RemoveProp();
+object ob = this_player();
 
 static void create() {
     sentient::create();
@@ -31,6 +33,7 @@ static void create() {
     SetMorality(1000);
     SetAutoStand(0);
     SetAction(10, ( :Scavenge: ));
+    SetDie( (:RemoveProp:) );
 }
 
 void init(){
@@ -38,39 +41,52 @@ void init(){
     add_action("order", "order");
 }
 
-void Scavenge(){
+int Scavenge(){
 
     object env = environment(this_object());
     object *item, *cost;
-    int s;
-    
+    object fetched;
+    int s, x;
+   
     item = filter(all_inventory(env), (: !living($1) && (inherits(LIB_ITEM, $1) || inherits(LIB_ARMOR, $1)):) );
     cost = sort_array(item->GetBaseCost(), -1);
     s = sizeof(cost);
-    if(s>0){
-        foreach(object thing in item){
-            if(thing->GetBaseCost() == cost[0]){
-                thing->eventMove(this_object());
-                tell_room(env, this_object()->GetShort()+" gets "+thing->GetShort(), ({this_object()}));
-                break;
-            }
+        if(s>0){
+            foreach(object thing in item){
+                if(thing->GetBaseCost() == cost[0]){
+                    thing->eventMove(this_object());
+                    tell_room(env, this_object()->GetShort()+" fetches "+thing->GetShort()+" for "+ob->GetShort()+".");
+                    thing->eventMove(ob);
+                    tell_player(ob, this_object()->GetShort()+" gives "+thing->GetShort()+" to you.");
+                    break;                
+                }
         }
     }
 }
 
+
 int order(string str){
 
-    object ob = this_player();
-    string petid, cmd, noun, doit;
+    object env = environment(this_object());
+    string petid, tell, noun, doit;
     string *stringarray;
+    string *cardinal_dirs = ( ({"none", "north","south","east","west", "northeast","northwest","southeast","southwest","up","down", "out"}) );
+    string fail_mssg = "The Beagle has an indifferent look.";
                
     if(!stringp(str)) return notify_fail("Usage: order <pet> do something.");
         
     if(!str || !ob || !ob->GetProperty(this_object())) return 0;
+    //tell_player("lash", "commands[0] is "+commands[0]);
+    //tell_player("lash", "commands[1] is "+commands[1]);
+    //tell_player("lash", "ob is "+ob);
+    //tell_player("lash", "str is "+str);
     stringarray=explode(str, " ");
+    //tell_player("lash", "sizeof(stringarray) is "+sizeof(stringarray));
+    //for(y=0;y<sizeof(stringarray);y++)
+    //    tell_player("lash", "stringarray["+y+"] is "+stringarray[y]);
     if(sizeof(stringarray)<2) return notify_fail("Usage: order <pet> do something.");   
     if(sizeof(stringarray) <3){
-        cmd = stringarray[1];
+        tell = stringarray[1];
     }
     
     /* The following has to be added if using unmodified /lib/lib/lead.c or player may evade pet.
@@ -79,21 +95,55 @@ int order(string str){
     //if(ob && ob->GetProperty(this_object()) && ob != this_object()->GetLeader()) eventForce("follow "+ob->GetKeyName());
     */
 
-    if(ob && ob->GetProperty(this_object())){
-        sscanf(str, "%s %s %s", petid, cmd, noun);
-        doit=cmd+" "+noun;
-            if(!stringp(cmd) || !str || member_array(petid, this_object()->GetId()) == -1 /*|| member_array(cmd, get_cmds() == -1*/){
-                tell_player(ob, "The large, trained wolf has an indifferent look.");
-                return 1;
-            }
-    }
+    sscanf(str, "%s %s %s", petid, tell, noun);
+    //tell_player("lash", "str is "+str);
+    //tell_player("lash", "petid is "+petid);
+    //tell_player("lash", "tell is "+tell);
+    //tell_player("lash", "noun is "+noun);
+    doit=tell+" "+noun;
+    //tell_player("lash", "doit = "+doit);
+    //tell_player("lash", "stringp(tell) is "+stringp(tell)+"; and str = "+str+"; petid = "+petid+"; tell = "+tell+"; noun = "+noun);
+    //x = member_array(petid, this_object()->GetId());
+        if(!stringp(tell) || !str || member_array(petid, this_object()->GetId()) == -1){
+            tell_player(ob, fail_mssg);
+            
+        }
     if(noun != 0){
+        int y;
+        
+        if(tell == "go" && member_array(noun, cardinal_dirs) == -1 || (member_array(noun, cardinal_dirs) != -1 && member_array(noun, (env->GetExits())))== -1){
+            tell_player(ob, fail_mssg );
+        }
+        if(tell == "kill"){
+            object *living = filter(get_livings(env), (:livings($1) && $1 !=this_object():));
+            string *targets;
+
+           foreach(object thing in living)
+           targets = thing->GetId();
+            //for(y=0;y<sizeof(targets);y++)
+                //tell_player(ob, "targets["+y+"] is "+targets[y]);
+            if(member_array(noun, targets) == -1){
+                tell_player(ob, fail_mssg);
+                
+            }
+         }        
         command(doit);
     }
     else{
-        command(cmd);
+        if(member_array(tell, cardinal_dirs) && member_array(tell, (env->GetExits())) == -1)tell_player(ob, fail_mssg);
+        command(tell);
     }
     return 1;
+} 
+
+int RemoveProp(){
+
+    if(ob && ob->GetProperty(this_object())){
+        ob->RemoveProperty(this_object());
+        tell_player(ob, "Property removed.");
+        return 1;
+    }
+   return 1;
 }
 
 /* Extra Information Original Diku Output

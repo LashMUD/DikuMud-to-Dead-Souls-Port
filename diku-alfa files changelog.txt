@@ -95,3 +95,10 @@ Changelog
 *11-26-14
 - Modified genetics.c in /etc folder: added SetBlind() functionality
 - Modified light.c in /etc folder: removed unnecessary checks
+
+*11-28-14
+- Edited pet files for limited functionality for add_action(order, order) function.
+  Also modified scavenge function so the pet can get an item and place it in
+  their owners inventory (pet "fetch's" the item and "gives" it to their owner).
+  All available pets have the same functionality. Issues with owning multiple
+  pets need to be worked out.

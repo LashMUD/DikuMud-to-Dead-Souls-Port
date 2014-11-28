@@ -37,8 +37,8 @@ static void create() {
         "south" : "You see the Alley.",
         ]) );
     SetExits( ([
-        "south" : "/domains/diku-alfa/room/30.zon/3045",
-         ]) );
+                   "south" : "/domains/diku-alfa/room/30.zon/3045",
+        ]) );
     SetRead( ([
         "sign" : (:ReadSign:),
         ]) );
