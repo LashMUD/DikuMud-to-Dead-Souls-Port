@@ -101,4 +101,4 @@ Changelog
   Also modified scavenge function so the pet can get an item and place it in
   their owners inventory (pet "fetch's" the item and "gives" it to their owner).
   All available pets have the same functionality. Issues with owning multiple
-  pets need to be worked out.
+  pets need to be worked out. Files are heavily commented.
