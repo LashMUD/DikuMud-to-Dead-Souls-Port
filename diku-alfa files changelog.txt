@@ -102,3 +102,10 @@ Changelog
   their owners inventory (pet "fetch's" the item and "gives" it to their owner).
   All available pets have the same functionality. Issues with owning multiple
   pets need to be worked out. Files are heavily commented.
+
+*11-29-14
+- Added help for pets in the Optional Files folder
+- Added a "readme" for description and placement of Optional
+  files.
+- Modified ticktock.c help output to give current MUD's
+  day length in hours and hour lrngth in minutes.
