@@ -5,7 +5,7 @@ score.c - Gives a modified output for the 'score' command
           copy to /lib/cmds/players
 
 ticktock.c - modified help file to give the current
-             MUD day length in hours and hour lrngth in 
+             MUD day length in hours and hour length in 
              minutes.
              copy to /lib/secure/cmds/admins
 
