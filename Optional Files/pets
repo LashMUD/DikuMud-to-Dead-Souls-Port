@@ -1,0 +1,8 @@
+Right now functionality is limited for pet objects.
+The syntax is: "order <pet> "do" <something>
+"do" can equal "go" (as in go north) or "kill"
+(as in kill <something>).
+Also one can "order pet <cardinal direction> and
+the pet will try to move in the direction specified.
+Note that if the <something>  or <cardinal direction>
+is not present an error message will be displyed. 
