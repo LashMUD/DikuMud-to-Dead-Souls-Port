@@ -50,6 +50,6 @@ string GetHelp(){
             "specified. This is useful for changing night to "
             "day and vice versa, when testing ambient light and "
             "variable room descriptions. The timeshift does not "
-            "persist between reboots. "
-            "Diku->Dead Mudlib: ticktock 1200 = 1 hr in Mudtime ");
+            "persist between reboots. In this MUD the day length is "
+             +DAY_LENGTH+" hrs and the hour length is "+HOUR_LENGTH+" minutes.");
 }
