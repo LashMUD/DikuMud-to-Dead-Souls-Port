@@ -130,7 +130,7 @@ int order(string str){
         command(doit);
     }
     else{
-        if(member_array(tell, cardinal_dirs) && member_array(tell, (env->GetExits())) == -1)tell_player(ob, fail_mssg);
+        if(member_array(tell, cardinal_dirs) !=-1 && member_array(tell, (env->GetExits())) == -1)tell_player(ob, fail_mssg);
         command(tell);
     }
     return 1;
