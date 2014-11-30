@@ -62,7 +62,7 @@ int AcidBreath(){
     
     if(env && target){ 
          
-        tell_room(env, "\n"+capitalize(this_object()->GetShort())+" breathes acid.\n");
+        tell_room(env, "\n"+capitalize(this_object()->GetShort())+" breathes %^BOLD%^%^MAGENTA%^%^acid.%^RESET%^\n");
 
         if(this_object()->GetHealthPoints() >=10)
             dam = this_object()->GetHealthPoints()/10;
@@ -73,7 +73,7 @@ int AcidBreath(){
             tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists the acid!\n", ({ target }));
             tell_object(target, "\nYou partially resist the acid!\n");
             dam = dam/2;
-            //target->eventTrainSkill("magic defense",0,0,dam);
+            target->eventTrainSkill("magic defense",0,0,dam);
         }
  
         target->eventReceiveDamage(this_object(), MAGIC | ACID, dam, 0, ({"head", "neck", "right hand", "left hand", "right arm", "left arm", "torso"}));
