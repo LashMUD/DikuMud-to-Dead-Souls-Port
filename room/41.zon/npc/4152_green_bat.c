@@ -60,7 +60,7 @@ int GasBreath(object victim){
     
     if(env && target){ 
          
-        tell_room(env, "\n"+capitalize(this_object()->GetShort())+" breathes gas.\n");
+        tell_room(env, "\n"+capitalize(this_object()->GetShort())+" breathes %^BOLD%^%^GREEN%^%^gas.%^RESET%^\n");
 
         if(this_object()->GetHealthPoints() >=10)
             dam = this_object()->GetHealthPoints()/10;
@@ -75,7 +75,7 @@ int GasBreath(object victim){
                     tell_room(env, "\n"+capitalize(victim->GetShort())+" partially resists the gas attack!\n", ({ victim }));
                     tell_object(victim, "\nYou partially resist the gas attack!\n");
                     dam = dam/2;
-                    //victim->eventTrainSkill("magic defense",0,0,dam);
+                    victim->eventTrainSkill("magic defense",0,0,dam);
                 }
             victim->eventReceiveDamage(this_object(), MAGIC | GAS, dam, 1);
             return 1;
