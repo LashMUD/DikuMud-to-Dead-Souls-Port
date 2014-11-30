@@ -18,7 +18,8 @@ Changelog
   COMPLETED!
 
 *11-02-14
-- Replaced correct magic_user.c file in etc folder *NOT!* see 11-24-14 below
+- Replaced correct magic_user.c file in etc folder *NOT!* see 
+  11-24-14 below
   Reformmated contents
   Added comments for documentation
   Note: if a player is 'cursed' and uses the 'stats' command 
@@ -46,16 +47,16 @@ Changelog
 
 * 11-03-14 
 - created new package dds_pa0.9r01
-- added licenses for Dead Souls Mudlib, DikuMud license, and 
-  the license for use of this package (dds_pa0.09r01: 
+- added licenses for Dead Souls Mudlib, DikuMud license, and the
+  license for use of this package (dds_pa0.09r01: 
   DikutoDeadSouls_license
 
 * 11-07-14
-- Added Optional Files folder - contains files I modified
-  and/or wrote for use with Dead Souls
+- Added Optional Files folder - contains files I modified and/or
+  wrote for use with Dead Souls
 - score.c modified score output
-- timeinfo.c a command to give output of variables used 
-  in functions pertaining to time in the Mud 
+- timeinfo.c a command to give output of variables used in 
+  functions pertaining to time in the Mud 
 
 *11-09-14
 - replaced light objects with Dead Souls style objects instead
@@ -66,23 +67,27 @@ Changelog
   message if the pet npc can't perform their "order" from the player.
 
 *11-20-14
-- Added guildmasters for the four classes. They can train skills, teach spells,
-  and advance the player based on experience points and quest points.
-- Modified base_trainer.c lib file so that the guildmasters that teach spells can
-  only teach spells that they know (ie from their spellbooks). Otherwise they will
-  be able to teach all spells from the spells (lib/secure/powers) directory regardless
-  of class boundaries.
+- Added guildmasters for the four classes. They can train skills,
+  teach spells, and advance the player based on experience points
+  and quest points.
+- Modified base_trainer.c lib file so that the guildmasters that
+  teach spells can only teach spells that they know (ie from their
+  spellbooks). Otherwise they will be able to teach all spells from
+  the spells (lib/secure/powers) directory regardless of class boundaries.
 
 *11-24-14
-- Worked on magic user.c. Has copius comments to make sure the functions work.
-  Uncomment if you like to see how they work.
-- Changed levels of 4100_mage.c and 4157_mage.c in /diku-alfa/room/41.zon/npc
-- Changed morality of 4103_thief.c znd 4155_thief.c located in above directory.
-  Also enabled 'invisibility' and 'sneak' abilities for 4155_thief.c
-- Worked on pet functions for npc's that can be bought as pets. They behave correctly
-  but need a fail message (as per 11-19-14 comments) if the pet can't execute a players
- 'order'. Was thinking about setting an array of limited commands the player can use.
-  Copius commented code to figure out what is going on in 3094-wolf.c located in
+- Worked on magic user.c. Has copius comments to make sure the
+  functions work. Uncomment if you like to see how they work.
+- Changed levels of 4100_mage.c and 4157_mage.c in
+  /diku-alfa/room/41.zon/npc
+- Changed morality of 4103_thief.c znd 4155_thief.c located in
+  above directory. Also enabled 'invisibility' and 'sneak' abilities
+  for 4155_thief.c
+- Worked on pet functions for npc's that can be bought as pets. 
+  They behave correctly but need a fail message (as per 11-19-14 comments)
+  if the pet can't execute a players 'order'. Was thinking about setting
+  an array of limited commands the player can use. Copius commented code
+  to figure out what is going on in 3094-wolf.c located in
   /diku-alfa/30.zon/npc. code is : tell_player("lash", "<whatever>);
   Change to your admin/creator name (ie not lash) to use after uncommenting.
   NOTE: right now pet combat abilities suck. Need to change.
