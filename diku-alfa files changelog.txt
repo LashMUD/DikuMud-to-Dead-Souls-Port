@@ -110,10 +110,9 @@ Changelog
 
 *11-29-14
 - Added help for pets in the Optional Files folder
-- Added a "readme" for description and placement of Optional
-  files.
-- Modified ticktock.c help output to give current MUD's
-  day length in hours and hour length in minutes.
+- Added a "readme" for description and placement of Optional files.
+- Modified ticktock.c help output to give current MUD's day length in hours an
+  hour length in minutes.
 
 *11-30-14
 -  changed eventTrainSkill("magic defense",0,0,target->GetLevel()); in NPC's that 
