@@ -73,7 +73,7 @@ int FireBreath(){
             tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists the flames!\n", ({ target }));
             tell_object(target, "\nYou partially resist the flames!\n");
             dam = dam/2;
-            target->eventTrainSkill("magic defense",0,0,dam);
+            target->eventTrainSkill("magic defense",0,0,target->GetLevel());
         }
  
         target->eventReceiveDamage(this_object(), MAGIC | HEAT, dam, 0, ({"head", "neck", "right hand", "left hand", "right arm", "left arm", "torso"}));

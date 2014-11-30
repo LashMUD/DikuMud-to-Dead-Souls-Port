@@ -113,4 +113,10 @@ Changelog
 - Added a "readme" for description and placement of Optional
   files.
 - Modified ticktock.c help output to give current MUD's
-  day length in hours and hour lrngth in minutes.
+  day length in hours and hour length in minutes.
+
+*11-30-14
+-  changed eventTrainSkill("magic defense",0,0,target->GetLevel()); in NPC's that 
+   use magic (see /etc/magic_user.c, the bat npc's in /room/41.zon/npc) so that
+   training is indexed to the target or victim's level. The higher the level
+   the better a player is at these skills. 
