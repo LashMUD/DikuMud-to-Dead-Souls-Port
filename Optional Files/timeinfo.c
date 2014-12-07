@@ -36,12 +36,12 @@ mixed cmd() {
     hours = mudtime[0];
     minutes = mudtime[1];
 
-    if(hours >= 12  && hours != 24) {
-        if(hours != 12) hours -= 12;
+    if(hours >= 10  && hours != 20) {
+        if(hours != 10) hours -= 10;
         meridiem = " pm";
     }
 
-    if(!hours || hours == 0) hours = 12;
+    if(!hours || hours == 0) hours = 10;
 
     if(minutes < 10) nulle = "0";
 
