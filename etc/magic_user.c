@@ -15,7 +15,6 @@ int SpellCombat(object ob){
     level = ob->GetLevel();
     
     //tell_room(env, "\nchance1 is "+chance1+"\n", ({ ob}));
-
     
     if(ob && (!ob->GetInCombat() || !ob->GetCurrentEnemy())) return 0;
     
@@ -142,7 +141,7 @@ void sleep(object ob, object array targets){
         if (s_throw <= save){
             tell_room(env, "\n"+capitalize(victim->GetShort())+" resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, victim }));
             tell_object(victim, "\nYou resist "+ob->GetKeyName()+"'s magic attack!\n");
-            victim->eventTrainSkill("magic defense",0,0,victim->GetLevel());
+            victim->eventTrainSkill("magic defense",save,s_throw,1);
             return;
         }
         else{
@@ -177,7 +176,7 @@ void curse(object ob){
     if(s_throw <= save){
         tell_room(env, "\n"+capitalize(target->GetShort())+" resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou resist "+ob->GetKeyName()+"'s magic attack!\n");
-        target->eventTrainSkill("magic defense",0,0,target->GetLevel());
+        target->eventTrainSkill("magic defense",save,s_throw,1);
         return;
     }
     /* Note: Set up curse effects for individual classes. Primary skills and the luck stat
@@ -296,7 +295,7 @@ void blindness(object ob){
     if (s_throw <= save){
         tell_room(env, "\n"+capitalize(target->GetShort())+" resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou resist "+ob->GetKeyName()+"'s magic attack!\n");
-        target->eventTrainSkill("magic defense",0,0,target->GetLevel());
+        target->eventTrainSkill("magic defense",save,s_throw,1);
         return;
     }
     else{
@@ -323,7 +322,7 @@ void energy_drain(object ob){
     if (s_throw <= save){
         tell_room(env, "\n"+capitalize(target->GetShort())+" resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou resist "+ob->GetKeyName()+"'s magic attack!\n");
-        target->eventTrainSkill("magic defense",0,0,target->GetLevel());
+        target->eventTrainSkill("magic defense",save,s_throw,1);
         return;
     }
     else{
@@ -382,7 +381,7 @@ void magic_missile(object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        target->eventTrainSkill("magic defense",0,0,target->GetLevel());
+        target->eventTrainSkill("magic defense",save,s_throw,1);
         //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
     target->eventReceiveDamage(ob, MAGIC | BLUNT, dam, 0, ({"torso"}));
@@ -428,7 +427,7 @@ void burning_hands(object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        target->eventTrainSkill("magic defense",0,0,target->GetLevel());
+        target->eventTrainSkill("magic defense",save,s_throw,1);
         //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
 
@@ -478,7 +477,7 @@ void lightning_bolt (object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        target->eventTrainSkill("magic defense",0,0,target->GetLevel());
+        target->eventTrainSkill("magic defense",save,s_throw,1);
         //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
     target->eventReceiveDamage(ob, MAGIC | SHOCK, dam, 0, ({"torso"}));
@@ -524,7 +523,7 @@ void colour_spray (object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        target->eventTrainSkill("magic defense",0,0,target->GetLevel());
+        target->eventTrainSkill("magic defense",save,s_throw,1);
         //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
     target->eventReceiveDamage(ob, MAGIC | EMOTIONAL, dam, 0, ({"torso"}));
@@ -572,7 +571,7 @@ void fireball(object ob){
         tell_room(env, "\n"+capitalize(target->GetShort())+" partially resists "+ob->GetKeyName()+"'s magic attack!\n", ({ ob, target }));
         tell_object(target, "\nYou partially resist "+ob->GetKeyName()+"'s magic attack!\n");
         dam = dam/2;
-        target->eventTrainSkill("magic defense",0,0,target->GetLevel());
+        target->eventTrainSkill("magic defense",save,s_throw,1);
         //tell_room(env, "\nDAMAGE is "+dam+"\n");
     }
     target->eventReceiveDamage(ob, MAGIC | HEAT, dam, 0, ({"torso"}));
