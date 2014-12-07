@@ -115,7 +115,7 @@ Changelog
   hour length in minutes.
 
 *11-30-14
--  changed eventTrainSkill("magic defense",0,0,target->GetLevel()); in NPC's that 
+-  changed eventTrainSkill("magic defense",save,s_throw,1); in NPC's that 
    use magic (see /etc/magic_user.c, the bat npc's in /room/41.zon/npc) so that
    training occurs if the players save value (pro) beats the saving throw (con)
    required to resist the magic being thrown at the player. Success is flagged
