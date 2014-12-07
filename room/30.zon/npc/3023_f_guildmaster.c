@@ -40,6 +40,7 @@ void create(){
     SetClass("fighter");
     SetLevel(40);
     SetProperty("no bump", 1);
+    SetAttackable(0);
     AddTrainingSkills( ({ "blade attack", "multi-hand", "multi-weapon", "blade defense",
                           "melee attack", "blunt attack", "knife attack", "projectile attack",
                           "melee defense", "blunt defense", "knife defense", "projectile defense",
