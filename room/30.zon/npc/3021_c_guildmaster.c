@@ -40,6 +40,7 @@ void create(){
     SetSpellBook( ([ "healing" : 100 ]) );
     SetLevel(40);
     SetProperty("no bump", 1);
+    SetAttackable(0);
     AddTrainingSkills( ({ "melee attack", "blunt attack", "projectile attack", "magic attack",
                           "melee defense", "blade defense", "knife defense", "projectile defense",
                           "bargaining", "conjuring", "stealth", "blunt defense", "magic defense",
