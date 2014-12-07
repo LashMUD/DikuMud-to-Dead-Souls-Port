@@ -40,6 +40,7 @@ void create(){
     SetClass("thief");
     SetLevel(40);
     SetProperty("no bump", 1);
+    SetAttackable(0);
     AddTrainingSkills( ({ "melee attack", "blunt attack", "knife attack", "projectile attack",
                           "melee defense", "blade defense", "knife defense", "projectile defense",
                           "bargaining", "stealth", "stealing", "detection", "concealment",
