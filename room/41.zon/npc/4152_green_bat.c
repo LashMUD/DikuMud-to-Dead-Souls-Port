@@ -75,7 +75,7 @@ int GasBreath(object victim){
                     tell_room(env, "\n"+capitalize(victim->GetShort())+" partially resists the gas attack!\n", ({ victim }));
                     tell_object(victim, "\nYou partially resist the gas attack!\n");
                     dam = dam/2;
-                    victim->eventTrainSkill("magic defense",0,0,victim->GetLevel());
+                    victim->eventTrainSkill("magic defense",save,s_throw,1);
                 }
             victim->eventReceiveDamage(this_object(), MAGIC | GAS, dam, 1);
             return 1;
