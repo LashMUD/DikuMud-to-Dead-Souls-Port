@@ -40,6 +40,7 @@ void create(){
     SetClass("mage");
     SetLevel(40);
     SetProperty("no bump", 1);
+    SetAttackable(0);
     AddTrainingSkills( ({ "magic defense", "magic attack", "conjuring", "bargaining",
                           "blunt defense", "knife defense", "melee defense", "blunt attack",
                           "knife attack", "melee attack"
