@@ -30,7 +30,7 @@ static void create(){
     SetMorality(-2500);
     AddCurrency("gold" , 13666);
     SetGender("neuter");
-    SetEncounter( (:CheckNPC:) ); // aggressive mob - no one is supposed to be in the captain's office
+    SetEncounter( (:CheckNPC:) ); // aggressive mob
 }
 
 void init(){
