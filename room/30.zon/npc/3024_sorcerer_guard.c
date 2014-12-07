@@ -16,7 +16,7 @@ inherit LIB_SENTIENT;
 int AllowPass(object who, object what){
     if(!who) return 0;
     if(!objectp(who)) return 0;
-    if(who->GetClass() == "mage") return 1; 
+    if(who->GetClass() == "mage" || adminp(who)) return 1; 
     return ::AllowPass(who, what);
 }
 
@@ -37,7 +37,8 @@ static void create() {
     SetMelee(1);
     SetGender("male");
     SetMorality(2000);
-    AddCurrency("gold", 2000);    
+    AddCurrency("gold", 2000); 
+    SetProperty("no bump", 1);
     SetGuard("south" , "The guard humiliates you, and blocks your way.");
 }
 
