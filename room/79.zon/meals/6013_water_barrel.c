@@ -31,6 +31,7 @@ SetFlaskUses(50);
 SetStrength(5);
 SetTapped(1); //if a cask or a keg from which drinks are poured
 SetMealType("water"); //set to DS liquid type
+SetNoCondition(1);  //set to not deteriorate
 SetVendorType(VT_DRINK);
 }
 
