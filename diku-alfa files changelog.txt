@@ -119,7 +119,7 @@ Changelog
    use magic (see /etc/magic_user.c, the bat npc's in /room/41.zon/npc) so that
    training occurs if the players save value (pro) beats the saving throw (con)
    required to resist the magic being thrown at the player. Success is flagged
-   with '1' for highest reward. See /lib/lib/lvs for explanation.   
+   with '1' for highest reward. See /lib/lib/lvs/abilities.c for explanation.   
 
 *12-01-14
 - made sure all vendors have SetNoAttack() and SetNoBump().
