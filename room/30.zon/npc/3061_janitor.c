@@ -10,6 +10,7 @@
 // http://www.dead-souls.net
 
 #include <lib.h>
+#include <position.h>
 
 
 inherit LIB_SENTIENT;
@@ -41,10 +42,18 @@ void init(){
 }
 
 int CheckTrash(object ob){
-    
+
+    int pos = this_object()->GetPosition();
+    int badpos;    
     object env = environment(this_object());
     object *things;
     things = all_inventory(env);
+
+    badpos = (POSITION_NULL|POSITION_SITTING|POSITION_LYING|POSITION_KNEELING);
+
+    if(this_object()->GetSleeping() || this_object()->GetParalyzed() || pos & badpos){
+        return 0;
+    }
         
     if(env){
        foreach(ob in things){
