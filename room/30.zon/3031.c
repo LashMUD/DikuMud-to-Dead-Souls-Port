@@ -71,26 +71,28 @@ int buy(string str, string name){
 
     object ob;
     string  *list_items;
-
     list_items = ({"the wolf", "the Wolf", "wolf", "Wolf",
                    "the rottweiler", "the Rottweiler", "rottweiler", "Rottweiler", "rott", "Rott",
                    "the beagle", "the Beagle", "beagle", "Beagle",
                    "the puppy", "the Puppy", "puppy", "Puppy", 
                    "the kitten", "the Kitten", "kitten", "Kitten"
                  });
-
     if(!str){ 
         tell_player(this_player(), "\nThere is no such pet!\n");
         return 1;         
     }
-
     sscanf(str, "%s %s", str, name);
 
     if(member_array(str, list_items) == -1){
         tell_player(this_player(), "\nThere is no such pet!\n");
         return 1;         
     }
-
+    if(this_player()->GetProperty("pet")){
+        tell_player(this_player(), "\nYou already own a pet! If you have more than one pet at a time\n"+
+                                   "they don't follow orders too well. Sorry!\n");
+        return 1;         
+    } 
+    
     switch(str){
         case "the wolf" :
         case "the Wolf" :
@@ -109,7 +111,7 @@ int buy(string str, string name){
             this_player()->AddCurrency("gold", -4800);
             ob->eventMove(this_object());
             ob->eventForce("follow "+this_player()->GetKeyName());
-            this_player()->AddProperty(ob, 1);
+            this_player()->AddProperty("pet", ob);
             break;
          
         case "the rottweiler" :
@@ -131,7 +133,7 @@ int buy(string str, string name){
             ob->eventMove(this_object());
             this_player()->AddCurrency("gold", -2400);
             ob->eventForce("follow "+this_player()->GetKeyName());
-            this_player()->AddProperty(ob, 1);
+            this_player()->AddProperty("pet", ob);
             break;
 
         case "the beagle" :
@@ -151,7 +153,7 @@ int buy(string str, string name){
             this_player()->AddCurrency("gold", -600);
             ob->eventMove(this_object());
             ob->eventForce("follow "+this_player()->GetKeyName());
-            this_player()->AddProperty(ob, 1);
+            this_player()->AddProperty("pet", ob);
             break;
 
         case "the puppy" :
@@ -171,7 +173,7 @@ int buy(string str, string name){
             this_player()->AddCurrency("gold", -300);
             ob->eventMove(this_object());
             ob->eventForce("follow "+this_player()->GetKeyName());
-            this_player()->AddProperty(ob, 1);
+            this_player()->AddProperty("pet", ob);
             break;
 
         case "the kitten" :
@@ -191,7 +193,7 @@ int buy(string str, string name){
             this_player()->AddCurrency("gold", -300);
             ob->eventMove(this_object());
             ob->eventForce("follow "+this_player()->GetKeyName());
-            this_player()->AddProperty(ob, 1);
+            this_player()->AddProperty("pet", ob);
             break;
     }
     tell_player(this_player(), "\nMay you enjoy your pet.\n");
