@@ -337,7 +337,7 @@ void energy_drain(object ob){
         
         tell_player(target, "\nYour life energy is drained!\n");
         //tell_room(env, "\nHP drained is: "+dam+" Range is "+range+" and XP drained is "+xpdrain+"\n");
-        tell_room(env, "\n"+capitalize(target->GetShort())+" drains "+target->GetKeyname()+" - what a waste of energy !\n", ({ob, target})); 
+        tell_room(env, "\n"+capitalize(ob->GetShort())+" drains "+target->GetKeyname()+" - what a waste of energy !\n", ({ob, target})); 
     }
 }
 
