@@ -10,6 +10,7 @@
 // http://www.dead-souls.net
 
 #include <lib.h>
+#include "/lib/include/pile.h"
 
 inherit LIB_SENTIENT;
 
@@ -27,18 +28,26 @@ static void create() {
     SetLong("The Kitten looks like a cute, little, fierce fighter.");
     SetRace("cat");
     SetLevel(1);
+    SetStat("strength", 10);
+    SetStat("agility", 10);
+    SetStat("coordination", 10);
+    SetStat("speed", 10);
     SetMelee(1);
     SetCanBite(1);
     SetGender("neuter");
     SetMorality(1000);
     SetAutoStand(0);
-    SetAction(10, ( :Scavenge: ));
+    SetAction(100, ( :Scavenge: ));
     SetDie( (:RemoveProp:) );
 }
 
 void init(){
     ::init();
     add_action("order", "order");
+    /* The following has to be uncommented if using unmodified /lib/lib/lead.c or player may evade pet.
+       The following re-establishes master/pet relationship:
+    if(ob && GetProperty("pet") && ob != this_object()->GetLeader()) eventForce("follow "+ob->GetKeyName());
+    */
 }
 
 int Scavenge(){
@@ -47,6 +56,7 @@ int Scavenge(){
     object *item, *cost;
     object fetched;
     int s, x;
+    string type;
    
     item = filter(all_inventory(env), (: !living($1) && (inherits(LIB_ITEM, $1) || inherits(LIB_ARMOR, $1)):) );
     cost = sort_array(item->GetBaseCost(), -1);
@@ -54,14 +64,25 @@ int Scavenge(){
         if(s>0){
             foreach(object thing in item){
                 if(thing->GetBaseCost() == cost[0]){
-                    thing->eventMove(this_object());
-                    tell_room(env, this_object()->GetShort()+" fetches "+thing->GetShort()+" for "+ob->GetShort()+".");
+                    eventForce("stand");
+                    if(thing->GetKeyName() == "pile"){
+                        type = thing->GetPileType();
+                        x = thing->GetPileAmount();
+                        //tell_player(ob, "PileType is "+type+" and PileAmount is "+x);
+                        ob->AddCurrency(type, x);
+                        tell_room(env, this_object()->GetShort()+" fetches "+thing->GetShort()+".");
+                        tell_player(ob, this_object()->GetShort()+" gives "+thing->GetShort()+" to you.");
+                        thing->eventDestruct();
+                        if(env && env != environment(ob)) this_object()->eventMove(environment(ob));
+                    }
                     thing->eventMove(ob);
+                    tell_room(env, this_object()->GetShort()+" fetches "+thing->GetShort()+".");
                     tell_player(ob, this_object()->GetShort()+" gives "+thing->GetShort()+" to you.");
-                    break;                
+                    if(env && env != environment(ob)) this_object()->eventMove(environment(ob));
+                    break;                 
                 }
+            }
         }
-    }
 }
 
 int order(string str){
@@ -70,63 +91,56 @@ int order(string str){
     string petid, tell, noun, doit;
     string *stringarray;
     string *cardinal_dirs = ( ({"none", "north","south","east","west", "northeast","northwest","southeast","southwest","up","down", "out"}) );
-    string fail_mssg = "The Kitten has an indifferent look.";
+    string fail_mssg = "The kitten has an indifferent look.";
                
     if(!stringp(str)) return notify_fail("Usage: order <pet> do something.");
-        
-    if(!str || !ob || !ob->GetProperty(this_object())) return 0;
-    //tell_player("lash", "commands[0] is "+commands[0]);
-    //tell_player("lash", "commands[1] is "+commands[1]);
-    //tell_player("lash", "ob is "+ob);
-    //tell_player("lash", "str is "+str);
+    if(!str || !ob || !ob->GetProperty("pet")) return 0;
+    //tell_player(ob, "ob is "+ob);
+    //tell_player(ob, "str is "+str);
     stringarray=explode(str, " ");
-    //tell_player("lash", "sizeof(stringarray) is "+sizeof(stringarray));
+    //tell_player(ob, "sizeof(stringarray) is "+sizeof(stringarray));
     //for(y=0;y<sizeof(stringarray);y++)
-    //    tell_player("lash", "stringarray["+y+"] is "+stringarray[y]);
+    //    tell_player(ob, "stringarray["+y+"] is "+stringarray[y]);
     if(sizeof(stringarray)<2) return notify_fail("Usage: order <pet> do something.");   
     if(sizeof(stringarray) <3){
         tell = stringarray[1];
     }
-    
-    /* The following has to be added if using unmodified /lib/lib/lead.c or player may evade pet.
-       With following code player re-establishes master/pet relationship:
-
-    //if(ob && ob->GetProperty(this_object()) && ob != this_object()->GetLeader()) eventForce("follow "+ob->GetKeyName());
-    */
-
     sscanf(str, "%s %s %s", petid, tell, noun);
-    //tell_player("lash", "str is "+str);
-    //tell_player("lash", "petid is "+petid);
-    //tell_player("lash", "tell is "+tell);
-    //tell_player("lash", "noun is "+noun);
+    //tell_player(ob, "str is "+str);
+    //tell_player(ob, "petid is "+petid);
+    //tell_player(ob, "tell is "+tell);
+    //tell_player(ob, "noun is "+noun);
     doit=tell+" "+noun;
-    //tell_player("lash", "doit = "+doit);
-    //tell_player("lash", "stringp(tell) is "+stringp(tell)+"; and str = "+str+"; petid = "+petid+"; tell = "+tell+"; noun = "+noun);
-    //x = member_array(petid, this_object()->GetId());
-        if(!stringp(tell) || !str || member_array(petid, this_object()->GetId()) == -1){
-            tell_player(ob, fail_mssg);
-            
-        }
+    //tell_player(ob, "doit = "+doit);
+    //tell_player(ob, "stringp(tell) is "+stringp(tell)+"; and str = "+str+"; petid = "+petid+"; tell = "+tell+"; noun = "+noun);
+    if(!stringp(tell) || !str || member_array(petid, this_object()->GetId()) == -1){
+        tell_player(ob, fail_mssg);
+        return 1;
+    }
     if(noun != 0){
         int y;
         
         if(tell == "go" && member_array(noun, cardinal_dirs) == -1 || (member_array(noun, cardinal_dirs) != -1 && member_array(noun, (env->GetExits())))== -1){
             tell_player(ob, fail_mssg );
         }
-        if(tell == "kill"){
-            object *living = filter(get_livings(env), (:livings($1) && $1 !=this_object():));
-            string *targets;
+         if(tell == "kill"){
+             object *living = filter(get_livings(env), (:livings($1) && $1 !=this_object():)); //get all livings in room except this_object()
+             string *targets; 
+             targets = ({});
 
-           foreach(object thing in living)
-           targets = thing->GetId();
-            //for(y=0;y<sizeof(targets);y++)
-                //tell_player(ob, "targets["+y+"] is "+targets[y]);
-            if(member_array(noun, targets) == -1){
-                tell_player(ob, fail_mssg);
-                
-            }
-         }        
-        command(doit);
+             //tell_player(ob, "sizof(living) is "+sizeof(living));
+             //foreach(object thing in living)
+             //tell_player(ob, "thing is "+thing->GetKeyName());
+  
+             foreach(object thing in living)
+             targets += thing->GetId(); //add Id's of all objects in 'living' to array 'targets'
+             //for(y=0;y<sizeof(targets);y++)
+             //tell_player(ob, "targets["+y+"] is "+targets[y]);
+             if(member_array(noun, targets) == -1){ // if string for variable 'noun'is not present in array 'targets' send fail message 
+                 tell_player(ob, fail_mssg);
+             }
+         }
+     command(doit);
     }
     else{
         if(member_array(tell, cardinal_dirs) != -1 && member_array(tell, (env->GetExits())) == -1)tell_player(ob, fail_mssg);
@@ -137,8 +151,8 @@ int order(string str){
 
 int RemoveProp(){
 
-    if(ob && ob->GetProperty(this_object())){
-        ob->RemoveProperty(this_object());
+    if(ob && ob->GetProperty("pet")){
+        ob->RemoveProperty("pet");
         //tell_player(ob, "Property removed.");
         return 1;
     }
