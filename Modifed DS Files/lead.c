@@ -116,12 +116,10 @@ int eventMoveFollowers(object dest){
         follower = Followers[ob];
 
         /* added by lash */
-        if(this_player()->GetProperty(ob) && (ob->GetSleeping() || ob->GetParalyzed() || pos & badpos)){
-            return 0;
-        }
-                
+        if(this_player()->GetProperty("pet") == ob && (ob->GetSleeping() || ob->GetParalyzed() || pos & badpos)) return 0;
+                      
         if(ob->GetSleeping() || ob->GetParalyzed() || pos & badpos
-                || this_object()->GetInvis() ){
+                || this_object()->GetInvis()){
             eventEvade(ob);
             RemoveFollower(ob);
             continue;
@@ -131,7 +129,8 @@ int eventMoveFollowers(object dest){
         followChance += ob->GetSkillLevel("tracking");
         followChance += follower["bonus"];
         if( ob->eventFollow(dest, followChance) ) follower["lost"] = 0;
-        else if( follower["lost"]++ && eventEvade(ob) ){
+        if(this_player()->GetProperty("pet") == ob ) return 0; /* added by lash */
+        else if( follower["lost"]++ && eventEvade(ob)){
             RemoveFollower(ob);
         }
     }
