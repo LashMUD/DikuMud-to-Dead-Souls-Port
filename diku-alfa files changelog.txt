@@ -126,3 +126,30 @@ Changelog
 - made sure all meals have SetNoCondition(1) - so meals won't deteriorate. 
 - updated timeinfo.c and ticktock.c files in /etc folder.
 - modified files with guild guards so admins can by pass the guard.
+
+*12-11-14
+- Modified pet store so that only one pet will be available per player.
+  Too many issues manipulating multiple pets at a time. May go back and
+  try to solve this.
+- Modified pets again:
+  AddProperty("pet", this_object()) for player in 3031.c (pet store)
+  Pets can 'fetch' piles of money for the player
+  If the pet is sent to another room and 'fetches' something they will
+  return to the room of the owner and give the 'thing' fetched to the
+  owner (code could be written as a result of adding the pet object to
+  player Properties)
+  Redid array value gathering so all living things in the room can be
+  checked to see if the addaction 'kill' command can be executed. Previously,
+  the code only allowed for the last object in the primary array to have
+  its Id's added.
+  Added pet stats to make them more adept in combat
+- Modified lead.c to ensure the pet owner does not evade the pet or have 
+  the pet removed from their GetFollowers() function
+- Typos in guildmaster files corrected (Mage, Thief, and Fighter)
+- Added code to certain npc's that pick up items so that they are unable to
+  so if they are not in the correct position (ie sitting, lying, etc). 
+  Code modified from /lib/lead.c and inserted into files. 
+  Files include: 3061_janitor.c, 3062_fido.c, and 3066_odif.c
+- Modified /etc/magic_user.c energy drain function so that the correct
+  output for the affected individual is displayed
+  
