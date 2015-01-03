@@ -61,7 +61,7 @@ int  checkCombat(){
     if (evil[0]->GetCurrentEnemy() && evil[0]->GetCurrentEnemy()->GetMorality() >=700){
         eventForce("kill "+evil[0]->GetKeyName());
         tell_room(environment(this_object()), 
-            "%^BOLD%^%^GREEN%^%^A Cityguard screams 'PROTECT THE"+
+            "%^BOLD%^%^GREEN%^%^A Cityguard screams 'PROTECT THE "+
             "INNOCENT!  BANZAI!!! CHARGE!!! ARARARAGGGHH!'%^RESET%^", ({this_object()}));
         return 1;
     }
