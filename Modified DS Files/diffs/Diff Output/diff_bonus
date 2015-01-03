@@ -1,0 +1,5 @@
+32c
+    /* modified by Lash - bonus object wasn't being destructed */
+    else this_object()->eventDestruct(); 
+    /* end mod */
+.
