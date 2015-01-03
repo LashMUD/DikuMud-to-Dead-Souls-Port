@@ -28,7 +28,7 @@ SetBaseCost("gold", 60);
 SetFlaskContents("type");
 SetMaxFlask(50);
 SetFlaskUses(50);
-SetStrength(5);
+SetStrength(10);
 SetTapped(1); //if a cask or a keg from which drinks are poured
 SetMealType("water"); //set to DS liquid type
 SetNoCondition(1);  //set to not deteriorate
