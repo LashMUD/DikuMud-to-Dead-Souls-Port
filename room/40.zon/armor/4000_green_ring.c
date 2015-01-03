@@ -12,6 +12,7 @@
 #include <lib.h>
 #include <armor_types.h>
 #include <damage_types.h>
+#include <vendor_types.h>
 
 inherit LIB_ARMOR;
 
@@ -31,6 +32,7 @@ static void create(){
     SetDamagePoints(100);
     SetArmorType(A_RING);
     SetWear( (:eventWearRing:) );
+    SetVendorType(VT_TREASURE);
 }
 
 void init(){
