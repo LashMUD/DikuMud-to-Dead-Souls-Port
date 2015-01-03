@@ -1,0 +1,67 @@
+632a
+
+/* added by Lash */
+mapping SetActionsMap(mapping ActMap){
+    if(ActMap && sizeof(ActMap)) ActionsMap = ActMap;
+    return copy(ActionsMap);
+}
+
+mapping GetActionsMap(){
+    return copy(ActionsMap);
+}
+/* end add */
+.
+493,498c
+    float SetStaminaPoints(float x){
+        if( x > GetMaxStaminaPoints() )
+            SetStat("agility", to_int((x-50.0)/10.0), GetStatClass("agility"));
+        AddStaminaPoints( x - GetStaminaPoints() );
+        return to_float(GetStaminaPoints());
+    }
+.
+481,486c
+    int SetMagicPoints(int x){
+        if( x > GetMaxMagicPoints() )
+            SetStat("intelligence", (x-50)/10, GetStatClass("intelligence"));
+        AddMagicPoints( x - GetMagicPoints() );
+        return GetMagicPoints();
+    }
+.
+251c
+              ([ "object" : thing, "where" : thing->GetWorn() ]);
+.
+241d
+138a
+
+    /* added by lash */
+    if( !GetInCombat() && sizeof(ActionsMap)){
+        foreach(mixed key, mixed val in ActionsMap){
+            if( val > random(100) ){
+                if(functionp(key)) evaluate(key);
+                else eventPrint(key);
+            }
+        }
+    }
+    /* end add */
+
+.
+119a
+/* end add */
+.
+118a
+    /* added by Lash */
+    if((Action && (sizeof(Action) || functionp(Action)))
+            || sizeof(ActionsMap)){
+        set_heart_beat(tick_resolution);
+    }
+.
+44a
+private mapping ActionsMap = ([]); /* added by Lash */
+private int tick_resolution = 5; /* added by Lash */
+.
+6a
+ *    Modified by Lash 11/10/31 (10/31/11) 
+ *      addition of ActionsMap for npc's
+ *      code copy and pasted from Dead Souls
+ *      mudlib LIB_ROOM file
+.
