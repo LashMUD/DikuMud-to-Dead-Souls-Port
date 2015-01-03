@@ -152,4 +152,20 @@ Changelog
   Files include: 3061_janitor.c, 3062_fido.c, and 3066_odif.c
 - Modified /etc/magic_user.c energy drain function so that the correct
   output for the affected individual is displayed
+
+*1-03-15
+- added scroll Word of Recall to the magic shop
+- modifed 4050_purple_potion.c. Confers the sanctuary spell affect, 
+  cures blindness, and is poisoned for some reason. The sanctuary spell 
+  affect adds the property "sanctuary" to player properties. There is a 
+  check for the property in the modified combat.c file. If player has 
+  property "sanctuary" damage received is reduced by half.
+- redid diff files for Modifed Dead Souls files for Dead Souls 3.8.6
+- fixed typos in cityguard files
+- modified times for wander routine in 3143_mayor.c
+- added comments to trainer.c and base_trainer.c in /etc folder 
+- added parchment and quill items to grocers store (courtesy of Nilrin
+  from the Dead Souls message boards)
+- increased meal strengths of food items
+
   
