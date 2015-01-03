@@ -26,7 +26,7 @@ void create(){
     SetBaseCost("gold", 3000);
     SetFlaskContents("water");
     SetFlaskUses(50);
-    SetStrength(5);
+    SetStrength(10);
     SetMaxFlask(50);
     SetTapped(1); 
     SetMealType(MEAL_DRINK);
