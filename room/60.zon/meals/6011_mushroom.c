@@ -23,7 +23,7 @@ static void create() {
     SetLong("It is a tasty little thing.");
     SetMass(1);
     SetBaseCost("gold", 10);
-    SetStrength(6);
+    SetStrength(10);
     SetMealType(MEAL_FOOD);
     SetMealMessages("You eat the mushroom.",
       "$N eats a mushroom.");
