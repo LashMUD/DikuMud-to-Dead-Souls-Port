@@ -12,29 +12,39 @@
 #include <lib.h>
 #include <meal_types.h>
 
-inherit LIB_POTION;
+inherit LIB_MEAL;
+
+int potionfunc();
 
 static void create() {
-    potion::create();
+    meal::create();
     SetKeyName("potion");
     SetId( ({ "potion","philtrum","purple" }) );
     SetShort("a purple potion");
     SetLong("It looks rather strange!");
     SetMass(1);
-    SetMealType(MEAL_DRINK | MEAL_POISON);
-    SetStrength(5);
-    SetMealMessages("You drink a potion.",
-            "$N drinks a potion.");
+    SetMealType(MEAL_DRINK | MEAL_POISON);// potion is poisoned for some reason
+    SetStrength(0);
+    SetMealAction((: potionfunc :));
     SetBaseCost("gold",500);
-    SetDuration(30);
     SetNoCondition(1);
     SetPreventDrop("You can't drop it. It must be CURSED!");
-    //potion has curse (can't drop), is poisoned and confers SANCTUARY and CURE BLINDNESS - need to add the last two
-
+    SetProperty("magic", "This potion cures blindnes and confers sanctuary. It is also poisoned!");
+    
 }
 
 void init(){
     ::init();
+}
+
+int potionfunc(){
+    object ob = this_player();
+    int s = 300;
+        
+    if(ob && ob->GetBlind()) ob->SetBlind(0);    
+    if(!ob->GetProperty("sanctuary")){
+        ob->AddProperty("sanctuary", s);
+    }
 }
 
 /* Extra Information Original Diku Output
