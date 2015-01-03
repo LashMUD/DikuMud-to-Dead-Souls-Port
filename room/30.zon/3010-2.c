@@ -26,6 +26,8 @@ static void create() {
         "/domains/diku-alfa/room/30.zon/obj/3032_bag" : 20,
         "/domains/diku-alfa/room/30.zon/obj/matchbox" : 20,
         "/domains/diku-alfa/room/30.zon/obj/3033_box" : 20,
+        "/domains/diku-alfa/room/30.zon/obj/parchment" : 20,
+        "/domains/diku-alfa/room/30.zon/obj/quill" : 20,
         ]) );
     SetExits( ([ 
         "None" : "",
