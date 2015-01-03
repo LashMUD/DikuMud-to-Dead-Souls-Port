@@ -168,9 +168,11 @@ Changelog
 - added parchment and quill items to grocers store (courtesy of Nilrin
   from the Dead Souls message boards)
 - increased meal strengths of food items
-- Added functionality that was present in the eventEat() function that was
+- added functionality that was present in the eventEat() function that was
   not present in the eventDrink() function of meal.c. The function added is
   evaluation of the function defined in SetMealAction(f). This way the called
   function is evaluated when eventDrink() calls for it.
+- modified bonus.c. The bonus object was not being destructed after the bonus
+  timer variable (Duration) timed out
 
   
