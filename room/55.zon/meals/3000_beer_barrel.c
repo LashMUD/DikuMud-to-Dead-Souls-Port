@@ -28,7 +28,7 @@ void create(){
     SetVendorType(VT_DRINK);
     SetFlaskContents("beer");
     SetFlaskUses(50);
-    SetStrength(3);
+    SetStrength(5);
     SetMaxFlask(50); 
     SetMealType(MEAL_ALCOHOL);
     SetNoCondition(1);  //set to not deteriorate
