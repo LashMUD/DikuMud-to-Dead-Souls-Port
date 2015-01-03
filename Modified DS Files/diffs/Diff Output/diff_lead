@@ -1,0 +1,33 @@
+128c
+        /* added by lash - as above, so below. A check to make sure the "pet" cannot be
+         * evaded by the player and removed from players Followers mapping. Note - need
+         * to add a check to see if the player is in combat with the pet, then the player
+         *  may actually want to 'evade' the pet
+         */
+        if(this_player()->GetProperty("pet") == ob ) return 0;
+        /* end add */ 
+        else if( follower["lost"]++ && eventEvade(ob)){
+.
+118c
+                || this_object()->GetInvis()){
+.
+116a
+
+        /* added by lash - this is a check to see if the follower of the player is
+         * present in player's Properties mapping as a "pet". If so, then we
+         * don't want the pet to be removed from the player's Followers mapping
+         * just because it is not in a 'stand' position. Note - need to add a
+         * check to see if the player is in combat with the pet, then the player
+         *  may actually want to 'evade' the pet
+         */
+        if(this_player()->GetProperty("pet") == ob && (ob->GetSleeping() || ob->GetParalyzed()
+            || pos & badpos)) return 0;
+        /* end add */              
+.
+100,104c
+    varargs mixed CanEvade(object ob){
+        if( ob && !ob->IsFollowing(this_object()) )
+            return ob->GetName() + " is not following you.";
+        return 1;
+    }
+.
