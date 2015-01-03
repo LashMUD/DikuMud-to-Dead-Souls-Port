@@ -31,7 +31,7 @@ mixed cmd() {
     write("SEASONS_D->GetTime(time())/(DAY_LENGTH * HOUR_LENGTH) is "+SEASONS_D->GetTime(time())/(DAY_LENGTH * HOUR_LENGTH)+"\n");
     write("DAY_LENGTH is "+DAY_LENGTH+" and HOUR_LENGTH is "+HOUR_LENGTH+"\n");
     write("DAY_LENGTH * HOUR_LENGTH is "+DAY_LENGTH * HOUR_LENGTH+"\n");
-
+        
     mudtime = SEASONS_D->GetMudTime();
     hours = mudtime[0];
     minutes = mudtime[1];
@@ -47,7 +47,7 @@ mixed cmd() {
 
     write("In the MUD, the time is "+hours+":"+nulle+minutes+meridiem+".\n");
     write("It is "+query_day_name()+", "+daynum+ordinal(daynum)+" day of "+
-            query_month()+", in "+query_season()+".\n"); 
+            query_month()+", in "+query_season()+" in the year "+query_year()+".\n"); 
 
     return 1;
 
