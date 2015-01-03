@@ -1,0 +1,9 @@
+108a
+    /* added by Lash. Not originally present in eventDrink -
+     * was present in eventEat
+     */
+    if( (x = functionp(MealAction)) && !(x & FP_OWNER_DESTED) ){
+        evaluate(MealAction, who);
+    }
+    /* end add */
+.
