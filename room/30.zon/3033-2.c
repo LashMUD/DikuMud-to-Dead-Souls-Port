@@ -20,7 +20,9 @@ static void create() {
     SetAmbientLight(30);
     SetShort("The Wizard's storage Room");
     SetLong("  This is a small, bare room where the wizard keeps his goods.");
-    SetInventory( ([]) );
+    SetInventory( ([
+                    "/domains/diku-alfa/room/30.zon/obj/3042_scroll_recall" : 20,
+                ]) );
     SetNoClean(1);
     SetExits( ([
         "None" : "",
