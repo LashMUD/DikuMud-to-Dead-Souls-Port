@@ -24,7 +24,7 @@ static void create() {
     SetLong("A freshly baked wholesome loaf.");
     SetMass(1);
     SetBaseCost("gold", 10);
-    SetStrength(12);
+    SetStrength(20);
     SetMealType(MEAL_FOOD);
     SetMealMessages("You eat a bread.",
       "$N eats a bread.");
