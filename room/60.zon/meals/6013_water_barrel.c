@@ -28,7 +28,7 @@ void create(){
     SetFlaskContents("water");
     SetMaxFlask(50);
     SetFlaskUses(50);
-    SetStrength(5);
+    SetStrength(10);
     SetTapped(1); //if a cask or a keg from which drinks are poured
     SetMealType(MEAL_DRINK); //set to DS liquid type
     SetVendorType(VT_DRINK);
