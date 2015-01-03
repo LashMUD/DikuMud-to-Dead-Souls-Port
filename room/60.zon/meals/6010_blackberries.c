@@ -23,7 +23,7 @@ static void create() {
     SetLong("They look very tasty indeed.");
     SetMass(1);
     SetBaseCost("gold", 10);
-    SetStrength(3);
+    SetStrength(5);
     SetMealType(MEAL_FOOD);
     SetMealMessages("You eat the blackberries.",
       "$N eats some blackberries.");
