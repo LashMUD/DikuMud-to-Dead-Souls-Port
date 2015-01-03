@@ -1,0 +1,53 @@
+1047a
+    
+.
+1042a
+    int x;
+    x = ob->GetMorality();
+.
+1020c
+   if( member_array(ob, GetHostiles()) == -1 ){
+.
+1000a
+    /*added by Lash for delta morality based on killed NPC's morality */
+    y = ob->GetMorality();
+    SetMorality(GetMorality()-y);
+    if (GetMorality()>2500) SetMorality(2500);
+    if (GetMorality()<-2500) SetMorality(-2500);
+    /* end add */
+    
+        
+.
+994a
+    int y;
+.
+944a
+    
+.
+612,614c
+    this_object()->AddStaminaPoints(-1);
+.
+579c
+    /* parentheseses as per Nilrin 6/25/13 on Dead Souls message board in Bug Central */
+    if( (position == POSITION_LYING || position == POSITION_SITTING) &&
+.
+427a
+    /* added by Lash for potion conferring 'sanctuary' effect - damage reduced in half */
+    if(GetCurrentEnemy()->GetProperty("sanctuary")) x=x/2; 
+    /* end add */
+.
+315,320c
+    int GetInCombat(){
+        return sizeof(filter(GetEnemies(),
+                    (: $1 && ( (environment($1) == environment()) 
+                               || environment() == $1 || environment($1) ==
+                               this_object()) :)));
+    }
+.
+6a
+ *    added function for alignment change
+ *    due to kills and damage reduction 
+ *    if player is protected by 'sanctuary'
+ *    spell in SetProperties() 
+ *    Last modified 14/12/19
+.
