@@ -28,7 +28,7 @@ void create(){
     SetVendorType(VT_DRINK);
     SetFlaskContents("ale");
     SetFlaskUses(8);
-    SetStrength(2);
+    SetStrength(8);
     SetMaxFlask(8);
     SetNoCondition(1); 
     SetMealType(MEAL_ALCOHOL);
