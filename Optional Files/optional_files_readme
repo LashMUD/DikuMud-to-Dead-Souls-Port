@@ -1,3 +1,6 @@
+mudtime.c - Added a function to display the current year in mudtime
+            copy to /lib/cmds/creators
+
 pets - help file for pet objects
        copy to /lib/doc/help/players
 
@@ -6,9 +9,10 @@ score.c - Gives a modified output for the 'score' command
 
 ticktock.c - modified help file to give the current
              MUD day length in hours and hour length in 
-             minutes.
+             ticks.
              copy to /lib/secure/cmds/admins
 
 timeinfo.c - gives output yielding values of certain variables
              for time keeping in the Mud.
              copy to /lib/secure/cmds/creators 
+
