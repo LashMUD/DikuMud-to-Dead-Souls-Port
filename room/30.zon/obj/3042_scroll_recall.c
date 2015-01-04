@@ -19,6 +19,7 @@ void create(){
         "recall" : (:read_scroll:)
         ]) );
     SetLanguage("common");
+    SetProperty("magic item", 1);
 }
 
 void init(){
