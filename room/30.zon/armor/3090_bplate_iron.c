@@ -22,7 +22,7 @@ static void create(){
     SetId(({"iron","plate","breastplate", "breast plate"}));
     SetAdjectives(({""}));
     SetShort("an iron breast plate");
-    SetLong("A iron breast plate.");
+    SetLong("An iron breast plate.");
     SetMass(400);
     SetBaseCost("gold",10000);
     SetDamagePoints(95);
