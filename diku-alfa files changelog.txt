@@ -2,7 +2,16 @@ Changelog (year-month-day)
 
 *2020-04-19
 - change code in certain diku-alfa rooms to dissallow entry by NPC's unless they
-  are following a player
+  are following a player:
+  3001.c check bulletin board NEED TO BE FOLLOWING A PLAYER
+  3002.c check cleric inner sanctum NEED TO BE FOLLOWING A PLAYER
+  3003.c check cleric bar NEED TO BE FOLLOWING A PLAYER
+  3018.c check mage bar NEED TO BE FOLLOWING A PLAYER
+  3019.c check mage lab NEED TO BE FOLLOWING A PLAYER
+  3022.c check swordsmans bar NEED TO BE FOLLOWING A PLAYER
+  3023.c check practice yard NEED TO BE FOLLOWING A PLAYER
+  3028.c check thieves bar NEED TO BE FOLLOWING A PLAYER
+  3029.c check secret yard NEED TO BE FOLLOWING A PLAYER
 - /domains/diku-alfa/room/30.zon/npc/
   3061_janitor
   3063_mercenary.c
