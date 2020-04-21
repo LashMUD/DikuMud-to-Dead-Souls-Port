@@ -1,4 +1,4 @@
-Changelog
+Changelog (year-month-day)
 
 *2020-04-19
 - change code in certain diku-alfa rooms to dissallow entry by NPC's unless they
@@ -41,7 +41,7 @@ Changelog
   Pet Shop - added ob->SetShort() to pets so pets can be identified by their name if
   named at time of purchase
 
-*1-03-15
+*2015-01-03
 - added scroll Word of Recall to the magic shop
 - modifed 4050_purple_potion.c. Confers the sanctuary spell affect, 
   cures blindness, and is poisoned for some reason. The sanctuary spell 
@@ -64,7 +64,7 @@ Changelog
   timer variable (Duration) timed out
 - created new package dds_pa0.9r02.tar.gz
 
-*12-11-14
+*2014-12-11
 - Modified pet store so that only one pet will be available per player.
   Too many issues manipulating multiple pets at a time. May go back and
   try to solve this.
@@ -90,41 +90,41 @@ Changelog
 - Modified /etc/magic_user.c energy drain function so that the correct
   output for the affected individual is displayed
 
-*12-01-14
+*2014-12-01
 - made sure all vendors have SetNoAttack() and SetNoBump().
 - made sure all meals have SetNoCondition(1) - so meals won't deteriorate. 
 - updated timeinfo.c and ticktock.c files in /etc folder.
 - modified files with guild guards so admins can by pass the guard.
 
-*11-30-14
+*2014-11-30
 -  changed eventTrainSkill("magic defense",save,s_throw,1); in NPC's that 
    use magic (see /etc/magic_user.c, the bat npc's in /room/41.zon/npc) so that
    training occurs if the players save value (pro) beats the saving throw (con)
    required to resist the magic being thrown at the player. Success is flagged
    with '1' for highest reward. See /lib/lib/lvs/abilities.c for explanation.
 
-*11-29-14
+*2014-11-29
 - Added help for pets in the Optional Files folder
 - Added a "readme" for description and placement of Optional files.
 - Modified ticktock.c help output to give current MUD's day length in hours an
   hour length in minutes.
 
-*11-28-14
+*2014 -11-28
 - Edited pet files for limited functionality for add_action(order, order) function.
   Also modified scavenge function so the pet can get an item and place it in
   their owners inventory (pet "fetch's" the item and "gives" it to their owner).
   All available pets have the same functionality. Issues with owning multiple
   pets need to be worked out. Files are heavily commented.
 
-*11-26-14
+*2014-11-26
 - Modified genetics.c in /etc folder: added SetBlind() functionality
 - Modified light.c in /etc folder: removed unnecessary checks   
 
-*11-25-14
+*2014-11-25
 - Changed skills affected by curse in magic_user.c so that all primary class
   skills are affected as well as the 'luck' stat.
 
-*11-24-14
+*2014-11-24
 - Worked on magic user.c. Has copius comments to make sure the
   functions work. Uncomment if you like to see how they work.
 - Changed levels of 4100_mage.c and 4157_mage.c in
@@ -142,7 +142,7 @@ Changelog
   NOTE: right now pet combat abilities suck. Need to change.
 - Changed mayor file so he wanders within the default Dead Souls 20 hour day
 
-*11-20-14
+*2014-11-20
 - Added guildmasters for the four classes. They can train skills,
   teach spells, and advance the player based on experience points
   and quest points.
@@ -151,28 +151,28 @@ Changelog
   spellbooks). Otherwise they will be able to teach all spells from
   the spells (lib/secure/powers) directory regardless of class boundaries.
 
-*11-19-14
+*2014-11-19
 - tidied up pet functions. Need to figure out how to have a notify_fail
   message if the pet npc can't perform their "order" from the player.
 
-*11-09-14
+*2014-11-09
 - replaced light objects with Dead Souls style objects instead
   of trying to emulate Diku torches and lanterns which are continually lit.
 
-* 11-07-14
+* 2014-11-07
 - Added Optional Files folder - contains files I modified and/or
   wrote for use with Dead Souls
 - score.c modified score output
 - timeinfo.c a command to give output of variables used in 
   functions pertaining to time in the Mud
 
-* 11-03-14 
+* 2014-11-03 
 - created new package dds_pa0.9r01.tar.gz
 - added licenses for Dead Souls Mudlib, DikuMud license, and the
   license for use of this package (dds_pa0.09r01: 
   DikutoDeadSouls_license
  
-*11-02-14
+*2014-11-02
 - Replaced correct magic_user.c file in etc folder *NOT!* see 
   11-24-14 above
   Reformmated contents
@@ -200,7 +200,7 @@ Changelog
   Need to add functions for elevating the "magic defense" skill if
   a player is able to resist the magic spell during combat.
 
-*10/31/14
+*2014-10-31
 - Changed 3043.c so letters on the wall can be "looked at" and "read"
 - Changed ticktock help output by adding the lines: "Diku->Dead
   Mudlib: ticktock 1200 = 1 hr in Mudtime"
