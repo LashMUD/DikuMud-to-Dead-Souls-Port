@@ -31,13 +31,14 @@ for the zone are included in their own directories under the numbered zone direc
 What this is - 
 An almost complete version of the Diku Alpha areas
 ported to the Dead Souls Mudlib (http://dead-souls.net)
-Included are all areas, mobs with their respictive functionality,
+Included are all areas, mobs with their respective functionality,
 and maps (text files) of all areas except Zone 80 (unmappable, 
 by me at least). To enable proper viewing of the Composite
 Midgaard Map you may have to disable "text wrapping" in your
-editor. What is NOT included is player magic (spells) or player leveling.
+editor. What is NOT included is player magic (spells) 
+or DIKU based player leveling.
 
 Contents -
-diku-alfa folder - domain folder of areas. npc's,objects, etc.
+diku-alfa folder - domain folder of areas, npc's, objects, etc.
 Maps folder - area maps indexed by zon number
 Modified DS files - folder with modified Dead Souls lib files
