@@ -30,11 +30,13 @@ static void create() {
     SetCanBite(0);
     SetRace("human");
     SetLevel(1);
+    SetClass("fighter");
     SetGender("male");
     SetMorality(2250);
     AddCurrency("gold", 34);
     SetWander(5);
-    SetAction(50, ( :CheckTrash: ));
+    SetAction(100, ( :CheckTrash: ));
+    SetProperty("STAY_ZONE", 1);
 }
 
 void init(){
@@ -48,7 +50,7 @@ int CheckTrash(object ob){
     object env = environment(this_object());
     object *things;
     things = all_inventory(env);
-
+    
     badpos = (POSITION_NULL|POSITION_SITTING|POSITION_LYING|POSITION_KNEELING);
 
     if(this_object()->GetSleeping() || this_object()->GetParalyzed() || pos & badpos){
@@ -57,13 +59,17 @@ int CheckTrash(object ob){
         
     if(env){
        foreach(ob in things){
-           if(ob && inherits(LIB_FLASK, ob)){
-               ob->eventMove(this_object());
+           // no picking up corpses of players
+           if(ob && (base_name(ob) == LIB_CORPSE && ob->isPlayer()) ) return 0;
+           else if(ob && (inherits(LIB_ITEM, ob) || inherits(LIB_ARMOR, ob) || base_name(ob) == LIB_CORPSE || ob->GetKeyName() == "pile")){
+               ob->eventMove(load_object("/domains/diku-alfa/room/furnace"));
                tell_room(env, "The janitor picks up some trash.");
            }
-       }           
+       }
     }
-    return 1;
+    //below commented out becuse rm_3030 is a "no npc allowed" room
+    /*if(base_name(env) == "/domains/diku-alfa/room/30.zon/rm_3030") this_object()->eventForce("drop all");
+    return 1;*/
 }
 
 /* Extra Information Original Diku Output

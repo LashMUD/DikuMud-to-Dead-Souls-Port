@@ -21,20 +21,28 @@ static void create() {
     SetKeyName("the Mercenary");
     SetId(({"mercenary"}));
     SetAdjectives(({"non-player", "non player"}));
-    SetShort("A Mercenary waiting for a job");
-    SetLong("He looks pretty mean.");
+    SetShort("a Mercenary");
+    SetLong("Waiting for a job - he looks pretty mean.");
     SetInventory( ([
         "/domains/diku-alfa/room/30.zon/weap/3021_smallsword" : "wield sword",
+        "/domains/diku-alfa/room/30.zon/armor/3072_jerkin_scalemail" : "wear jerkin",
+        "/domains/diku-alfa/room/30.zon/armor/3073_coif_scalemail" : "wear coif",
+        "/domains/diku-alfa/room/30.zon/armor/3077_sleeves_scalemail" : "wear sleeves",
+        "/domains/diku-alfa/room/30.zon/armor/3074_skirt_scalemail" : "wear skirt",
+        "/domains/diku-alfa/room/30.zon/armor/3072_jerkin_scalemail" : "wear jerkin",
+        "/domains/diku-alfa/room/30.zon/armor/3082_boots_ironbound" : "wear boots",
         ] ));
     SetRace("human");
     SetClass("fighter");
-    SetLevel(5);
+    SetLevel(14);
+    SetCanBite(0);
     SetMelee(1);
     SetGender("male");
     SetMorality(-500);
     AddCurrency("gold", 47);
     SetWander(5);
     SetAction(10, ( :Scavenge: ));
+    SetProperty("STAY_ZONE",1);
 }
 
 void init(){
@@ -54,7 +62,6 @@ void Scavenge(){
         foreach(object thing in item){
             if(thing->GetBaseCost() == cost[0]){
                 eventForce("get "+thing->GetKeyName());
-                break;
             }
         }
     }

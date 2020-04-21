@@ -21,13 +21,14 @@ static void create() {
     SetKeyName("madam Esther");
     SetId( ({"esther", "madam"}) );
     SetAdjectives(({"non-player", "non player"}));
-    SetShort("Madam Esther, trying to sell dust,");
+    SetShort("Madam Esther");
     SetLong("She is very big standing here, smiling to you. She looks like the\n"+
         "mother of the town, sometimes playing with the children, sometimes\n"+
         "helping the old people, with their daily work. All this in spite of\n"+
-        "her own hard work.");
+        "her own hard work, trying to merely sell some dust.");
     SetRace("human");
     SetLevel(1);
+    SetCanBite(0);
     SetGender("female");
     SetMorality(2500);
     SetMelee(1);
@@ -54,7 +55,6 @@ void Scavenge(){
         foreach(object thing in item){
             if(thing->GetBaseCost() == cost[0]){
                 eventForce("get "+thing->GetKeyName());
-                break;
             }
         }
     }
