@@ -30,8 +30,8 @@ static void create() {
         "/domains/diku-alfa/room/30.zon/npc/3045_f_waiter" : 1,
         ]) );
     SetExits( ([
-        "south" : "/domains/diku-alfa/room/30.zon/3023",
-        "west" : "/domains/diku-alfa/room/30.zon/3021",
+        "south" : "/domains/diku-alfa/room/30.zon/rm_3023",
+        "west" : "/domains/diku-alfa/room/30.zon/rm_3021",
         ]) );
 }
 
@@ -39,13 +39,13 @@ void init(){
     ::init();
 }
 
-/* NO_NPC's except the Fighter's Waiter allowed in room*/
-int CanReceive(object ob) {
-    if(ob && !inherits(LIB_NPC, ob) | !strcmp("the Fighter's Waiter", ob->GetShort())){
-    return 1;
+/* NO_NPC's allowed in Swordsman's Bar unless following a player*/
+int CanReceive(object ob){
+    if( ob && (!inherits(LIB_NPC, ob)) || ob->GetLeader(this_player()) ){
+        return 1;
     }
     else
-    return 0;
+        return 0;
 }
 
 /* Extra Information Original Diku Output 

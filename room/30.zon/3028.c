@@ -32,8 +32,8 @@ static void create() {
         "/domains/diku-alfa/room/30.zon/npc/3044_t_waiter" : 1,
         ]) );
     SetExits( ([
-        "south" : "/domains/diku-alfa/room/30.zon/3029",
-        "west" : "/domains/diku-alfa/room/30.zon/3027",
+        "south" : "/domains/diku-alfa/room/30.zon/rm_3029",
+        "west" : "/domains/diku-alfa/room/30.zon/rm_3027",
         ]) );
 }
 
@@ -41,13 +41,13 @@ void init(){
     ::init();
 }
 
-/* NO_NPC's except the Thieve's Waiter allowed in room*/
-int CanReceive(object ob) {
-    if(ob && !inherits(LIB_NPC, ob) | !strcmp("the Thieve's Waiter", ob->GetShort())){
-    return 1;
+/* NO_NPC's allowed in Thieve's Bar unless following a player*/
+int CanReceive(object ob){
+    if( ob && (!inherits(LIB_NPC, ob)) || ob->GetLeader(this_player()) ){
+        return 1;
     }
     else
-    return 0;
+        return 0;
 }
 
 

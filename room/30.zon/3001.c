@@ -14,9 +14,9 @@
 inherit LIB_ROOM;
 
 static void create() {
-    
+
     object ob;
-    
+
     room::create();
 
     SetClimate("indoors");
@@ -31,7 +31,7 @@ static void create() {
     ob = new("/lib/bboard");
     ob->SetKeyName("bulletin board");
     ob->SetId( ({ "board", "bulletin", "dusty board", "bulletin board" }) );
-    ob->set_board_id("general_board");
+    ob->set_board_id("midgaard_general_board");
     ob->set_max_posts(30);
     ob->SetShort("a bulletin board");
     ob->SetLong("A large bulletin board is mounted on a wall here.\n"+
@@ -44,9 +44,9 @@ static void create() {
            "down" : "You see the temple square.",
         ]) );
     SetExits( ([
-           "south" : "/domains/diku-alfa/room/30.zon/3005",
-           "down" : "/domains/diku-alfa/room/30.zon/3005",
-           "north" : "/domains/diku-alfa/room/30.zon/3054",
+           "south" : "/domains/diku-alfa/room/30.zon/rm_3005",
+           "down" : "/domains/diku-alfa/room/30.zon/rm_3005",
+           "north" : "/domains/diku-alfa/room/30.zon/rm_3054",
         ]) );
 }
 
@@ -54,9 +54,9 @@ void init(){
     ::init();
 }
 
-/* NO_NPC's allowed in room*/
-int CanReceive(object ob) {
-    if(ob && !inherits(LIB_NPC, ob)){
+/* NO_NPC's allowed in bulletin board room unless following player*/
+int CanReceive(object ob){
+    if( ob && (!inherits(LIB_NPC, ob)) || ob->GetLeader(this_player()) ){
         return 1;
     }
     else
@@ -66,7 +66,7 @@ int CanReceive(object ob) {
 /* Extra Information Original Diku Output 
 Room name: The Temple Of Midgaard, Of zone : 1. V-Number : 3001, R-number : 7
 Sector type : Inside Special procedure : No
-Room flags: NO_MOB INDOORS 
+Room flags: NO_MOB INDOORS
 Description:
    You are in the southern end of the temple hall in the Temple of Midgaard.
 The temple has been constructed from giant marble blocks, eternal in
@@ -84,21 +84,21 @@ board bulletin
 Direction north . Keyword : (null)
 Description:
   At the northern end of the temple hall is a statue and a huge altar.
-Exit flag: NOBITS 
+Exit flag: NOBITS
 Key no: -1
 To room (V-Number): 3054
 
 Direction south . Keyword : (null)
 Description:
   You look down the huge stone steps at the temple square below.
-Exit flag: NOBITS 
+Exit flag: NOBITS
 Key no: -1
 To room (V-Number): 3005
 
 Direction down . Keyword : (null)
 Description:
   You see the temple square.
-Exit flag: NOBITS 
+Exit flag: NOBITS
 Key no: -1
 To room (V-Number): 3005
 */

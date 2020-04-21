@@ -24,8 +24,8 @@ static void create() {
             "in the middle of the floor leads down into darkness. Vile smells waft from\n"+
             "the depths."); 
     SetExits( ([
-        "east" : "/domains/diku-alfa/room/30.zon/3003",
-        "down" : "/domains/diku-alfa/room/70.zon/7026",
+        "east" : "/domains/diku-alfa/room/30.zon/rm_3003",
+        "down" : "/domains/diku-alfa/room/70.zon/rm_7026",
         ]) );
     SetItems( ([
        "east" : "You see your favorite place, the bar of divination.",
@@ -41,14 +41,14 @@ void init(){
     ::init();
 }
 
-/* NO_NPC's allowed in room
-int CanReceive(object ob) {
-    if(ob && !inherits(LIB_NPC, ob)){
-    return 1;
+/* NO_NPC's allowed in Cleric's Inner Sanctum unless following a player*/
+int CanReceive(object ob){
+    if( ob && (!inherits(LIB_NPC, ob)) || ob->GetLeader(this_player()) ){
+        return 1;
     }
     else
-    return 0;
-}*/
+        return 0;
+}
 
 /* Extra Information Original Diku Output 
 Room name: Cleric's Inner Sanctum, Of zone : 1. V-Number : 3002, R-number : 8

@@ -29,8 +29,8 @@ static void create() {
         "/domains/diku-alfa/room/30.zon/npc/3042_m_waiter" : 1,
         ]) );
     SetExits( ([
-        "north" : "/domains/diku-alfa/room/30.zon/3017",
-        "east" : "/domains/diku-alfa/room/30.zon/3019",
+        "north" : "/domains/diku-alfa/room/30.zon/rm_3017",
+        "east" : "/domains/diku-alfa/room/30.zon/rm_3019",
         ]) );
 }
 
@@ -38,13 +38,13 @@ void init(){
     ::init();
 }
 
-/* NO_NPC's except the Mage's Waiter allowed in room*/
-int CanReceive(object ob) {
-    if(ob && !inherits(LIB_NPC, ob) | !strcmp("the Mage's Waiter", ob->GetShort())){
-    return 1;
+/* NO_NPC's allowed in Mage's Bar unless following a player*/
+int CanReceive(object ob){
+    if( ob && (!inherits(LIB_NPC, ob)) || ob->GetLeader(this_player()) ){
+        return 1;
     }
     else
-    return 0;
+        return 0;
 }
 
 /* Extra Information Original Diku Output 

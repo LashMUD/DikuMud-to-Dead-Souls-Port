@@ -30,8 +30,8 @@ static void create() {
         "/domains/diku-alfa/room/30.zon/npc/3022_t_guildmaster" : 1,
         ]) );
     SetExits( ([
-        "north" : "/domains/diku-alfa/room/30.zon/3028",
-        "down" : "/domains/diku-alfa/room/70.zon/7043",
+        "north" : "/domains/diku-alfa/room/30.zon/rm_3028",
+        "down" : "/domains/diku-alfa/room/70.zon/rm_7043",
         ]) );
 }
 
@@ -39,14 +39,14 @@ void init(){
     ::init();
 }
 
-/* NO_NPC's allowed in room
-int CanReceive(object ob) {
-    if(ob && !inherits(LIB_NPC, ob)){
-    return 1;
+/* NO_NPC's allowed in Secret Yard unless following a player*/
+int CanReceive(object ob){
+    if( ob && (!inherits(LIB_NPC, ob)) || ob->GetLeader(this_player()) ){
+        return 1;
     }
     else
-    return 0;
-}*/
+        return 0;
+}
 
 /* Extra Information Original Diku Output 
 Room name: The Secret Yard, Of zone : 1. V-Number : 3029, R-number : 35
