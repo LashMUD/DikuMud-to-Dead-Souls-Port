@@ -3,29 +3,42 @@ Changelog
 *2020-04-19
 - change code in certain diku-alfa rooms to dissallow entry by NPC's unless they
   are following a player
-- /domains/diku-alfa/room/30.zon/npc/3063_mercenary.c,7012_m_esther.c, 
-  3090_kitten.c, 3091_puppy.c, 3092_beagle.c, 3093_rottweiler.c, 3094_wolf.c
-  -cleaned up code
+- /domains/diku-alfa/room/30.zon/npc/
+  3061_janitor
+  3063_mercenary.c
+  7012_m_esther.c
+  - cleaned up code
+  - janitor does not pick up corpses of players
+  3090_kitten.c
+  3091_puppy.c
+  3092_beagle.c
+  3093_rottweiler.c
+  3094_wolf.c
+  - cleaned up code
   - added check to make sure only owner of pet issues commands in
     eventTalkRespond()
   - added code to make sure pets do not fetch corpses
+  - added code to make sure pets only fetch items for their associated player
+    character (owner)
 
 *2020-04-17
 - corrected Midgaard composite map 
 
 *2020-04-16
-- /domains/diku-alfa/room/30.zon/npc/3090_kitten.c, 3091_puppy.c, 3092_beagle.c, 
-  3093_rottweiler.c, 3094_wolf.c
+- /domains/diku-alfa/room/30.zon/npc/
+  3090_kitten.c
+  3091_puppy.c
+  3092_beagle.c
+  3093_rottweiler.c
+  3094_wolf.c
   removed add_action code for commands and replaced with code from
   /lib/shadows/zombie.c eventTalkRespond() (Dead Souls Mudlib) code for 
   following orders
-- all pets have SetPolyglot(1); added to code to follow orders in all languages
+  all pets have SetPolyglot(1); added to code to follow orders in all languages
    
-/domains/diku-alfa/rooms/3031.s
--Pet Shop
- added ob->SetShort() to pets so pets can be identified by their name if
- named at time of purchase
-
+- /domains/diku-alfa/rooms/3031.c
+  Pet Shop - added ob->SetShort() to pets so pets can be identified by their name if
+  named at time of purchase
 
 *10/31/14
 - Changed 3043.c so letters on the wall can be "looked at" and "read"
