@@ -33,141 +33,36 @@ Changelog
   3092_beagle.c
   3093_rottweiler.c
   3094_wolf.c
-  removed add_action code for commands and replaced with code from
-  /lib/shadows/zombie.c eventTalkRespond() (Dead Souls Mudlib) code for 
-  following orders
-  all pets have SetPolyglot(1); added to code to follow orders in all languages
-   
+  - removed add_action code for commands and replaced with code from
+    /lib/shadows/zombie.c eventTalkRespond() (Dead Souls Mudlib) code for 
+    following orders
+  - all pets have SetPolyglot(1); added to code to follow orders in all languages
 - /domains/diku-alfa/rooms/3031.c
   Pet Shop - added ob->SetShort() to pets so pets can be identified by their name if
   named at time of purchase
 
-*10/31/14
-- Changed 3043.c so letters on the wall can be "looked at" and "read"
-- Changed ticktock help output by adding the lines: "Diku->Dead
-  Mudlib: ticktock 1200 = 1 hr in Mudtime"
-
-- Started editing files with SetRead function so that when "look" 
-  sign or letters, etc, the function (:Readsign:) is not in the 
-  SetItems mapping. Instead the actual wording of the text "looked"
-  at will return the text. If the SetRead() function is in the 
-  SetItems mapping a "phantom" 1 will be returned at the bottom
-  of the text that was "looked" at instead of "read". Completed
-  Rooms with SetRead() function:
-  3003.c, 3007.c, 3008.c, 3009.c, 3010.c, 3011.c, 3020.c, 3031.c,
-  3034.c, 3035.c, 3034.c, 3110.c, 3111.c, 3118.c, 3120.c, 3129.c
-  3301.c
-  COMPLETED!
-
-*11-02-14
-- Replaced correct magic_user.c file in etc folder *NOT!* see 
-  11-24-14 below
-  Reformmated contents
-  Added comments for documentation
-  Note: if a player is 'cursed' and uses the 'stats' command 
-  changes in stats due to the curse will be noticable since 
-  the stats command uses the GetStatLevel() function. Affected
-  skills will NOT be noticed because the 'skills' command lists
-  the players max skill regardless of skill ability changes. A 
-  creator will be able to see the skill ability change by using
-  the GetSkillLevel("skill") function. May need to change the
-  skills.c command to reflect this.
-  Need to change the function used to determine if an appropriate
-  target for the magic_user is available. The current check is not
-  as efficient as it should be:
-    
-    if(ob && (!ob->GetInCombat() || !ob->GetCurrentEnemy())) return 0;
-
-    targets = filter(get_livings(env), (: !$1->GetInCombat() && !$1->GetSleeping() :));
-    tell_room(env, "\nsizeof(targets) is "+sizeof(targets)+"\n", ({ ob }));
-    if( sizeof(targets) < 1 ){
-        tell_room(env, "\nNO TARGETS\n", ({ ob}));
-    }
-    
-  Need to add functions for elevating the "magic defense" skill if
-  a player is able to resist the magic spell during combat.
-
-* 11-03-14 
-- created new package dds_pa0.9r01.tar.gz
-- added licenses for Dead Souls Mudlib, DikuMud license, and the
-  license for use of this package (dds_pa0.09r01: 
-  DikutoDeadSouls_license
-
-* 11-07-14
-- Added Optional Files folder - contains files I modified and/or
-  wrote for use with Dead Souls
-- score.c modified score output
-- timeinfo.c a command to give output of variables used in 
-  functions pertaining to time in the Mud 
-
-*11-09-14
-- replaced light objects with Dead Souls style objects instead
-  of trying to emulate Diku torches and lanterns which are continually lit.
-
-*11-19-14
-- tidied up pet functions. Need to figure out how to have a notify_fail
-  message if the pet npc can't perform their "order" from the player.
-
-*11-20-14
-- Added guildmasters for the four classes. They can train skills,
-  teach spells, and advance the player based on experience points
-  and quest points.
-- Modified base_trainer.c lib file so that the guildmasters that
-  teach spells can only teach spells that they know (ie from their
-  spellbooks). Otherwise they will be able to teach all spells from
-  the spells (lib/secure/powers) directory regardless of class boundaries.
-
-*11-24-14
-- Worked on magic user.c. Has copius comments to make sure the
-  functions work. Uncomment if you like to see how they work.
-- Changed levels of 4100_mage.c and 4157_mage.c in
-  /diku-alfa/room/41.zon/npc
-- Changed morality of 4103_thief.c znd 4155_thief.c located in
-  above directory. Also enabled 'invisibility' and 'sneak' abilities
-  for 4155_thief.c
-- Worked on pet functions for npc's that can be bought as pets. 
-  They behave correctly but need a fail message (as per 11-19-14 comments)
-  if the pet can't execute a players 'order'. Was thinking about setting
-  an array of limited commands the player can use. Copius commented code
-  to figure out what is going on in 3094-wolf.c located in
-  /diku-alfa/30.zon/npc. code is : tell_player("lash", "<whatever>);
-  Change to your admin/creator name (ie not lash) to use after uncommenting.
-  NOTE: right now pet combat abilities suck. Need to change.
-- Changed mayor file so he wanders within the default Dead Souls 20 hour day
-
-*11-25-14
-- Changed skills affected by curse in magic_user.c so that all primary class
-  skills are affected as well as the 'luck' stat.
-  
-*11-26-14
-- Modified genetics.c in /etc folder: added SetBlind() functionality
-- Modified light.c in /etc folder: removed unnecessary checks
-
-*11-28-14
-- Edited pet files for limited functionality for add_action(order, order) function.
-  Also modified scavenge function so the pet can get an item and place it in
-  their owners inventory (pet "fetch's" the item and "gives" it to their owner).
-  All available pets have the same functionality. Issues with owning multiple
-  pets need to be worked out. Files are heavily commented.
-
-*11-29-14
-- Added help for pets in the Optional Files folder
-- Added a "readme" for description and placement of Optional files.
-- Modified ticktock.c help output to give current MUD's day length in hours an
-  hour length in minutes.
-
-*11-30-14
--  changed eventTrainSkill("magic defense",save,s_throw,1); in NPC's that 
-   use magic (see /etc/magic_user.c, the bat npc's in /room/41.zon/npc) so that
-   training occurs if the players save value (pro) beats the saving throw (con)
-   required to resist the magic being thrown at the player. Success is flagged
-   with '1' for highest reward. See /lib/lib/lvs/abilities.c for explanation.   
-
-*12-01-14
-- made sure all vendors have SetNoAttack() and SetNoBump().
-- made sure all meals have SetNoCondition(1) - so meals won't deteriorate. 
-- updated timeinfo.c and ticktock.c files in /etc folder.
-- modified files with guild guards so admins can by pass the guard.
+*1-03-15
+- added scroll Word of Recall to the magic shop
+- modifed 4050_purple_potion.c. Confers the sanctuary spell affect, 
+  cures blindness, and is poisoned for some reason. The sanctuary spell 
+  affect adds the property "sanctuary" to player properties. There is a 
+  check for the property in the modified combat.c file. If player has 
+  property "sanctuary" damage received is reduced by half.
+- added a counter for the sanctuary effect in genetics.c
+- redid diff files for Modifed Dead Souls files for Dead Souls 3.8.6
+- fixed typos in cityguard files
+- modified times for wander routine in 3143_mayor.c
+- added comments to trainer.c and base_trainer.c in /etc folder 
+- added parchment and quill items to grocers store (courtesy of Nilrin
+  from the Dead Souls message boards)
+- increased meal strengths of food items
+- added functionality that was present in the eventEat() function that was
+  not present in the eventDrink() function of meal.c. The function added is
+  evaluation of the function defined in SetMealAction(f). This way the called
+  function is evaluated when eventDrink() calls for it.
+- modified bonus.c. The bonus object was not being destructed after the bonus
+  timer variable (Duration) timed out
+- created new package dds_pa0.9r02.tar.gz
 
 *12-11-14
 - Modified pet store so that only one pet will be available per player.
@@ -195,27 +90,129 @@ Changelog
 - Modified /etc/magic_user.c energy drain function so that the correct
   output for the affected individual is displayed
 
-*1-03-15
-- added scroll Word of Recall to the magic shop
-- modifed 4050_purple_potion.c. Confers the sanctuary spell affect, 
-  cures blindness, and is poisoned for some reason. The sanctuary spell 
-  affect adds the property "sanctuary" to player properties. There is a 
-  check for the property in the modified combat.c file. If player has 
-  property "sanctuary" damage received is reduced by half.
-- added a counter for the sanctuary effect in genetics.c
-- redid diff files for Modifed Dead Souls files for Dead Souls 3.8.6
-- fixed typos in cityguard files
-- modified times for wander routine in 3143_mayor.c
-- added comments to trainer.c and base_trainer.c in /etc folder 
-- added parchment and quill items to grocers store (courtesy of Nilrin
-  from the Dead Souls message boards)
-- increased meal strengths of food items
-- added functionality that was present in the eventEat() function that was
-  not present in the eventDrink() function of meal.c. The function added is
-  evaluation of the function defined in SetMealAction(f). This way the called
-  function is evaluated when eventDrink() calls for it.
-- modified bonus.c. The bonus object was not being destructed after the bonus
-  timer variable (Duration) timed out
-- created new package dds_pa0.9r02.tar.gz
+*12-01-14
+- made sure all vendors have SetNoAttack() and SetNoBump().
+- made sure all meals have SetNoCondition(1) - so meals won't deteriorate. 
+- updated timeinfo.c and ticktock.c files in /etc folder.
+- modified files with guild guards so admins can by pass the guard.
 
-  
+*11-30-14
+-  changed eventTrainSkill("magic defense",save,s_throw,1); in NPC's that 
+   use magic (see /etc/magic_user.c, the bat npc's in /room/41.zon/npc) so that
+   training occurs if the players save value (pro) beats the saving throw (con)
+   required to resist the magic being thrown at the player. Success is flagged
+   with '1' for highest reward. See /lib/lib/lvs/abilities.c for explanation.
+
+*11-29-14
+- Added help for pets in the Optional Files folder
+- Added a "readme" for description and placement of Optional files.
+- Modified ticktock.c help output to give current MUD's day length in hours an
+  hour length in minutes.
+
+*11-28-14
+- Edited pet files for limited functionality for add_action(order, order) function.
+  Also modified scavenge function so the pet can get an item and place it in
+  their owners inventory (pet "fetch's" the item and "gives" it to their owner).
+  All available pets have the same functionality. Issues with owning multiple
+  pets need to be worked out. Files are heavily commented.
+
+*11-26-14
+- Modified genetics.c in /etc folder: added SetBlind() functionality
+- Modified light.c in /etc folder: removed unnecessary checks   
+
+*11-25-14
+- Changed skills affected by curse in magic_user.c so that all primary class
+  skills are affected as well as the 'luck' stat.
+
+*11-24-14
+- Worked on magic user.c. Has copius comments to make sure the
+  functions work. Uncomment if you like to see how they work.
+- Changed levels of 4100_mage.c and 4157_mage.c in
+  /diku-alfa/room/41.zon/npc
+- Changed morality of 4103_thief.c znd 4155_thief.c located in
+  above directory. Also enabled 'invisibility' and 'sneak' abilities
+  for 4155_thief.c
+- Worked on pet functions for npc's that can be bought as pets. 
+  They behave correctly but need a fail message (as per 11-19-14 comments)
+  if the pet can't execute a players 'order'. Was thinking about setting
+  an array of limited commands the player can use. Copius commented code
+  to figure out what is going on in 3094-wolf.c located in
+  /diku-alfa/30.zon/npc. code is : tell_player("lash", "<whatever>);
+  Change to your admin/creator name (ie not lash) to use after uncommenting.
+  NOTE: right now pet combat abilities suck. Need to change.
+- Changed mayor file so he wanders within the default Dead Souls 20 hour day
+
+*11-20-14
+- Added guildmasters for the four classes. They can train skills,
+  teach spells, and advance the player based on experience points
+  and quest points.
+- Modified base_trainer.c lib file so that the guildmasters that
+  teach spells can only teach spells that they know (ie from their
+  spellbooks). Otherwise they will be able to teach all spells from
+  the spells (lib/secure/powers) directory regardless of class boundaries.
+
+*11-19-14
+- tidied up pet functions. Need to figure out how to have a notify_fail
+  message if the pet npc can't perform their "order" from the player.
+
+*11-09-14
+- replaced light objects with Dead Souls style objects instead
+  of trying to emulate Diku torches and lanterns which are continually lit.
+
+* 11-07-14
+- Added Optional Files folder - contains files I modified and/or
+  wrote for use with Dead Souls
+- score.c modified score output
+- timeinfo.c a command to give output of variables used in 
+  functions pertaining to time in the Mud
+
+* 11-03-14 
+- created new package dds_pa0.9r01.tar.gz
+- added licenses for Dead Souls Mudlib, DikuMud license, and the
+  license for use of this package (dds_pa0.09r01: 
+  DikutoDeadSouls_license
+ 
+*11-02-14
+- Replaced correct magic_user.c file in etc folder *NOT!* see 
+  11-24-14 above
+  Reformmated contents
+  Added comments for documentation
+  Note: if a player is 'cursed' and uses the 'stats' command 
+  changes in stats due to the curse will be noticable since 
+  the stats command uses the GetStatLevel() function. Affected
+  skills will NOT be noticed because the 'skills' command lists
+  the players max skill regardless of skill ability changes. A 
+  creator will be able to see the skill ability change by using
+  the GetSkillLevel("skill") function. May need to change the
+  skills.c command to reflect this.
+  Need to change the function used to determine if an appropriate
+  target for the magic_user is available. The current check is not
+  as efficient as it should be:
+    
+    if(ob && (!ob->GetInCombat() || !ob->GetCurrentEnemy())) return 0;
+
+    targets = filter(get_livings(env), (: !$1->GetInCombat() && !$1->GetSleeping() :));
+    tell_room(env, "\nsizeof(targets) is "+sizeof(targets)+"\n", ({ ob }));
+    if( sizeof(targets) < 1 ){
+        tell_room(env, "\nNO TARGETS\n", ({ ob}));
+    }
+    
+  Need to add functions for elevating the "magic defense" skill if
+  a player is able to resist the magic spell during combat.
+
+*10/31/14
+- Changed 3043.c so letters on the wall can be "looked at" and "read"
+- Changed ticktock help output by adding the lines: "Diku->Dead
+  Mudlib: ticktock 1200 = 1 hr in Mudtime"
+
+- Started editing files with SetRead function so that when "look" 
+  sign or letters, etc, the function (:Readsign:) is not in the 
+  SetItems mapping. Instead the actual wording of the text "looked"
+  at will return the text. If the SetRead() function is in the 
+  SetItems mapping a "phantom" 1 will be returned at the bottom
+  of the text that was "looked" at instead of "read". Completed
+  Rooms with SetRead() function:
+  3003.c, 3007.c, 3008.c, 3009.c, 3010.c, 3011.c, 3020.c, 3031.c,
+  3034.c, 3035.c, 3034.c, 3110.c, 3111.c, 3118.c, 3120.c, 3129.c
+  3301.c
+  COMPLETED!
