@@ -7,8 +7,10 @@ Changelog
   3061_janitor
   3063_mercenary.c
   7012_m_esther.c
+  3062_fido.c
+  3066_odif.c
   - cleaned up code
-  - janitor does not pick up corpses of players
+  - janitor, fido, and odif do not pick up corpses of players
   3090_kitten.c
   3091_puppy.c
   3092_beagle.c
