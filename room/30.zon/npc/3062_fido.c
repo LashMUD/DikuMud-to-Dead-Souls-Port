@@ -24,8 +24,8 @@ static void create() {
     SetAdjectives(({"non-player", "non player"}));
     SetShort("Beastly Fido");
     SetLong("Fido is a small dog that has a foul smell and pieces of rotted meat hanging around his teeth.");
-    SetMelee(1);
     SetRace("dog");
+    SetClass("npc_melee");
     SetLevel(1);
     SetGender("male");
     SetMorality(-500);
@@ -56,13 +56,13 @@ int CheckCorpse(object ob){
         
     if(env){
        foreach(ob in things){
-           if(ob && base_name(ob) == LIB_CORPSE){
+           // no devouring corpses of players
+           if (ob && (base_name(ob) == LIB_CORPSE && !ob->isPlayer()) ){
                ob->eventDestruct();
                tell_room(env, "The "+this_object()->GetShort()+" savagely devours a corpse.");
            }
        }           
     }
-    return 1;
 }
 
 /* Extra Information Original Diku Output
