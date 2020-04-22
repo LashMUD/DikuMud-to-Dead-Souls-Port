@@ -54,7 +54,8 @@ int CheckCorpse(object ob){
         
     if(env){
        foreach(ob in things){
-           if(ob && base_name(ob) == LIB_CORPSE){
+           // no devouring corpses of players
+           if (ob && (base_name(ob) == LIB_CORPSE && !ob->isPlayer()) ){
                ob->eventDestruct();
                tell_room(env, "The "+this_object()->GetShort()+" savagely devours a corpse.");
            }
