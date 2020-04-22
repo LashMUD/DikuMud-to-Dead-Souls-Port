@@ -25,7 +25,6 @@ static void create() {
     SetShort("Beastly Fido");
     SetLong("Fido is a small dog that has a foul smell and pieces of rotted meat hanging around his teeth.");
     SetRace("dog");
-    SetClass("npc_melee");
     SetLevel(1);
     SetGender("male");
     SetMorality(-500);
