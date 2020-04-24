@@ -53,9 +53,10 @@ void init(){
     ::init();
 }
 
-/* NO_NPC's allowed in Cleric's Bar unless following a player*/
+/* NO_NPC's allowed in Mage's Lab unless following a player*/
 int CanReceive(object ob){
-    if( ob && (!inherits(LIB_NPC, ob)) || ob->GetLeader(this_player()) ){
+    if( ob && (base_name(ob)=="/domains/diku-alfa/room/30.zon/npc/3043_c_waiter" 
+        || playerp(ob) || adminp(ob) || ob->GetLeader(this_player())) ){
         return 1;
     }
     else
