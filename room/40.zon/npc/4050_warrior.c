@@ -22,16 +22,26 @@ static void create() {
     SetKeyName("the warrior");
     SetId( ({"warrior", "evil", "tall"}) );
     SetAdjectives(({"non-player", "non player", "warrior", "tall"}));
-    SetShort("A tall dangerous warrior with more scares than anyone you have\n"+
+    SetShort("A tall dangerous warrior with more scars than anyone you have\n"+
         "seen before");
     SetLong("Well surely a strong, brainless fighter.");
     SetRace("human");
     SetClass("fighter");
-    SetMelee(1);
-    SetLevel(12);
+    SetLevel(18);
+    SetCanBite(0);
     SetGender("male");
     SetMorality(-750);
     AddCurrency("gold", 1000);
+    SetWander(5);
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/weap/3024_warhammer" : "wield hammer",
+        "/domains/diku-alfa/room/30.zon/armor/3079_coif_chainmail" : "wear coif",
+        "/domains/diku-alfa/room/30.zon/armor/3078_jerkin_chainmail" : "wear jerkin",
+        "/domains/diku-alfa/room/30.zon/armor/3083_sleeves_chainmail" : "wear sleeves",
+        "/domains/diku-alfa/room/30.zon/armor/3082_gloves_ironbound" : "wear gloves",
+        "/domains/diku-alfa/room/30.zon/armor/3080_skirt_chainmail" : "wear skirt",
+        "/domains/diku-alfa/room/30.zon/armor/3087_boots_bronze" : "wear boots",
+        ]) );
     SetEncounter( (:CheckNPC:) );
     SetAction(10, ( :Scavenge: ));
 }

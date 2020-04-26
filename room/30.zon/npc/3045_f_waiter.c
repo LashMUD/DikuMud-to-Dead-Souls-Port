@@ -22,7 +22,6 @@ static void create() {
     SetId( ({"waiter", "vendor"}) );
     SetShort("the Fighter's Waiter");
     SetLong("A waiter who easily could kill you, and still carry quite a few firebreathers.");
-    SetCanBite(0);
     SetInventory( ([
         "/domains/diku-alfa/room/30.zon/weap/3022_longsword" : "wield sword",
         ] ));
@@ -34,8 +33,8 @@ static void create() {
     SetMorality(1500);
     AddCurrency("gold", 2000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/30.zon/3022-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/30.zon/rm_3022-2");
+    SetMaxItems(400);
     SetVendorType(VT_DRINK);
     SetProperty("no bump", 1);
     SetAttackable(0);

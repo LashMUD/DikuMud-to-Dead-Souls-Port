@@ -17,18 +17,18 @@ inherit LIB_SENTIENT;
 static void create() {
     sentient::create();
 
-    SetKeyName("the Secretary");
+    SetKeyName("secretary");
     SetId( ({"secretary", "honey"}) );
     SetAdjectives(({""}));
-    SetShort("A secretary, sitting at the desk, typing away on the typewriter,");
-    SetLong("She looks very busy.\n\n"+
+    SetShort("a Secretary");
+    SetLong("She looks very busy, sitting at the desk and typing away on the keyboard.\n\n"+
         "The Secretary says 'Sorry, but the Mayor is extremely busy today.'\n"+
         "The Secretary says 'Please sit down and have a seat in the meantime.'\n");
     SetRace("human");
+    SetClass("fighter");
     SetLevel(12);
     SetPosition(POSITION_SITTING);
     SetAutoStand(0);
-    SetMelee(1);
     SetCanBite(0);
     AddCurrency("gold", 100);
     SetGender("female");

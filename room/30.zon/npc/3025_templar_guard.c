@@ -13,12 +13,12 @@
 
 inherit LIB_SENTIENT;
 
-int AllowPass(object who, object what){
+/*int AllowPass(object who, object what){
     if(!who) return 0;
     if(!objectp(who)) return 0;
     if(who->GetClass() == "cleric" || adminp(who)) return 1; 
     return ::AllowPass(who, what);
-}
+}*/
 
 static void create() {
     sentient::create();
@@ -26,7 +26,7 @@ static void create() {
     SetKeyName("the Knight Templar");
     SetId(({"templar", "npc","mob","character","mobile"}));
     SetAdjectives(({"non-player", "non player"}));
-    SetShort("a knight templar, guarding the entrance,");
+    SetShort("a Knight Templar");
     SetLong("He is a specially trained warrior belonging to the military order of the Faith.\n"+
         "His duty is to protect the faithful from persecution and infidel attacks and\n"+
         "his religious devotion combined with his superior skill makes him a deadly\n"+
@@ -40,7 +40,8 @@ static void create() {
     SetMorality(2000);
     AddCurrency("gold", 2000);
     SetProperty("no bump", 1);
-    SetGuard("north" , "The guard humiliates you, and blocks your way.");
+    SetFactions( (["Warlord of Balcor" : 1, "Knights of Izzy" : 1 ]) );
+    //SetGuard("north" , "The guard humiliates you, and blocks your way.");
 }
 
 void init(){

@@ -21,7 +21,9 @@ static void create(){
     SetAdjectives(({"", ""}));
     SetShort("the Grand Knight of Paladins");
     SetLong("The Grand Knight is standing here, waiting for someone to help.");
-    SetCanBite(0); //Default is no biting; Set to '1' if can bite
+    SetRace("human");
+    SetClass("fighter");
+    SetLevel(100);
     SetInventory( ([
         "/domains/diku-alfa/room/79.zon/weap/7212_sword_bastard" : "wield sword",
         "/domains/diku-alfa/room/79.zon/armor/7217_plate_breast" : "wear plate",
@@ -34,11 +36,9 @@ static void create(){
         "/domains/diku-alfa/room/79.zon/armor/7224_cloak_white" : "wear cloak",
         "/domains/diku-alfa/room/79.zon/obj/key_7911" : 1,
         ] ));
-    SetRace("human");
-    SetClass("fighter");
-    SetLevel(29);
+    SetCanBite(0); 
     SetGender("male");
-    SetStat("strength", 66);
+    SetStat("strength", 100);
     SetMorality(2500);
     SetWander(5);
     SetProperty("STAY_ZONE", 1);

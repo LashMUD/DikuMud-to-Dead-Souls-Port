@@ -24,11 +24,20 @@ static void create() {
     SetAdjectives(({"non-player", "non player"}));
     SetShort("a cityguard, looking very upset,");
     SetLong("A big, strong, angry guard.");
-    SetCanBite(0);
     SetRace("human");
     SetClass("fighter");
     SetLevel(10);
-    SetMelee(1);
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/weap/3022_longsword" : "wield sword",
+        "/domains/diku-alfa/room/30.zon/armor/3091_helmet_iron" : "wear helmet",
+        "/domains/diku-alfa/room/30.zon/armor/3090_bplate_iron" : "wear breast plate",
+        "/domains/diku-alfa/room/30.zon/armor/3094_gauntlets_iron" : "wear gauntlets",
+        "/domains/diku-alfa/room/30.zon/armor/3092_leggings_iron" : "wear leggings",
+        "/domains/diku-alfa/room/30.zon/armor/3093_boots_iron" : "wear boots",
+        "/domains/diku-alfa/room/31.zon/obj/key_3137" :1,
+        "/domains/diku-alfa/room/31.zon/obj/key_3122" : 1,
+      ]) );
+    SetCanBite(0);
     SetEncounter( (:CheckNPC:) );// aggressive mob - no one is supposed to be in the captain's office
     SetAction(10, ( :Scavenge: ));
     SetGender("male");

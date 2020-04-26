@@ -27,7 +27,7 @@ void create(){
     SetLong("The helmet is made from platinum or silver and has a white fur brush attached\n"+
         "on the top.");
     SetMass(350);
-    SetBaseCost("gold", 9000);
+    SetBaseCost("silver", 9000);
     SetDamagePoints(92);
     SetProtection(BLUNT, 23); //change as necessary
     SetProtection(BLADE, 27); //change as necessary

@@ -20,9 +20,9 @@ static void create() {
     SetKeyName("ghoul");
     SetId( ({"ghoul", "undead", "ghastly"}) );
     SetAdjectives(({"non-player", "non player", "ghoul"}));
-    SetShort("the ghastly ghoul");
+    SetShort("the Ghastly Ghoul");
     SetLong("It is a walking corpse with long fangs and long, sharp nails that most of\n"+
-        "resemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.");
+        "resemble claws. Its eyes are a dark yellow colour and glare hungrily at you.");
     SetInventory(([
         "/domains/diku-alfa/room/36.zon/obj/3612_silver_pendant" : 1,
         ]));
@@ -34,8 +34,6 @@ static void create() {
     SetGender("neuter");
     SetEncounter( (:CheckNPC:) );
     SetMorality(-1875);
-    SetMelee(1);
-
 }
 
 void init(){

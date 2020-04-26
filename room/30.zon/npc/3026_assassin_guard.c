@@ -13,12 +13,12 @@
 
 inherit LIB_SENTIENT;
 
-int AllowPass(object who, object what){
+/*int AllowPass(object who, object what){
     if(!who) return 0;
     if(!objectp(who)) return 0;
     if(who->GetClass() == "thief" || adminp(who)) return 1; 
     return ::AllowPass(who, what);
-}
+}*/
 
 static void create() {
     sentient::create();
@@ -26,7 +26,7 @@ static void create() {
     SetKeyName("the Assassin Guard");
     SetId(({"npc","mob","character","mobile", "assassin"}));
     SetAdjectives(({"non-player", "non player"}));
-    SetShort("an assassin, guarding the entrance,");
+    SetShort("an Assassin");
     SetLong("He is a thief who has specialized in killing others as effectively as possible,\n"+
         "using all sorts of weapons.  His superior knowledge of how and where to use\n"+
         "them combined with his extraordinary stealth makes him a deadly opponent.");
@@ -39,7 +39,7 @@ static void create() {
     SetMorality(2000);
     AddCurrency("gold", 2000);
     SetProperty("no bump", 1);
-    SetGuard("east" , "The guard humiliates you, and blocks your way.");
+    //SetGuard("east" , "The guard humiliates you, and blocks your way.");
 }
 
 

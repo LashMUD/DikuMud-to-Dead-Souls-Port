@@ -22,15 +22,14 @@ static void create(){
     SetKeyName("huge poisonous spider");
     SetId(({"spider", "huge"}));
     SetAdjectives(({"", ""}));
-    SetShort("the huge, poisonous spider");
+    SetShort("the Huge Poisonous Spider");
     SetLong("A huge, poisonous spider is here.");
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
-    SetRace("arachnid"); //check for appropriate race
+    SetRace("arachnid"); 
+    SetClass("npc_melee");
     SetLevel(8);
-    SetMelee(1);
     SetMorality(-875);
     SetGender("neuter");
-    SetEncounter( (:CheckNPC:) ); //mob is aggressive
+    SetEncounter( (:CheckNPC:) ); 
     SetCombatAction(100, (:CheckPoison:));
 }
 

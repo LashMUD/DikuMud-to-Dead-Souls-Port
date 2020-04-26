@@ -18,15 +18,14 @@ void CheckNPC();
 static void create(){
     sentient::create();
 
-    SetKeyName("Red Dragon");
+    SetKeyName("red dragon");
     SetId(({"red", "dragon", "red dragon"}));
     SetAdjectives(({"", ""}));
     SetShort("The Red Dragon");
-    SetLong("The Red fierce-looking dragon stares at you angrily.");
-    SetRace("dragon"); //check for appropriate race
-    SetLevel(19);
-    SetMelee(1);  // added to classes that aren't "fighters"
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
+    SetLong("The Red, fierce-looking, Dragon stares at you angrily.");
+    SetRace("dragon");
+    SetClass("npc_melee");
+    SetLevel(100);
     SetGender("neuter");
     SetInventory( ([
         "/domains/diku-alfa/room/74.zon/armor/7304_plate_torso" : 1,

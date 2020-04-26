@@ -26,12 +26,22 @@ static void create() {
     SetLong("He seems to know his way with weapons.");
     SetRace("human");
     SetClass("fighter");
-    SetLevel(7);
+    SetLevel(15);
     SetCanBite(0);
     SetGender("male");
     SetMorality(-1000);
     AddCurrency("gold", 200);
     SetWander(5);
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/weap/3022_longsword" : "wield sword",
+        "/domains/diku-alfa/room/30.zon/armor/3085_helmet_bronze" : "wear helmet",
+        "/domains/diku-alfa/room/30.zon/armor/3084_bplate_bronze" : "wear plate",
+        "/domains/diku-alfa/room/30.zon/armor/3083_sleeves_chainmail" : "wear sleeves",
+        "/domains/diku-alfa/room/30.zon/armor/3089_bracers_bronze" : "wear bracers",
+        "/domains/diku-alfa/room/30.zon/armor/3088_gauntlets_bronze" : "wear gauntlets",
+        "/domains/diku-alfa/room/30.zon/armor/3086_leggings_bronze" : "wear leggings",
+        "/domains/diku-alfa/room/30.zon/armor/3087_boots_bronze" : "wear boots",
+        ]) );
     SetEncounter( (:CheckNPC:) );
     SetAction(10, ( :Scavenge: ));
     SetProperty("STAY_ZONE", 1);

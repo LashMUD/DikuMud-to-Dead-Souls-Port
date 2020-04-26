@@ -22,7 +22,7 @@ static void create() {
     SetShort("a huge treasure");
     SetLong("Looks like a LOT of coins. A big one of them has writing on it.");
     SetMass(0);
-    SetBaseCost("gold",0);
+    SetBaseCost("gold",-100);
     SetRead( ([
         ({"coin", "writing", "letters"}) : "It reads : 'Hi Conan, no more coins from here, Pal. :)\n"+
           "                         Signed  Redferne.  "
@@ -33,7 +33,7 @@ void init(){
     ::init();
 }
 
-/* Extra Information Original Diku Output 
+/* Extra Information Original Diku Output
 Object name: [treasure coins], R-number: [230], V-number: [7909]
 Item type: MONEY
 Short description: a huge treasure
@@ -44,7 +44,7 @@ Extra description keyword(s):
 writing letters
 treasure
 ----------
-Can be worn on :TAKE 
+Can be worn on :TAKE
 Set char bits  :NOBITS
 Extra flags: NOBITS
 Weight: 0, Value: 0, Cost/day: 0, Timer: 0

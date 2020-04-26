@@ -28,7 +28,7 @@ void create(){
         "making it very comfortable to wear.  The name 'Isha' has been engraved on one\n"+
         "of the scales.");
     SetMass(80);
-    SetBaseCost("gold", 5000);
+    SetBaseCost("silver", 5000);
     SetDamagePoints(188); //dragon scale damage points 200-(AC6*2(tier2 item))=188
     SetProtection(BLUNT, 30); //change as necessary
     SetProtection(BLADE, 30); //change as necessary

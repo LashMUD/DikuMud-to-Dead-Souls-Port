@@ -16,15 +16,15 @@ inherit LIB_SENTIENT;
 static void create() {
     sentient::create();
 
-    SetKeyName("the Town Crier");
+    SetKeyName("town_crier");
     SetId( ({"crier", "town crier", "town"}) );
     SetAdjectives(({""}));
-    SetShort("The Town Crier, weeping quietly,");
+    SetShort("the Town Crier");
     SetLong("He is very good at his job - completely dissolved in tears.");
     SetRace("human");
-    SetLevel(1);
+    SetClass("fighter");
+    SetLevel(3);
     SetGender("male");
-    SetMelee(1);
     SetCanBite(0);
     AddCurrency("gold", 34);
     SetMorality(2250);

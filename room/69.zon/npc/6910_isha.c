@@ -21,6 +21,10 @@ static void create(){
     SetAdjectives(({"", ""}));
     SetShort("Isha the Dark Elf");
     SetLong("Isha the Dark Elf is here, observing you silently.");
+    SetRace("elf"); //possible new race 'dark elf'
+    SetClass("fighter");
+    SetLevel(20);
+    SetCanBite(0);
     SetInventory( ([
         "/domains/diku-alfa/room/69.zon/armor/6910_shirt_dragonscale" : "wear shirt",
         "/domains/diku-alfa/room/69.zon/armor/6911_skirt_dragonscale" : "wear skirt",
@@ -28,9 +32,6 @@ static void create(){
         "/domains/diku-alfa/room/69.zon/armor/6913_belt_silver" : "wear belt",
         "/domains/diku-alfa/room/69.zon/weap/6914_sword_slender" : "wield sword",
         ] ));
-    SetRace("elf"); //possible new race 'dark elf'
-    SetClass("fighter");
-    SetLevel(20);
     SetMorality(-2500);
     SetWander(5);  //if mob is NOT a SENTINEL
     AddCurrency("gold" , 5000);

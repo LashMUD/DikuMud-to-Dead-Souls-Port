@@ -24,7 +24,7 @@ static void create(){
     SetShort("a pair of swordmans gloves");
     SetLong("Some gloves are here. They look like the right kind of\n"+
         "equipment to use when fighting.");
-    SetBaseCost("gold", 1500);    
+    SetBaseCost("silver", 1500);    
     SetMass(10);
     SetDamagePoints(46);
     SetProtection(BLUNT,2);

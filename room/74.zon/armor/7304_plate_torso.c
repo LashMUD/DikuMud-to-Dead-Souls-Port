@@ -26,7 +26,7 @@ void create(){
     SetShort("a full armor torso plate");
     SetLong("On the polished steel you can just see the outline of a knight in battle.");
     SetMass(300);
-    SetBaseCost("gold", 50000);
+    SetBaseCost("silver", 50000);
     SetDamagePoints(100); //plate mail
     SetProtection(BLUNT, 18); //change as necessary
     SetProtection(BLADE, 45); //change as necessary

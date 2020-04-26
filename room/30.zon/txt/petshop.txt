@@ -5,9 +5,9 @@ The sign reads:
 
   Instructions for having pets:
 
-  You can use 'order <pet> <instructions>' to order your pets around.
+  You can tell your pet to do things 'say <pet> <instructions>'
   If you abuse your pet, it will no longer regard you as its master.
-  If you have several pets you may use 'order followers <instructions>'
+  You can only buy one pet at a time
 
   You can name the pet you buy as : "buy <pet> <name>"
 

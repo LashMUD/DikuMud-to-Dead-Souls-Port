@@ -23,7 +23,6 @@ static void create(){
     SetAdjectives(({"", ""}));
     SetShort("Shudde-M'ell");
     SetLong("Shudde-M'ell the Giant worm of G'harne is guarding his treasure.");
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
     SetRace("blob"); //check for appropriate race
     SetClass("fighter");
     SetLevel(24);

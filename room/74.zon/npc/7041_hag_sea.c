@@ -21,15 +21,16 @@ static void create(){
     SetKeyName("sea hag");
     SetId(({"hag", "sea"}));
     SetAdjectives(({"", ""}));
-    SetShort("The sea hag");
+    SetShort("The Sea Hag");
     SetLong("The Sea Hag is swimming around here");
     SetRace("dryad"); //possible new race 'hag'
-    SetLevel(14);
-    SetMelee(1);  // added to classes that aren't "fighters"
+    SetClass("npc_melee");
+    SetLevel(54);
     SetGender("female");
     SetMorality(-2000);
-    SetWander(5);  //if mob is NOT a SENTINEL
-    SetEncounter( (:CheckNPC:) );  //mob is AGGRESSIVE
+    SetWander(5);
+    SetEncounter( (:CheckNPC:) );
+    //need sea hag functions
 }
 
 void init(){

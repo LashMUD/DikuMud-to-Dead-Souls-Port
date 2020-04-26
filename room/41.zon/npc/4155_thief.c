@@ -28,6 +28,7 @@ static void create() {
     SetRace("human");
     SetClass("thief");
     SetLevel(12);
+    SetCanBite(0);
     SetMelee(1);
     SetGender("male");
     SetMorality(-1000);

@@ -19,8 +19,9 @@ static void create() {
 
     SetKeyName("the Bartender");
     SetId( ({ "vendor","bartender", "owner", "shopkeep", "shopkeeper", "keeper" }) );
-    SetShort("A tired looking bartender who hates trouble in his bar");
-    SetLong("A Bartender watches you calmly, while he skillfully mixes a drink.");
+    SetShort("A tired looking Bartender");
+    SetLong("A Bartender watches you calmly, while he skillfully mixes a drink.\n" +
+            "He definitely hates trouble in his bar.");
     SetCanBite(0);
     SetInventory( ([
         "/domains/diku-alfa/room/30.zon/weap/3022_longsword" : "wield sword",
@@ -33,8 +34,8 @@ static void create() {
     SetMorality(2250);
     AddCurrency("gold", 2000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/30.zon/3007-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/30.zon/rm_3007-2");
+    SetMaxItems(400);
     SetVendorType(VT_DRINK);
     SetProperty("no bump", 1);
     SetAttackable(0);

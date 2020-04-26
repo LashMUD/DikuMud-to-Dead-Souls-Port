@@ -19,18 +19,17 @@ void CheckNPC();
 static void create(){
     sentient::create();
 
-    SetKeyName("bat");
+    SetKeyName("sewer bat");
     SetId(({"bat", "small", "mean"}));
     SetAdjectives(({"", ""}));
-    SetShort("The small bat");
+    SetShort("The Small Bat");
     SetLong("The small fierce-looking bat is hanging from the ceiling, obviously\n"+
         "sleeping.");
-    SetCanBite(1);
-    SetRace("bat"); 
+    SetRace("bat");
+    SetClass("npc_melee"); 
+    SetLevel(7);
     SetGender("neuter");
     SetPosition(POSITION_FLYING);
-    SetLevel(1);
-    SetMelee(1); 
     SetMorality(-1250);
     SetWander(5);
     SetProperty("STAY_ZONE", 1);

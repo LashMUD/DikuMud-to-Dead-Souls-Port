@@ -16,13 +16,13 @@ inherit LIB_SENTIENT;
 static void create(){
     sentient::create();
 
-    SetKeyName("John the Lumberjack");
+    SetKeyName("john the Lumberjack");
     SetId(({"John", "lumberjack"}));
     SetAdjectives(({"", ""}));
     SetShort("John the Lumberjack");
     SetLong("John the Lumberjack is here, looking for some trees to chop down.");
-    SetCanBite(0); //Default is no biting; Set to '1' if can bite
-    SetRace("human"); //check for appropriate race
+    SetCanBite(0);
+    SetRace("human");
     SetClass("fighter");
     SetLevel(5);
     SetMorality(875);

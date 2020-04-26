@@ -29,6 +29,7 @@ static void create() {
     SetRace("human");
     SetLevel(23);
     SetGender("female");
+    SetCanBite(0);
     SetMorality(2250);
     SetMelee(1);
     AddCurrency("gold", 10);

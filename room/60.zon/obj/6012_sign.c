@@ -30,14 +30,16 @@ static void create() {
             "                         Haon-Dor\n"+
             "                         --------\n\n"+
             " This is the Forest of Haon-Dor.  Enter at your own risk.\n"+
-            "     Please report any strange occurrences to Quifael.\n\n",
+            "     Please report any strange occurrences to Quifael.\n\n"+
+            "          To the north lies the village of Wyr.\n",
         ]) );
     SetRead( ([
         ( {"letters", "writing"} ) : "It says :-\n\n"+
             "                         Haon-Dor\n"+
             "                         --------\n\n"+
             " This is the Forest of Haon-Dor.  Enter at your own risk.\n"+
-            "     Please report any strange occurrences to Quifael.\n\n",
+            "     Please report any strange occurrences to Quifael.\n\n"+
+            "          To the north lies the village of Wyr.\n",
         ]) );
     SetMass(1000);    
 }

@@ -23,7 +23,7 @@ static void create(){
     SetAdjectives(({""}));
     SetShort("a pair of studded leather pants");
     SetLong("A pair of studded leather pants.");
-    SetBaseCost("gold",100);    
+    SetBaseCost("silver",100);    
     SetMass(80);
     SetDamagePoints(64);
     SetProtection(BLUNT,9);

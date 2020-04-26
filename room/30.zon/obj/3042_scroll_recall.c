@@ -29,7 +29,7 @@ void init(){
 void read_scroll(){
     
     tell_player(this_player(), "\nThe scroll crumbles into dust...\n");
-    this_player()->eventMoveLiving("/domains/diku-alfa/room/30.zon/3001.c",
+    this_player()->eventMoveLiving("/domains/diku-alfa/room/30.zon/rm_3001.c",
                                    this_player()->GetName()+" disappears!", 
                                    this_player()->GetName()+" appears in the middle of the room.");
     this_object()->eventDestruct();

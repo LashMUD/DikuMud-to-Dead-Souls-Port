@@ -25,7 +25,7 @@ static void create() {
     SetLong("A large metal shield.");
     SetDamagePoints(95);
     SetMass(80);
-    SetBaseCost("gold",1000);
+    SetBaseCost("silver",1000);
     SetProtection(BLUNT, 12);
     SetProtection(BLADE, 12);
     SetProtection(KNIFE, 12);

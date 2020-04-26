@@ -24,7 +24,7 @@ static void create(){
     SetShort("a chain mail skirt");
     SetLong("A chain mail skirt.");
     SetMass(200);
-    SetBaseCost("gold",500);
+    SetBaseCost("silver",500);
     SetDamagePoints(75);
     SetProtection(BLUNT,4);
     SetProtection(BLADE,15);

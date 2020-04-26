@@ -19,13 +19,13 @@ void Scavenge();
 static void create() {
     vendor::create();
 
-    SetKeyName("luxan_shopkeeper");
+    SetKeyName("luxan");
     SetId(({"vendor", "Luxan", "shopkeeper", "shopkeep", "owner"}));
     SetAdjectives(({"", ""}));
     SetShort("Luxan");
     SetLong("Luxan the Shopkeeper is here, eager to sell you anything.");
-    SetCanBite(0); //Default is no biting; Set to '1' if can bite
-    SetRace("human"); //check for appropriate race
+    SetCanBite(0); 
+    SetRace("human"); 
     SetClass("fighter");
     SetLevel(23);
     SetSkill("bargaining", 1);
@@ -33,8 +33,8 @@ static void create() {
     AddCurrency("gold" , 8000);
     SetLocalCurrency("gold");
     SetGender("male");
-    SetStorageRoom("/domains/diku-alfa/room/55.zon/5555-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/55.zon/rm_5555-2");
+    SetMaxItems(300);
     SetProperty("no bump", 1);
     SetAttackable(0);
     SetVendorType(VT_FOOD);

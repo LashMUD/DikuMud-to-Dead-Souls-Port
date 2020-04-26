@@ -17,7 +17,7 @@
 #include <objects.h>
 #include <daemons.h>
 
-inherit "/domains/diku-alfa/etc/trainer.c";
+inherit LIB_TRAINER;
 
 int AdvanceDude(mixed arg);
 mapping advancement, Levels;
@@ -27,13 +27,13 @@ void create(){
     trainer::create();
     Levels = PLAYERS_D->GetLevelList();
     advancement = ([]);
-    SetKeyName("suzie");
-    SetId("guildmaster", "master", "Suzie", "suzie", "wizard","mage","trainer");
+    SetKeyName("erica");
+    SetId("guildmaster", "master", "Erica", "erica", "wizard","mage","trainer");
     SetAdjectives(({"friendly","tall","thin","old"}));
     SetGender("female");
     SetRace("human");
     SetNoSpells(0);
-    SetShort("Suzie the Blue");
+    SetShort("Erica the Blue");
     SetLong("Even though your guildmaster looks old and tired, you can clearly see the\n"+
             "vast amount of knowledge she posesses. She is wearing fine magic clothing,\n"+
             "and you notice that she is surrounded by a blue shimmering aura."); 
@@ -45,7 +45,8 @@ void create(){
                           "blunt defense", "knife defense", "melee defense", "blunt attack",
                           "knife attack", "melee attack"
                      }) );
-    SetSpellBook( ([ "buffer" : 100, "meditate" : 100, "missile" : 100, "fireball" : 100 ]) );
+    SetSpellBook( ([ "buffer" : 100, "meditate" : 100, "missile" : 100, "fireball" : 100, "greater buffer" : 100,
+                     "whip" : 100, "light" : 100, "greater fireball" : 100,]) );
     SetPolyglot(1);
     SetCustomXP(10);
     AddCommandResponses( ([ 
@@ -77,8 +78,8 @@ void create(){
 
 void init() {
     trainer::init();
-    SetSmell(([  "default" : "Suzie smells like a bouquet of fresh flowers."]));
-    SetListen(([  "default" : "Suzie seems to be constantly "+
+    SetSmell(([  "default" : "Erica smells like a bouquet of fresh flowers."]));
+    SetListen(([  "default" : "Erica seems to be constantly "+
                 "humming a quiet tune to herself."]));
 }
 
@@ -134,8 +135,8 @@ int AdvanceDude(mixed arg){
         this_player()->save_player(this_player()->GetKeyName());
 
         if(level == MAX_NEWBIE_LEVEL){
-            write("\nSuzie raises her hand and sternly points to you.\n");
-            say("\nSuzie raises her hand and sternly points to "+
+            write("\nErica raises her hand and sternly points to you.\n");
+            say("\nErica raises her hand and sternly points to "+
                     this_player()->GetName()+".\n");
             this_object()->eventForce("say "+this_player()->GetName()+","+
                     " you are no longer a newbie. From now on, you will need"+

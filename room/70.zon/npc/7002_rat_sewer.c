@@ -18,20 +18,19 @@ void CheckNPC();
 static void create(){
     sentient::create();
 
-    SetKeyName("sewer rat");
+    SetKeyName("great Sewer Rat");
     SetId(({"rat", "sewer"}));
     SetAdjectives(({"", ""}));
     SetShort("The Great Sewer Rat");
     SetLong("The Huge Hungry-looking Sewer Rat sits here.");
-    SetRace("rodent"); //check for appropriate race
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
+    SetRace("rodent");
+    SetClass("npc_melee"); 
+    SetLevel(12);
     SetGender("male");
-    SetLevel(5);
-    SetMelee(1);  // added to classes that aren't "fighters"
     SetMorality(-2500);    
     AddCurrency("gold" , 40);
-    SetWander(5);  //if mob is NOT a SENTINEL
-    SetEncounter( (:CheckNPC:) );  //mob is AGGRESSIVE
+    SetWander(5);  
+    SetEncounter( (:CheckNPC:) );  
 }
 
 void init(){

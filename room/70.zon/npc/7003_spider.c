@@ -18,20 +18,19 @@ void CheckNPC();
 static void create(){
     sentient::create();
 
-    SetKeyName("spider");
+    SetKeyName("sewer spider");
     SetId(({"spider"}));
     SetAdjectives(({"", ""}));
-    SetShort("The small Spider");
+    SetShort("The Small Spider");
     SetLong("The small hairy Spider.");
-    SetRace("arachnid"); //check for appropriate race
+    SetRace("arachnid");
+    SetClass("npc_melee");
+    SetLevel(1); 
     SetGender("male");
-    SetLevel(1);
     SetMorality(-1750);
-    SetMelee(1);  // added to classes that aren't "fighters"
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
     AddCurrency("gold" , 1);
-    SetWander(5);  //if mob is NOT a SENTINEL
-    SetEncounter( (:CheckNPC:) );  //mob is AGGRESSIVE
+    SetWander(5);
+    SetEncounter( (:CheckNPC:) );
 }
 
 void init(){

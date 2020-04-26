@@ -20,9 +20,9 @@ static void create() {
 
     SetKeyName("the Leather Worker");
     SetId( ({ "vendor","leather worker", "worker", "shopkeep", "shopkeeper", "keeper" }) );
-    SetShort("the Leather Worker, sewing a leather cap,");
+    SetShort("the Leather Worker");
     SetLong("He looks as an honest, hard-working artisan who only just earns enough to\n"+
-        "keep himself going.");
+        "keep himself going. He is sewing a leather cap");
     SetCanBite(0);
     SetInventory( ([
         "/domains/diku-alfa/room/30.zon/weap/3022_longsword" : "wield sword",
@@ -36,8 +36,8 @@ static void create() {
     SetMorality(2250);
     AddCurrency("gold", 10000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/30.zon/3035-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/30.zon/rm_3035-2");
+    SetMaxItems(360);
     SetVendorType(VT_ARMOR);
     SetAutoStand(0);
     SetPosition(POSITION_SITTING);

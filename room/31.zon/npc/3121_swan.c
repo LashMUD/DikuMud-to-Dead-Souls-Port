@@ -20,11 +20,11 @@ static void create() {
     SetKeyName("the Swan");
     SetId( ({"swan", "bird", "fowl"}) );
     SetAdjectives(({"white"}));
-    SetShort("a Swan in the pond");
+    SetShort("a Swan");
     SetLong("The white swan is very elegant.");
     SetRace("bird");
+    SetClass("npc_melee");
     SetLevel(1);
-    SetMelee(1);
     SetPosition(POSITION_SWIMMING);
     SetGender("female");
     SetMorality(2500);

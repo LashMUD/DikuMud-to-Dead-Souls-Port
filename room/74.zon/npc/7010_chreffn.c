@@ -18,20 +18,21 @@ void Scavenge();
 static void create(){
     sentient::create();
     
-    SetKeyName("chr-eff'n Chr");
+    SetKeyName("chr-eff'n");
     SetId(({"chr-eff'n", "chr"}));
     SetAdjectives(({"", ""}));
-    SetShort("the evil chr-eff'n");
+    SetShort("the Evil Chr-eff'n");
     SetLong("The chr-eff'n are crawling here, looking around with it's yellow eyes.");
     SetRace("human"); //need new race 'chr-eff'n'
-    SetLevel(12);
+    SetClass("npc_melee");
+    SetLevel(32);
     SetGender("neuter");
-    SetMelee(1);
     SetWimpy(30);
     AddCurrency("gold" , 1500);
     SetMorality(-2075);
     SetWander(5);
     SetAction(10, ( :Scavenge: ));
+    //need chr-eff'n functions
 }
 
 void init(){

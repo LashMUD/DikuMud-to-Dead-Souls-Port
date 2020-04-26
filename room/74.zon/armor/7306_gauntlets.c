@@ -27,7 +27,7 @@ void create(){
     SetShort("a pair of gauntlets");
     SetLong("A pair of gauntlets.");
     SetMass(40);
-    SetBaseCost("gold", 900);
+    SetBaseCost("silver", 900);
     SetDamagePoints(100);
     SetProtection(BLUNT, 9); //change as necessary
     SetProtection(BLADE, 18); //change as necessary

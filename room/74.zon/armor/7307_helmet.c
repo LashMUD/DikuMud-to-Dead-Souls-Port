@@ -26,7 +26,7 @@ void create(){
     SetShort("a steel helmet");
     SetLong("The helmet is made from steel.");
     SetMass(150);
-    SetBaseCost("gold", 9000);
+    SetBaseCost("silver", 9000);
     SetDamagePoints(100);
     SetProtection(BLUNT, 16); //change as necessary
     SetProtection(BLADE, 27); //change as necessary

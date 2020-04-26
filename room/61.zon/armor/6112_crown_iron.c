@@ -25,7 +25,7 @@ void create(){
     SetShort("an iron crown");
     SetLong("It is a heavy human-sized crown made from solid iron.");
     SetMass(100);
-    SetBaseCost("gold", 5000);
+    SetBaseCost("silver", 5000);
     SetDamagePoints(81); //same as iron helmet
     SetProtection(BLUNT,10); //AC 4 item
     SetProtection(BLADE,12); //AC 4 item

@@ -6,21 +6,20 @@ void CheckNPC();
 
 static void create(){
     sentient::create();
-
-    SetKeyName("the ferocious rabbit");
+    
+    SetKeyName("the Ferocious R");
     SetId(({"rabbit", "killer"}));
     SetAdjectives(({"", ""}));
-    SetShort("the ferocious rabbit");
+    SetShort("the Ferocious Rabbit");
     SetLong("A ferocious rabbit is here, glaring hungrily at you.");
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
-    SetRace("rodent"); //check for appropriate race
-    SetGender("neuter");
-    SetLevel(3);
-    SetMelee(1);
+    SetRace("rodent");
+    SetClass("npc_melee"); 
+    SetLevel(15);
     SetMorality(-375);
     SetWander(5);
+    SetGender("neuter");
     SetProperty("STAY_ZONE", 1);
-    SetEncounter( (:CheckNPC:) );  //mob is AGGRESSIVE
+    SetEncounter( (:CheckNPC:) );
 }
 
 void init(){
@@ -37,7 +36,8 @@ void CheckNPC(object ob){
 }
 
 /* Extra Information Original Diku Output 
-NEUTRAL-SEX MOB - Name : rabbit [R-Number100], In room [6900] V-Number [6003]
+NEUTRAL-SEX MOB - Name : rabbit [R-Number100], In room [6900]
+V-Number [6003]
 Short description: the ferocious rabbit
 Title: None
 Long description: A ferocious rabbit is here, glaring hungrily at you.
@@ -61,3 +61,4 @@ Master is 'NOBODY'
 Followers are:
 Affected by: NOBITS
 */
+

@@ -23,7 +23,7 @@ static void create(){
     SetAdjectives(({"shiny", "bright"}));
     SetShort("a chain mail coif");
     SetLong("A chain mail coif.");
-    SetBaseCost("gold",500);    
+    SetBaseCost("silver",500);    
     SetDamagePoints(75);
     SetMass(40);
     SetProtection(BLUNT,4);

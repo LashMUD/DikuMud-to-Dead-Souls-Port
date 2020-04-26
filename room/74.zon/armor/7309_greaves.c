@@ -28,13 +28,13 @@ void create(){
         "to be set in front of your shins, so that these will be well protected.\n"+
         "Go ahead - wear them.");
     SetMass(400);
-    SetBaseCost("gold", 2000);
+    SetBaseCost("silver", 2000);
     SetDamagePoints(100);
     SetProtection(BLUNT, 16); //change as necessary
     SetProtection(BLADE, 27); //change as necessary
     SetProtection(KNIFE, 27); //change as necessary
     SetArmorType(A_CUSTOM);
-    SetRestrictLimbs(({"right foot", "left foot"}));
+    SetRestrictLimbs(({"right leg", "left leg"}));
     SetWear( (:WearMe:) );
 }
 

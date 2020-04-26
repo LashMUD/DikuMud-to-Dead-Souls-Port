@@ -24,7 +24,7 @@ static void create(){
     SetShort("a pair of scale mail sleeves");
     SetLong("A pair of scale mail sleeves.");
     SetMass(80);
-    SetBaseCost("gold",250);
+    SetBaseCost("silver",250);
     SetDamagePoints(68);
     SetProtection(BLUNT,8);
     SetProtection(BLADE,8);

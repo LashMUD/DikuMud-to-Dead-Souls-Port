@@ -26,6 +26,7 @@ static void create(){
         "attention returns to the screens.");
     SetRace("demon"); //check for appropriate race
     SetLevel(10);
+    SetCanBite(0); 
     SetMelee(1);  // added to classes that aren't "fighters"
     SetGender("neuter");
     SetInventory( ([

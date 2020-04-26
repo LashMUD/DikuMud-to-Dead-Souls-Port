@@ -25,9 +25,18 @@ static void create() {
     SetShort("An orc walking around looking for someone to kill");
     SetLong("You notice an evil look in his eyes");
     SetRace("orc");
-    SetMelee(1);
-    SetLevel(5);
+    SetClass("fighter");
+    SetLevel(15);
     SetGender("male");
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/weap/3024_warhammer" : "wield hammer",
+        "/domains/diku-alfa/room/30.zon/armor/3067_cap_leather_hard" : "wear cap",
+        "/domains/diku-alfa/room/30.zon/armor/3066_jerkin_studded_leather" : "wear jerkin",
+        "/domains/diku-alfa/room/30.zon/armor/3071_sleeves_studded_leather" : "wear sleeves",
+        "/domains/diku-alfa/room/30.zon/armor/3076_gloves_reinforced" : "wear gloves",
+        "/domains/diku-alfa/room/30.zon/armor/3068_pants_studded_leather" : "wear pants",
+        "/domains/diku-alfa/room/30.zon/armor/3075_boots_reinforced" : "wear boots",
+      ]) );
     SetMorality(-1000);
     AddCurrency("gold", 100);
     SetWander(5);

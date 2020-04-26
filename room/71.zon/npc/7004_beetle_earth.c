@@ -16,19 +16,18 @@ inherit LIB_SENTIENT;
 static void create(){
     sentient::create();
 
-    SetKeyName("beetle");
+    SetKeyName("sewer beetle");
     SetId(({"beetle"}));
     SetAdjectives(({"", ""}));
-    SetShort("The giant earth beetle");
+    SetShort("The Giant Earth Beetle");
     SetLong("The Giant Mean-looking Earth Beetle.");
-    SetRace("insect"); //check for appropriate race
+    SetRace("insect");
+    SetClass("npc_melee");
+    SetLevel(12);
     SetGender("male");
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
-    SetLevel(8);
-    SetMelee(1);  // added to classes that aren't "fighters"
     AddCurrency("gold" , 1000);
     SetMorality(-300);
-    SetWander(5);  //if mob is NOT a SENTINEL
+    SetWander(5);
 }
 
 void init(){

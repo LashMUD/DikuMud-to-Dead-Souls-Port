@@ -19,22 +19,21 @@ void CheckPoison(object ob);
 static void create(){
     sentient::create();
 
-    SetKeyName("queen spider");
-    SetId(({"spider", "Queen"}));
+    SetKeyName("spider Queen");
+    SetId(({"spider", "Queen", "queen"}));
     SetAdjectives(({"", ""}));
     SetShort("the Queen Spider");
     SetLong("The huge, bulky Queen Spider is here.");
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
+    SetRace("arachnid");
+    SetClass("npc_melee");
+    SetLevel(20);
     SetInventory( ([
         "/domains/diku-alfa/room/61.zon/obj/6113_sceptre_iron" : 1,
         ] ));
-    SetRace("arachnid"); //check for appropriate race
-    SetLevel(15);
-    SetMelee(1);
     SetMorality(-2500);
     AddCurrency("gold", 10000);
     SetGender("female");
-    SetEncounter( (:CheckNPC:) ); //mob is aggressive
+    SetEncounter( (:CheckNPC:) );
     SetCombatAction(100, (:CheckPoison:));
 }
 

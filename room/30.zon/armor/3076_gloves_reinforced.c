@@ -24,7 +24,7 @@ static void create(){
     SetShort("a pair of reinforced gloves");
     SetLong("A pair of reinforced gloves.");
     SetMass(20);
-    SetBaseCost("gold",250);
+    SetBaseCost("silver",250);
     SetDamagePoints(68);
     SetProtection(BLUNT,8);
     SetProtection(BLADE,8);

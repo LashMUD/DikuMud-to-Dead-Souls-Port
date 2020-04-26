@@ -41,7 +41,6 @@ static void create() {
     SetRace("human");
     SetClass("fighter");
     SetLevel(23);
-    SetMelee(1);
     SetCanBite(0);
     AddCurrency("gold", 1000);
     SetGender("male");
@@ -54,7 +53,7 @@ static void create() {
 void wander(){
     if(movebool == 0) return;
     //eventForce("say hour "+hour+": minutes "+minutes);
-    if((hour == 4 && minutes >=30) | (hour ==16 && minutes >=30)){
+    if((hour == 4 && minutes >=30) | (hour == 20 && minutes >=30)){
         switch (path[index]) {
 
         case '0': eventForce("go north");
@@ -139,7 +138,7 @@ void time(){
         path = open_path;
         index = 0;
     }
-    else if (hour == 16 & minutes == 29) {
+    else if (hour == 20 & minutes == 29) {
         movebool = 1;
         path = close_path;
         index = 0;

@@ -25,8 +25,8 @@ static void create() {
     SetShort("a brown snake, watching you,");
     SetLong("The snake looks quite mean");
     SetRace("viper"); //To add poison
-    SetMelee(1);
-    SetLevel(10);
+    SetClass("fighter");
+    SetLevel(100);
     SetGender("neuter");
     SetMorality(-1500);
     SetEncounter( (:CheckNPC:) );
@@ -53,11 +53,11 @@ void CheckPoison(object ob){
 
     if(this_object()->GetInCombat()){
         ob = this_object()->GetCurrentEnemy();     
-        chance = random(32)-this_object()->GetLevel();
+        chance = random(/*32*/5)-this_object()->GetLevel();
         
-        if(chance == 0){
-            tell_room(env, "The Snake sinks its fangs into "+ob->GetShort()+"!", ({this_object(), ob}) );
-            tell_object(ob, "The Snake sinks its fangs into you!");
+        if(chance >= 0){
+            tell_room(env, "%^BOLD%^%^GREEN%^The Snake sinks its fangs into "+ob->GetShort()+"!%^RESET%^\n", ({this_object(), ob}) );
+            tell_object(ob, "%^BOLD%^%^GREEN%^The Snake sinks its fangs into you!%^RESET%^\n");
             ob->AddPoison(25);
         }
     }

@@ -26,7 +26,7 @@ void create(){
     SetLong("It is a heavy, black cloak with a large hood.  The name 'Isha' is written\n"+
         "inside it with a silver thread.");
     SetMass(200);
-    SetBaseCost("gold", 8000);
+    SetBaseCost("silver", 8000);
     SetDamagePoints(182); 
     SetProtection(BLUNT, 12); //change as necessary
     SetProtection(BLADE, 18); //change as necessary

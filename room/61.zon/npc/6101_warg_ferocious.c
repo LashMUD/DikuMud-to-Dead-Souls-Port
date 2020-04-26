@@ -21,12 +21,11 @@ static void create(){
     SetKeyName("ferocious warg");
     SetId(({"warg", "wolf"}));
     SetAdjectives(({"", ""}));
-    SetShort("the ferocious warg");
+    SetShort("the Ferocious Warg");
     SetLong("A ferocious warg is here, snarling angrily at you.");
-    SetCanBite(1);
-    SetRace("dog"); //check for appropriate race
-    SetLevel(5);
-    SetMelee(1);
+    SetRace("dog"); 
+    SetClass("npc_melee");
+    SetLevel(12);
     SetMorality(-875);
     SetGender("neuter");
     SetWander(5);

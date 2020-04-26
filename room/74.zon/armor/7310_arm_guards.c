@@ -26,7 +26,7 @@ void create(){
     SetShort("steel arm guards");
     SetLong("Two steel arm guards.");
     SetMass(400);
-    SetBaseCost("gold", 12500);
+    SetBaseCost("silver", 12500);
     SetDamagePoints(100);
     SetProtection(BLUNT, 9); //change as necessary
     SetProtection(BLADE, 18); //change as necessary

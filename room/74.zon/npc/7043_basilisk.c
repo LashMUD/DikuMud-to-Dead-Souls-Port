@@ -22,18 +22,18 @@ static void create(){
     SetKeyName("scaled basilisk");
     SetId(({"basilisk", "scaled"}));
     SetAdjectives(({"", ""}));
-    SetShort("The scaled basilisk");
+    SetShort("The Scaled Basilisk");
     SetLong("The scaled Basilisk crawls towards you slowly.");
     SetRace("snake"); //possible new race 'basilisk'
-    SetLevel(13);
-    SetCanBite(1);
-    SetMelee(1);
+    SetClass("npc_melee");
+    SetLevel(73);
     SetGender("neuter");
     AddCurrency("gold" , 350);
     SetMorality(-625);
     SetWander(5);
     SetEncounter( (:CheckNPC:) );
     SetAction(10, ( :Scavenge: ));
+    //need basilisk functions
 }
 
 void init(){

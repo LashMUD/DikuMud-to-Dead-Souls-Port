@@ -24,13 +24,22 @@ static void create() {
     SetAdjectives(({"non-player", "non player", "orc", "hungry"}));
     SetShort("An orc looking for something (or perhaps someone ? ) to eat");
     SetLong("Well he doesn't seem to be friendly.");
-    SetLevel(12);
+    SetLevel(18);
     SetRace("orc");
-    SetMelee(1);
+    SetClass("fighter");
     SetGender("male");
     SetMorality(-2000);
     AddCurrency("gold", 150);
     SetWander(5);
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/weap/3023_woodenclub" : "wield club",
+        "/domains/diku-alfa/room/30.zon/armor/3067_cap_leather_hard" : "wear cap",
+        "/domains/diku-alfa/room/30.zon/armor/3066_jerkin_studded_leather" : "wear jerkin",
+        "/domains/diku-alfa/room/30.zon/armor/3071_sleeves_studded_leather" : "wear sleeves",
+        "/domains/diku-alfa/room/30.zon/armor/3070_gloves_hard_leather" : "wear gloves",
+        "/domains/diku-alfa/room/30.zon/armor/3068_pants_studded_leather" : "wear pants",
+        "/domains/diku-alfa/room/30.zon/armor/3069_boots_hard_leather" : "wear boots",
+        ]) );
     SetEncounter( (: CheckNPC :) );
     SetAction(10, ( :Scavenge: ));
     SetProperty("STAY_ZONE", 1);

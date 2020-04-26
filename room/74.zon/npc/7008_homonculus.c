@@ -19,16 +19,15 @@ static void create(){
     SetKeyName("homonculus");
     SetId(({"homonculuc", "homo"}));
     SetAdjectives(({"", ""}));
-    SetShort("the creature homonculus");
-    SetLong("The creature homonculus is here, looking at you with an evil look.");
-    SetCanBite(0); //Default is no biting; Set to '1' if can bite
+    SetShort("the Creature Homonculus");
+    SetLong("The Creature Homonculus is here, looking at you with an evil look.");
     SetRace("goblin"); //need new race 'homonculuc'
-    SetLevel(11);
-    SetMelee(1);  // added to classes that aren't "fighters"
+    SetClass("npc_melee");
+    SetLevel(30);
     SetGender("neuter");
     SetMorality(-1950);
     AddCurrency("gold" , 500);
-    SetWander(5);  //if mob is NOT a SENTINEL
+    SetWander(5);
 }
 
 void init(){

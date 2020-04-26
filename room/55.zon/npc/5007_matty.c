@@ -16,16 +16,16 @@ inherit LIB_SENTIENT;
 static void create(){
     sentient::create();
 
-    SetKeyName("daughter_matty");
+    SetKeyName("matty");
     SetId(({"daughter", "Matty", "receptionist"}));
     SetAdjectives(({"", ""}));
     SetShort("Matty");
     SetLong("Matty the daughter of Luxan is here, looking after the stored items.\n"+
         "Matty is eager to serve you.");
-    SetCanBite(0); //Default is no biting; Set to '1' if can bite
-    SetRace("human"); //check for appropriate race
+    SetCanBite(0); 
+    SetRace("human");
+    SetClass("fighter");
     SetLevel(22);
-    SetMelee(1);
     SetMorality(2000);
     AddCurrency("gold" , 0);
     SetGender("female");    

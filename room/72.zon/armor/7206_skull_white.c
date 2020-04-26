@@ -32,7 +32,7 @@ void create(){
         ({"writing", "text"}) : "You read the number '666'.",
         ]) );
     SetMass(300);
-    SetBaseCost("gold", 0);
+    SetBaseCost("silver", 0);
     SetDamagePoints(100);
     SetProtection(BLUNT, 1); //change as necessary
     SetProtection(BLADE, 1); //change as necessary

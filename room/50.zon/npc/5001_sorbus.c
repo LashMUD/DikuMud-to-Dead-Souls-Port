@@ -17,15 +17,15 @@ inherit LIB_SENTIENT;
 static void create(){
     sentient::create();
 
-    SetKeyName("Sorbus");
+    SetKeyName("sorbus");
     SetId(({"hermit", "sorbus"}));
     SetAdjectives(({"", ""}));
     SetShort("Sorbus the Hermit");
     SetLong("Sorbus the Hermit is sitting here, roasting a rabbit.");
-    SetCanBite(0); //Default is no biting; Set to '1' if can bite
+    SetCanBite(0);
     SetInventory( ([" " : " "] ));
-    SetRace("human"); //check for appropriate race
-    SetClass(" ");
+    SetRace("human"); 
+    SetClass("fighter");
     SetLevel(4);
     SetMorality(0);
     AddCurrency("gold" , 1);

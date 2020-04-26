@@ -7,16 +7,15 @@ void CheckNPC();
 static void create(){
     sentient::create();
     
-    SetKeyName("rabbit_ferocios");
+    SetKeyName("Ferocious Rabbit");
     SetId(({"rabbit", "killer"}));
     SetAdjectives(({"", ""}));
-    SetShort("the ferocious rabbit");
+    SetShort("the Ferocious Rabbit");
     SetLong("A ferocious rabbit is here, glaring hungrily at you.");
-    SetCanBite(1);
-    SetRace("rodent"); //check for appropriate race
-    SetLevel(3);
+    SetRace("rodent");
+    SetClass("npc_melee"); 
+    SetLevel(15);
     SetMorality(-375);
-    SetMelee(1);
     SetWander(5);
     SetGender("neuter");
     SetProperty("STAY_ZONE", 1);

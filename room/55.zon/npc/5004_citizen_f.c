@@ -18,7 +18,7 @@ void Scavenge();
 static void create(){
     sentient::create();
     
-    SetKeyName("citizen");
+    SetKeyName("ofcal citizen");
     SetId(({"citizen", "female", "woman"}));
     SetAdjectives(({"", ""}));
     SetShort("the citizen");
@@ -26,13 +26,12 @@ static void create(){
     SetCanBite(0);
     SetInventory( ([" " : " "] ));
     SetRace("human");
-    SetClass(" ");
+    SetClass("fighter");
     SetLevel(5);
     SetMorality(0);
     AddCurrency("gold" , 100);
     SetGender("female");
     SetWander(5);
-    SetMelee(1);
     SetAction(10, ( :Scavenge: ));
     SetProperty("STAY_ZONE", 1);
 }

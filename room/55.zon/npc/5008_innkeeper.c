@@ -17,22 +17,22 @@ inherit LIB_VENDOR;
 static void create(){
     vendor::create();
 
-    SetKeyName("keeper innkeeper");
+    SetKeyName("innkeeper");
     SetId(({"vendor", "keeper", "innkeeper", "owner"}));
     SetAdjectives(({"", ""}));
     SetShort("the Innkeeper");
     SetLong("An Innkeeper is here waiting for your order.");
     SetCanBite(0); 
-    SetRace("human"); //check for appropriate race
-    SetGender("male");
+    SetRace("human"); 
     SetClass("fighter");
     SetLevel(23);
+    SetGender("male");
     SetMorality(-250);
     AddCurrency("gold" , 100);
     SetSkill("bargaining", 1);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/55.zon/5556-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/55.zon/rm_5556-2");
+    SetMaxItems(300);
     SetLanguage("common", 100);
     SetDefaultLanguage("common");
     SetProperty("no bump", 1);

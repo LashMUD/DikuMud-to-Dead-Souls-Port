@@ -24,6 +24,7 @@ static void create(){
     SetRace("demi-god"); //check for appropriate race
     SetClass("fighter");
     SetLevel(30);
+    SetCanBite(0);
     SetMorality(-2500);
     SetGender("neuter");
     SetInventory( ([

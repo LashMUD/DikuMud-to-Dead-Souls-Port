@@ -19,8 +19,9 @@ static void create() {
 
     SetKeyName("the Grocer");
     SetId( ({ "vendor","grocer", "owner", "shopkeep", "shopkeeper", "keeper" }) );
-    SetShort("A grocer at the counter, with a slightly impatient look on his face");
-    SetLong("A tall grocer who moves 200 pound bags of flour on his shoulders,");
+    SetShort("a Grocer");
+    SetLong("A tall grocer standing at the counter who moves 200 pound bags of flour\n"+
+            "on his shoulders. He has a slightly impatient look on his face.");
     SetCanBite(0);
     SetRace("human");
     SetClass("fighter");    
@@ -30,8 +31,8 @@ static void create() {
     SetMorality(2250);    
     AddCurrency("gold", 2000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/30.zon/3010-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/30.zon/rm_3010-2");
+    SetMaxItems(800);
     SetVendorType(VT_LIGHT|VT_TREASURE);
     SetProperty("no bump", 1);
     SetAttackable(0);

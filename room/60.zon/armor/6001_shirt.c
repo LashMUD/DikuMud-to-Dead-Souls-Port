@@ -25,7 +25,7 @@ void create(){
     SetShort("a chequered shirt");
     SetLong("A chequered shirt lies here.");
     SetMass(20);
-    SetBaseCost("gold", 20);
+    SetBaseCost("silver", 20);
     SetDamagePoints(10); //assumes a light material
     SetProtection(BLUNT,1); //change as necessary
     SetProtection(BLADE,2); //change as necessary

@@ -25,7 +25,7 @@ void create(){
     SetLong("The boots are muddy and they look well worn, but also very\n"+
         "comfortable.");
     SetMass(200);
-    SetBaseCost("gold", 75);
+    SetBaseCost("silver", 75);
     SetDamagePoints(46); //same as leather boots
     SetProtection(BLUNT, 2); //change as necessary
     SetProtection(BLADE, 4); //change as necessary

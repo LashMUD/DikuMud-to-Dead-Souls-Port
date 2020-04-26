@@ -26,7 +26,7 @@ void create(){
     SetShort("a pair of gloves");
     SetLong("The gloves are made of silver threads.");
     SetMass(140);
-    SetBaseCost("gold", 900);
+    SetBaseCost("silver", 900);
     SetDamagePoints(71);  //like studded leather
     SetProtection(BLUNT, 3); //change as necessary
     SetProtection(BLADE, 6); //change as necessary

@@ -26,11 +26,11 @@ void create(){
     SetLong("It is a quite heavy human-sized ring made from solid iron. It lacks\n"+
         "decorations of any kind.");
     SetMass(10);
-    SetBaseCost("gold", 5000);
+    SetBaseCost("silver", 5000);
     SetDamagePoints(50); //arbitrary number
-    SetProtection(BLUNT, 1); //change as necessary
-    SetProtection(BLADE, 2); //change as necessary
-    SetProtection(KNIFE, 2); //change as necessary
+    SetProtection(BLUNT, 100); //change as necessary
+    SetProtection(BLADE, 100); //change as necessary
+    SetProtection(KNIFE, 100); //change as necessary
     SetArmorType(A_RING);
     SetVendorType(VT_ARMOR);
 }

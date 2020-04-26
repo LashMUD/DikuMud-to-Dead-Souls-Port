@@ -21,7 +21,7 @@ static void create() {
     SetKeyName("zombie");
     SetId( ({"zombie", "corpse", "rotting"}) );
     SetAdjectives(({"non-player", "non player", "corpse"}));
-    SetShort("a rotting corpse");
+    SetShort("a Rotting Corpse");
     SetLong("A rotting corpse is staggering towards you with outstretched hands.\n"+
         "Maggots crawl all over its decaying body.");
     SetInventory(([
@@ -35,7 +35,6 @@ static void create() {
     SetGender("neuter");
     SetEncounter( (:CheckNPC:) );
     SetMorality(-1875);
-    SetMelee(1);
 }
 
 void init(){

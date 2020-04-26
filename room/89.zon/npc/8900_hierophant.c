@@ -16,14 +16,15 @@ inherit LIB_SENTIENT;
 static void create(){
     sentient::create();
 
-    SetKeyName("hierophant");
-    SetId(({"Hierophant"}));
+    SetKeyName("the Hierophant");
+    SetId(({"hierophant"}));
     SetAdjectives(({"", ""}));
     SetShort("The Hierophant");
     SetLong("The old Hierophant of the holy grove is here, gathering hollies.");
     SetRace("human");
     SetClass("fighter");
-    SetLevel(20);
+    SetLevel(30);
+    SetCanBite(0); 
     SetWimpy(30);
     SetGender("male");
     AddCurrency("gold" , 50);

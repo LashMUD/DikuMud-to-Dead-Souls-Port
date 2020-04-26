@@ -23,6 +23,7 @@ static void create() {
     SetLong("A drunk who seems to be too happy, and to carry to much money.");
     SetRace("human");
     SetLevel(1);
+    SetClass("fighter");
     SetCanBite(0);
     SetGender("male");
     SetMorality(1000);

@@ -22,7 +22,7 @@ static void create() {
     SetShort("a white centipede");
     SetLong("The centipede doesn't really seem to notice you.");
     SetRace("insect");
-    SetMelee(1);
+    SetClass("fighter");
     SetLevel(5);
     SetGender("neuter");
     SetMorality(-250);

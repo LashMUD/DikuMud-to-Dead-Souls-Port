@@ -19,8 +19,8 @@ static void create() {
 
     SetKeyName("the Jeweller");
     SetId( ({ "vendor", "jeweller", "owner", "shopkeep", "shopkeeper", "keeper" }) );
-    SetShort("the Jeweller, standing behind the desk,");
-    SetLong("He is fat and has a content although watchful look on his face.");
+    SetShort("the Jeweller");
+    SetLong("He is fat and has a content, although watchful look on his face.");
     SetCanBite(0);
     SetRace("human");
     SetClass("fighter");
@@ -31,8 +31,8 @@ static void create() {
     SetMorality(2250);
     AddCurrency("gold", 10000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/30.zon/3034-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/30.zon/rm_3034-2");
+    SetMaxItems(300);
     SetVendorType(VT_TREASURE);
     SetProperty("no bump", 1);
     SetAttackable(0);

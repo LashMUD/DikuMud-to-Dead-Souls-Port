@@ -17,15 +17,15 @@ void CheckPoison(object ob);
 
 static void create() {
     sentient::create();
-    SetKeyName("the snake");
+    SetKeyName("the green snake");
     SetId( ({"snake", "green"}) );
     SetAdjectives(({"non-player", "non player", "dreadful"}));
     SetShort("the green snake");
     SetLong("A small green snake.\n"+
         "It looks harmless.");
     SetRace("viper"); //To add poison
-    SetMelee(1);
-    SetLevel(11);
+    SetClass("fighter");
+    SetLevel(50);
     SetGender("neuter");
     SetMorality(-250);
     SetCombatAction(100, (:CheckPoison:));
@@ -45,8 +45,8 @@ void CheckPoison(object ob){
         chance = random(32)-this_object()->GetLevel();
         
         if(chance == 0){
-            tell_room(env, "The Snake sinks its fangs into "+ob->GetShort()+"!", ({this_object(), ob}) );
-            tell_object(ob, "The Snake sinks its fangs into you!");
+            tell_room(env, "%^BOLD%^%^GREEN%^The Snake sinks its fangs into "+ob->GetShort()+"!%^RESET%^\n", ({this_object(), ob}) );
+            tell_object(ob, "%^BOLD%^%^GREEN%^The Snake sinks its fangs into you!%^RESET%^\n");
             ob->AddPoison(25);
         }
     }

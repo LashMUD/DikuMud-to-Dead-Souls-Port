@@ -21,17 +21,17 @@ static void create(){
     SetKeyName("lemure blob");
     SetId(({"lemure", "blob"}));
     SetAdjectives(({"", ""}));
-    SetShort("The lemure");
+    SetShort("The Lemure");
     SetLong("The lemure blob slithers terribly precisely towards you for an\n"+
         "attack!");
     SetRace("blob"); //check for appropriate race
-    SetLevel(5);
-    SetCanBite(1);
-    SetMelee(1);  // added to classes that aren't "fighters"
+    SertClass("npc_melee");
+    SetLevel(50);
     SetGender("neuter");
     SetMorality(-1250);
-    SetWander(5);  //if mob is NOT a SENTINEL
-    SetEncounter( (:CheckNPC:) );  //mob is AGGRESSIVE
+    SetWander(5);
+    SetEncounter( (:CheckNPC:) );
+    //need lemure functions
 }
 
 void init(){

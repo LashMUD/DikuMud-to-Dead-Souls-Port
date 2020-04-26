@@ -17,13 +17,13 @@ inherit LIB_SENTIENT;
 static void create() {
     sentient::create();
 
-    SetKeyName("the centipede");
+    SetKeyName("the small centipede");
     SetId( ({"centipede", "small"}) );
     SetAdjectives(({"non-player", "non player", "small"}));
     SetShort("a small centipede");
     SetLong("It looks complete harmless.");
     SetRace("insect");
-    SetMelee(1);
+    SetClass("fighter");
     SetLevel(3);
     SetGender("neuter");
     SetMorality(250);

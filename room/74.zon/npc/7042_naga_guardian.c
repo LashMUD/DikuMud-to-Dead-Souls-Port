@@ -16,17 +16,18 @@ inherit LIB_SENTIENT;
 static void create(){
     sentient::create();
 
-    SetKeyName("guardian Naga");
+    SetKeyName("guardian naga");
     SetId(({"guardian", "naga"}));
     SetAdjectives(({"", ""}));
-    SetShort("The guardian naga");
+    SetShort("The Guardian Naga");
     SetLong("The Guardian Naga looks kindly at you.");
     SetRace("snake"); //possible new race 'naga'
-    SetLevel(12);
-    SetMelee(1);  // added to classes that aren't "fighters"
+    SetClass("npc_melee");
+    SetLevel(62);
     SetGender("female");
     AddCurrency("gold" , 100);
     SetMorality(1750);
+    //need naga functions
 }
 
 void init(){

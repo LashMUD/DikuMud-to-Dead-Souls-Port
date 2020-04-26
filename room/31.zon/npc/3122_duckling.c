@@ -20,12 +20,12 @@ static void create() {
     SetKeyName("the Duckling");
     SetId( ({"duck", "duckling", "bird", "fowl"}) );
     SetAdjectives(({"small", "cute"}));
-    SetShort("a duckling in the pond");
+    SetShort("a Duckling");
     SetLong("The duckling is adorable, it looks most of all like a tiny furball.");
     SetPosition(POSITION_SWIMMING);
     SetRace("bird");
+    SetClass("npc_melee");
     SetLevel(1);
-    SetMelee(0);
     SetGender("female");
     SetMorality(2500);
 }

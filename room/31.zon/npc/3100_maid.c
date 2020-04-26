@@ -20,20 +20,20 @@ static void create() {
     SetKeyName("the Maid");
     SetAdjectives( ({}) );
     SetId( ({"maid", "vendor", "shopkeep", "shopkeeper", "owner"}) );
-    SetShort("The Maid, waiting for your order,");
+    SetShort("the Maid");
     SetLong("She is very beautiful with golden hair, and deep blue eyes. A good reason\n"+
-            "for coming here more often.");
-    SetCanBite(0);
+            "for coming here more often. She is waiting to take your order.");
     SetRace("human");
     SetClass("fighter");
     SetLevel(23);
     SetSkill("bargaining", 1);
     SetGender("female");
+    SetCanBite(0);
     SetMorality(2500);
     AddCurrency("gold", 2000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/31.zon/3106-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/31.zon/rm_3106-2");
+    SetMaxItems(400);
     SetVendorType(VT_DRINK);
     SetProperty("no bump", 1);
     SetAttackable(0);

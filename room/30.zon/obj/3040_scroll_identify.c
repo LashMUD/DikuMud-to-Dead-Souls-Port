@@ -75,6 +75,7 @@ varargs mixed eventRead(object reader, mixed str){
     }
     
     tell_player(reader, ob->GetItemCondition());
+    this_object()->eventMove(ROOM_FURNACE);
 }
 
 

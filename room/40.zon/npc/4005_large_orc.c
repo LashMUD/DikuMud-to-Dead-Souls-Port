@@ -24,13 +24,20 @@ static void create() {
     SetShort("the orc");
     SetLong("A large orc, really mean.\n"+
         "He looks dreadful.");
+    SetRace("orc");
+    SetClass("fighter");
+    SetLevel(30);
+    SetGender("male");
     SetInventory(([
+        "/domains/diku-alfa/room/30.zon/weap/3021_smallsword" : "wield sword",
+        "/domains/diku-alfa/room/30.zon/armor/3073_coif_scalemail" : "wear coif",
+        "/domains/diku-alfa/room/30.zon/armor/3072_jerkin_scalemail" : "wear jerkin",
+        "/domains/diku-alfa/room/30.zon/armor/3082_gloves_ironbound" : "wear gloves",
+        "/domains/diku-alfa/room/30.zon/armor/3086_leggings_bronze" : "wear leggings",
+        "/domains/diku-alfa/room/30.zon/armor/3081_boots_ironbound" : "wear boots",
+        "/domains/diku-alfa/room/30.zon/armor/3077_sleeves_scalemail" : "wear sleeves",
         "/domains/diku-alfa/room/40.zon/armor/4000_green_ring" : "wear ring",
         ]));
-    SetRace("orc");
-    SetMelee(1);
-    SetLevel(7);
-    SetGender("male");
     SetMorality(-1000);
     AddCurrency("gold", 200);
     SetWander(5);

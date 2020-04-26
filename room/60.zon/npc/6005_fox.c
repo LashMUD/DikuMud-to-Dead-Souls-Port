@@ -19,14 +19,13 @@ static void create(){
     SetKeyName("fox");
     SetId(({"fox", "brown"}));
     SetAdjectives(({"", ""}));
-    SetShort("the brown fox");
+    SetShort("the Brown Fox");
     SetLong("A brown fox is here, looking for some rabbits to chew up.");
-    SetCanBite(1);
-    SetRace("dog"); //check for appropriate race
-    SetLevel(2);
+    SetRace("dog"); 
+    SetClass("npc_melee");
+    SetLevel(5);
     SetMorality(125);
     SetGender("neuter");
-    SetMelee(1);
     SetWander(5);
     SetProperty("STAY_ZONE", 1);
 }

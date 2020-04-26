@@ -19,26 +19,26 @@ void Scavenge();
 static void create(){
     sentient::create();
 
-    SetKeyName("wererat");
+    SetKeyName("sewer wererat");
     SetId(({"rat", "wererat", "were"}));
     SetAdjectives(({"", ""}));
-    SetShort("The ugly wererat");
+    SetShort("the Ugly Wererat");
     SetLong("An ugly wererat is here, looking at you with a strange flick in his\n"+
         "eyes.");
-    SetCanBite(1);
+    SetRace("rodent"); //need new 'wererat' race to wield weapons
+    SetClass("fighter");
+    SetLevel(16);
     SetInventory( ([
         "/domains/diku-alfa/room/72.zon/weap/7211_sword_short" : "wield sword",
         ] ));
-    SetRace("rodent"); //need new 'wererat' race to wield weapons
-    SetLevel(6);
     SetGender("neuter");
     SetMorality(-1750);
     AddCurrency("gold" , 50);
-    SetMelee(1);
     SetWander(5);
     SetProperty("STAY_ZONE", 1);
     SetEncounter( (:CheckNPC:) );
     SetAction(10, ( :Scavenge: ));
+    //spread wererat disease
 }
 
 void init(){

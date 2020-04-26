@@ -27,6 +27,7 @@ static void create() {
     SetRace("human");
     SetLevel(9);
     SetClass("fighter");
+    SetCanBite(0);
     SetMelee(1);
     SetGender("male");
     SetMorality(-750);

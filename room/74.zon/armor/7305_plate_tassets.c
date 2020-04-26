@@ -26,7 +26,7 @@ void create(){
     SetShort("plated tassets");
     SetLong("They seem to be made from steel, and they are fit to be worn on your thighs.");
     SetMass(170);
-    SetBaseCost("gold", 12500);
+    SetBaseCost("silver", 12500);
     SetDamagePoints(100);
     SetProtection(BLUNT, 16); //change as necessary
     SetProtection(BLADE, 27); //change as necessary

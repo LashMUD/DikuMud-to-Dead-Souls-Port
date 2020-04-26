@@ -21,11 +21,16 @@ static void create() {
     SetKeyName("the Cityguard");
     SetId(({"cityguard", "guard"}));
     SetAdjectives(({"non-player", "non player"}));
-    SetShort("A Gate guard");
+    SetShort("a Gate Guard");
     SetLong("A big, strong, helpful, trustworthy guard.");
     SetCanBite(0);
     SetInventory( ([
         "/domains/diku-alfa/room/30.zon/weap/3022_longsword" : "wield sword",
+        "/domains/diku-alfa/room/30.zon/armor/3091_helmet_iron" : "wear helmet",
+        "/domains/diku-alfa/room/30.zon/armor/3090_bplate_iron" : "wear breast plate",
+        "/domains/diku-alfa/room/30.zon/armor/3094_gauntlets_iron" : "wear gauntlets",
+        "/domains/diku-alfa/room/30.zon/armor/3092_leggings_iron" : "wear leggings",
+        "/domains/diku-alfa/room/30.zon/armor/3093_boots_iron" : "wear boots",
         ] ));
     SetRace("human");
     SetClass("fighter");

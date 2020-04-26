@@ -24,7 +24,7 @@ static void create(){
     SetShort("a pair of bronze bracers");
     SetLong("A pair of bronze bracers.");
     SetMass(80);
-    SetBaseCost("gold",2500);
+    SetBaseCost("silver",2500);
     SetDamagePoints(72);
     SetProtection(BLUNT,12);
     SetProtection(BLADE,12);

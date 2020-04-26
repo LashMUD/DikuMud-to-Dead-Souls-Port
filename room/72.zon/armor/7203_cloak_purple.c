@@ -25,7 +25,7 @@ void create(){
     SetLong("This is a very fine made cloak from an unknown material,\n"+
        "in a nice purple color.");
     SetMass(200);
-    SetBaseCost("gold", 5000);
+    SetBaseCost("silver", 5000);
     SetDamagePoints(200); //unknown mysterious material with high damage points
     SetProtection(BLUNT,20); //change as necessary
     SetProtection(BLADE,20 ); //change as necessary

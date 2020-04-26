@@ -24,7 +24,7 @@ static void create(){
     SetShort("a studded leather jerkin");
     SetLong("A studded leather jerkin.");
     SetMass(100);
-    SetBaseCost("gold",200);
+    SetBaseCost("silver",200);
     SetDamagePoints(70);
     SetProtection(BLUNT,15);
     SetProtection(BLADE,15);

@@ -28,7 +28,6 @@ static void create() {
     SetRace("human");
     SetClass("mage");
     SetLevel(11); //uses lightningbolt in magic_user.c
-    SetMelee(1);
     SetCanBite(0);    
     SetGender("male");
     SetMorality(-800); 
@@ -77,7 +76,7 @@ void Scavenge(){
 
 void Spells(){
      //eventForce("\nsay In Spells\n");
-     "/domains/diku-alfa/etc/magic_user.c"->SpellCombat(this_object());
+     "/powers/npc/magic_user.c"->SpellCombat(this_object());
 }
 
 /* Extra Information Original Diku Output

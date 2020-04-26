@@ -18,19 +18,20 @@ void Scavenge();
 static void create(){
     sentient::create();
 
-    SetKeyName("herald \"Mouse Killer\" Ettin");
-    SetId(({"Herald", "ettin"}));
+    SetKeyName("herald \"mouse killer\" ettin");
+    SetId(({"herald", "ettin"}));
     SetAdjectives(({"", ""}));
     SetShort("Herald \"Mouse Killer\" the Ettin");
     SetLong("Herald is standing here looking confused at you.");
     SetRace("giant"); //check for appropriate race
-    SetLevel(6);
-    SetMelee(1);
+    SetLevel(75);
+    SetClass("npc_melee");
     SetGender("male");
     AddCurrency("gold" , 40);
     SetMorality(500);
     SetWander(5);
     SetAction(10, ( :Scavenge: ));
+    //need ettin functions
 }
 
 void init(){

@@ -18,14 +18,15 @@ void Scavenge();
 static void create(){
     sentient::create();
 
-    SetKeyName("evil Wanderer");
+    SetKeyName("evil wanderer");
     SetId(({"evil", "wanderer", "man"}));
     SetAdjectives(({"", ""}));
-    SetShort("The evil wanderer");
-    SetLong("The evil wanderer stares at you.");
+    SetShort("The Evil Wanderer");
+    SetLong("The Evil Wanderer stares at you.");
     SetRace("human");
     SetClass("fighter");
-    SetLevel(10);
+    SetLevel(25);
+    SetCanBite(0);
     SetWimpy(30);
     SetGender("male");
     AddCurrency("gold" , 300);

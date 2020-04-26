@@ -21,17 +21,22 @@ static void create() {
     SetKeyName("the Captain");
     SetId(({"captain", "guard"}));
     SetAdjectives(({"non-player", "non player"}));
-    SetShort("the Captain of the guard, looking very upset,");
-    SetLong("The very angry Captain of the Guard.");
+    SetShort("the Captain of the Guard");
+    SetLong("The very angry Captain of the Guard. He looks quite upset.");
     SetCanBite(0);
-    SetInventory( ([
-        "/domains/diku-alfa/room/31.zon/obj/key_3137" :1,
-        "/domains/diku-alfa/room/31.zon/obj/key_3122" : 1,
-      ]) );
     SetRace("human");
     SetClass("fighter");
     SetLevel(17);
-    SetMelee(1);
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/weap/3022_longsword" : "wield sword",
+        "/domains/diku-alfa/room/30.zon/armor/3091_helmet_iron" : "wear helmet",
+        "/domains/diku-alfa/room/30.zon/armor/3090_bplate_iron" : "wear breast plate",
+        "/domains/diku-alfa/room/30.zon/armor/3094_gauntlets_iron" : "wear gauntlets",
+        "/domains/diku-alfa/room/30.zon/armor/3092_leggings_iron" : "wear leggings",
+        "/domains/diku-alfa/room/30.zon/armor/3093_boots_iron" : "wear boots",
+        "/domains/diku-alfa/room/31.zon/obj/key_3137" :1,
+        "/domains/diku-alfa/room/31.zon/obj/key_3122" : 1,
+      ]) );
     SetEncounter( (:CheckNPC:) ); // aggressive mob - no one is supposed to be in the captain's office
     SetGender("male");
     SetMorality(2500);

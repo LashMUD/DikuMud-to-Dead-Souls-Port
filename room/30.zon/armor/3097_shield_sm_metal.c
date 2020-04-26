@@ -25,7 +25,7 @@ static void create() {
     SetLong("A small metal shield.");
     SetDamagePoints(90);
     SetMass(50);
-    SetBaseCost("gold",500);
+    SetBaseCost("silver",500);
     SetArmorType(A_SHIELD);
     SetProtection(BLUNT, 8);
     SetProtection(BLADE, 8);

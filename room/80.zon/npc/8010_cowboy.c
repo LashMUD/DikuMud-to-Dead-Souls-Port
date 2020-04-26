@@ -24,6 +24,7 @@ static void create(){
     SetRace("human"); //check for appropriate race
     SetClass("fighter");
     SetLevel(5);
+    SetCanBite(0); 
     SetGender("male");
     AddCurrency("gold" , 40);
     SetMorality(1000);

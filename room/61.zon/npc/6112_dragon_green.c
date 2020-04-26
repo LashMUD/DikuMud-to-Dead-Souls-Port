@@ -23,15 +23,14 @@ static void create(){
     SetKeyName("green dragon");
     SetId(({"dragon", "green", "beast"}));
     SetAdjectives(({"", ""}));
-    SetShort("the huge, green dragon");
+    SetShort("the Huge Green Dragon");
     SetLong("A huge green dragon is here, its narrow yellow eyes glowing with rage.");
-    SetCanBite(1);
+    SetRace("dragon"); 
+    SetClass("npc_melee");
+    SetLevel(20);
     SetInventory( ([
         "/domains/diku-alfa/room/61.zon/armor/6112_crown_iron" : 1,
         ] ));
-    SetRace("dragon"); //check for appropriate race
-    SetLevel(20);
-    SetMelee(1);
     SetMorality(-2500);
     AddCurrency("gold" , 10000);
     SetGender("neuter");

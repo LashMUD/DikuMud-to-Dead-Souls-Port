@@ -21,14 +21,13 @@ static void create(){
     SetKeyName("bear");
     SetId(({"brown", "bear"}));
     SetAdjectives(({"", ""}));
-    SetShort("the brown bear");
+    SetShort("the Brown Bear");
     SetLong("A big, brown, angry-looking bear is here.");
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
-    SetRace("bear"); //check for appropriate race
+    SetRace("bear");
+    SetClass("npc_melee"); 
     SetLevel(8);
     SetMorality(-125);
     SetGender("neuter");
-    SetMelee(1);
     SetWander(5);
     SetProperty("STAY_ZONE", 1);
     SetEncounter( (:CheckNPC: ) ); // aggressive mob

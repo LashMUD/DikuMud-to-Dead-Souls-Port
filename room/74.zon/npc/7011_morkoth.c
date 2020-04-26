@@ -21,18 +21,18 @@ static void create(){
     SetKeyName("morkoth");
     SetId(({"morkoth"}));
     SetAdjectives(({"", ""}));
-    SetShort("the shadowy Morkoth");
+    SetShort("the Shadowy Morkoth");
     SetLong("The Morkoth is standing here, waiting for someone to KILL!");
     SetRace("primate"); //need new race 'morkoth'
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
-    SetLevel(10);
-    SetMelee(1);  // added to classes that aren't "fighters"
+    SetClass("npc_melee");
+    SetLevel(40);
     SetWimpy(30);
     SetGender("neuter");
     AddCurrency("gold" , 1);
     SetMorality(-900);
-    SetWander(5);  //if mob is NOT a SENTINEL
-    SetEncounter( (:CheckNPC:) );  //mob is AGGRESSIVE
+    SetWander(5);
+    SetEncounter( (:CheckNPC:) );
+    //need morkoth functions
 }
 
 void init(){

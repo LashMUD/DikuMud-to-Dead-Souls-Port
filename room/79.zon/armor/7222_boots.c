@@ -26,7 +26,7 @@ void create(){
     SetShort("a pair of heavy plated boots");
     SetLong("The boots are made from a silvery metal.");
     SetMass(400);
-    SetBaseCost("gold", 2000);
+    SetBaseCost("silver", 2000);
     SetDamagePoints(81);
     SetProtection(BLUNT, 11); //change as necessary
     SetProtection(BLADE, 16); //change as necessary

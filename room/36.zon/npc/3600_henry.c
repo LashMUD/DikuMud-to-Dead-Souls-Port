@@ -19,10 +19,11 @@ static void create() {
     SetKeyName("henry");
     SetId( ({"henry"}) );
     SetAdjectives(({"non-player", "non player", "gardener"}));
-    SetShort("Henry the Gardener, looking drunk,");
+    SetShort("Henry the Gardener");
     SetLong("He is a tall but bulky man in his late fifties.  His features are worn with\n"+
       "decades of hard work and his somewhat crouched expression is one of deep\n"+
-      "sorrow and depression.  He is haunted by a memory of a lost paradise.");
+      "sorrow and depression.  He is haunted by a memory of a lost paradise. He looks\n"+
+      "like he's been drinking heavily");
     SetRace("human");
     SetClass("fighter");
     SetLevel(4);
@@ -36,7 +37,6 @@ static void create() {
     SetGender("male");
     AddCurrency("gold", 50);
     SetMorality(875);
-    SetMelee(1);
     SetWander(5);
     SetProperty("STAY_ZONE", 1);
 }

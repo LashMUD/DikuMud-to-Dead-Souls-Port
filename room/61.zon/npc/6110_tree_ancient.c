@@ -19,13 +19,14 @@ static void create(){
     SetKeyName("ancient tree");
     SetId(({"tree", "ancient"}));
     SetAdjectives(({"", ""}));
-    SetShort("a huge, ancient tree, walking on giant roots,");
+    SetShort("a Huge Ancient Tree");
     SetLong("A huge, ancient tree towers above you. Its roots are\n"+
         "extremely big and large parts of them are above ground.\n"+
         "The enormous grey trunk shivers slightly, as if sighing deeply.");
-    SetRace("plant"); //check for appropriate race
+    SetRace("plant"); 
+    SetClass("npc_melee");
     SetLevel(30);
-    SetMelee(1);
+    SetCanBite(0);
     SetMorality(0);
     SetGender("neuter");
     SetWander(5);

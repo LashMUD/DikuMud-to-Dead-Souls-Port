@@ -13,12 +13,12 @@
 
 inherit LIB_SENTIENT;
 
-int AllowPass(object who, object what){
+/*int AllowPass(object who, object what){
     if(!who) return 0;
     if(!objectp(who)) return 0;
     if(who->GetClass() == "mage" || adminp(who)) return 1; 
     return ::AllowPass(who, what);
-}
+}*/
 
 static void create() {
     sentient::create();
@@ -26,7 +26,7 @@ static void create() {
     SetKeyName("the Sorcerer");
     SetId(({"npc","mob","character","mobile", "sorcerer"}));
     SetAdjectives(({"non-player", "non player"}));
-    SetShort("a sorcerer, guarding the entrance,");
+    SetShort("a Sorcerer");
     SetLong("He is an experienced mage who has specialized in the field of Combat Magic.\n"+
         "He is here to guard the Mage's Guild and his superior knowledge of offensive\n"+
         "as well as defensive spells make him a deadly opponent.");
@@ -39,7 +39,7 @@ static void create() {
     SetMorality(2000);
     AddCurrency("gold", 2000); 
     SetProperty("no bump", 1);
-    SetGuard("south" , "The guard humiliates you, and blocks your way.");
+    //SetGuard("south" , "The guard humiliates you, and blocks your way.");
 }
 
 void init(){

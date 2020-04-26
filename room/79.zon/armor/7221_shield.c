@@ -27,7 +27,7 @@ void create(){
     SetLong("On the shield you see a clear and perfect painting of a dark red rose on a white\n"+
         "background. You also notice the inscription :'Pax Est Sanctuum'.");
     SetMass(600);
-    SetBaseCost("gold", 15000);
+    SetBaseCost("silver", 15000);
     SetDamagePoints(115);
     SetProtection(BLUNT, 14); //change as necessary
     SetProtection(BLADE, 20); //change as necessary

@@ -19,20 +19,21 @@ void Scavenge();
 static void create(){
     sentient::create();
 
-    SetKeyName("jones \"Cruncher\" Ettin");
+    SetKeyName("jones \"cruncher\" ettin");
     SetId(({"jones", "ettin", "cruncher"}));
     SetAdjectives(({"", ""}));
     SetShort("Jones \"Cruncher\" the Ettin");
     SetLong("Jones is standing here glaring at you.");
     SetRace("giant"); //possible new race 'ettin'
-    SetLevel(10);
-    SetMelee(1);
+    SetClass("npc_melee")
+    SetLevel(85);
     SetGender("male");
     AddCurrency("gold" , 60);
     SetMorality(-1200);
     SetWander(5);
     SetEncounter( (:CheckNPC:) );
     SetAction(10, ( :Scavenge: ));
+    //need ettin functions
 }
 
 void init(){

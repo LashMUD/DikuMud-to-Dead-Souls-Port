@@ -24,7 +24,7 @@ static void create(){
     SetShort("a scale mail coif");
     SetLong("A scale mail coif.");
     SetMass(40);
-    SetBaseCost("gold",250);
+    SetBaseCost("silver",250);
     SetDamagePoints(72);
     SetProtection(BLUNT,10);
     SetProtection(BLADE,12);

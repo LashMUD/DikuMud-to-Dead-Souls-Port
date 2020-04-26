@@ -27,7 +27,7 @@ void create(){
     SetLong("On the breast plate you notive a relief of large rose. The metal seems to be\n"+
         "some kind of silver or platinium.");
     SetMass(700);
-    SetBaseCost("gold", 25000);
+    SetBaseCost("silver", 25000);
     SetDamagePoints(105);
     SetProtection(BLUNT, 21); //change as necessary
     SetProtection(BLADE, 40); //change as necessary

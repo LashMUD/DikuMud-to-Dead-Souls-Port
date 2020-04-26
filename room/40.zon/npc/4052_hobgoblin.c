@@ -24,7 +24,7 @@ static void create() {
     SetShort("a small hobgoblin");
     SetLong("The hobgoblin looks quite lost.");
     SetRace("goblin");
-    SetMelee(1);
+    SetClass("fighter");
     SetLevel(7);
     SetGender("male");
     SetMorality(-1500);

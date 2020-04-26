@@ -23,13 +23,13 @@ static void create(){
     SetAdjectives(({"", ""}));
     SetShort("Shargugh");
     SetLong("Shargugh the Forest Brownie is here, grinning broadly at you.");
+    SetRace("gnome"); //possible new race 'brownie'
+    SetClass("fighter");
+    SetLevel(10);
     SetCanBite(0);
     SetInventory( ([
         "/domains/diku-alfa/room/61.zon/armor/6114_ring_iron" : 1,
         ] ));
-    SetRace("gnome"); //possible new race 'brownie'
-    SetLevel(10);
-    SetMelee(1);
     SetMorality(2500);
     AddCurrency("gold" , 1000);
     SetGender("male");

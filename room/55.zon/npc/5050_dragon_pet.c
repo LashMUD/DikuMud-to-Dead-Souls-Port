@@ -6,16 +6,15 @@ inherit LIB_SENTIENT;
 static void create(){
     sentient::create();
 
-    SetKeyName("dragon_pet");
+    SetKeyName("the pet dragon");
     SetId(({"dragon", "pet"}));
     SetAdjectives(({"", ""}));
-    SetShort("the pet dragon");
+    SetShort("the Pet Dragon");
     SetLong("Ravan's pet dragon is bouncing around here flapping her cute wings.");
     SetPosition(POSITION_FLYING);
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
-    SetRace("dragon"); //check for appropriate race
+    SetRace("dragon");
+    SetClass("npc_melee"); 
     SetLevel(1);
-    SetMelee(1);
     SetMorality(2500);
     SetGender("female");
     SetWimpy(30);

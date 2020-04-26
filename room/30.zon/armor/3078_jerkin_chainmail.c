@@ -24,7 +24,7 @@ static void create(){
     SetShort("a chain mail jerkin");
     SetLong("A chain mail jerkin.");
     SetMass(200);
-    SetBaseCost("gold",1000);
+    SetBaseCost("silver",1000);
     SetDamagePoints(85);
     SetProtection(BLUNT,4);
     SetProtection(BLADE,25);

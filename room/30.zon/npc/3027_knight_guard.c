@@ -13,12 +13,12 @@
 
 inherit LIB_SENTIENT;
 
-int AllowPass(object who, object what){
+/*int AllowPass(object who, object what){
     if(!who) return 0;
     if(!objectp(who)) return 0;
     if(who->GetClass() == "fighter" || adminp(who)) return 1; 
     return ::AllowPass(who, what);
-}
+}*/
 
 static void create() {
     sentient::create();
@@ -26,7 +26,7 @@ static void create() {
     SetKeyName("the Knight");
     SetId(({"npc","mob","character","mobile", "knight"}));
     SetAdjectives(({"non-player", "non player"}));
-    SetShort("a knight, guarding the entrance,");
+    SetShort("a Knight");
     SetLong("He is an expert warrior who has attained knighthood through countless\n"+
         "chivalrous deeds. His duty is to protect the Guild of Swordsmen and his\n"+
         "extreme skill combined with his experience in warfare makes him a deadly\n"+
@@ -40,7 +40,7 @@ static void create() {
     SetMorality(2000);
     AddCurrency("gold", 2000);
     SetProperty("no bump", 1);
-    SetGuard("east" , "The guard humiliates you, and blocks your way.");
+    //SetGuard("east" , "The guard humiliates you, and blocks your way.");
 }
 
 void init(){

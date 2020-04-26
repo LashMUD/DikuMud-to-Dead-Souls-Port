@@ -20,9 +20,10 @@ static void create() {
     SetKeyName("filthy");
     SetAdjectives( ({"bartender"}) );
     SetId( ({"bartender", "vendor", "shopkeep", "shopkeeper", "owner"}) );
-    SetShort("Filthy, eager to serve you a special drink,");
+    SetShort("Filthy");
     SetLong("Filthy looks real, ehm, dirty. He likes to keep his costumers happy,\n"+
-        "but do not mess with him or else he'll get upset.");
+        "but do not mess with him or else he'll get upset. Otherwise he is eager to\n"+
+        "to get you a special drink.");
     SetCanBite(0);
     SetInventory( ([
         "/domains/diku-alfa/room/30.zon/weap/3022_longsword" : "wield sword",
@@ -35,8 +36,8 @@ static void create() {
     SetMorality(1500);
     AddCurrency("gold", 2000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/30.zon/3048-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/30.zon/rm_3048-2");
+    SetMaxItems(300);
     SetVendorType(VT_DRINK);
     SetProperty("no bump", 1);
     SetAttackable(0);

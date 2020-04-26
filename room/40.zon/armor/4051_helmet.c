@@ -28,7 +28,7 @@ static void create(){
     SetShort("a bronze helmet");
     SetLong("A bronze helmet.");
     SetMass(80);
-    SetBaseCost("gold",2500);
+    SetBaseCost("silver",2500);
     SetDamagePoints(500);
     SetProtection(BLUNT,12);
     SetProtection(BLADE,18);

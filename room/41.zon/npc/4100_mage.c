@@ -30,7 +30,7 @@ static void create() {
     SetRace("human");
     SetClass("mage");
     SetLevel(14); //changed to use colour spray in magic_user.c
-    SetMelee(1);
+    SetCanBite(0);
     SetGender("male");
     SetMorality(-250);
     AddCurrency("gold", 1500);
@@ -74,7 +74,7 @@ void Scavenge(){
 
 void Spells(){
      //eventForce("\nsay In Spells\n");
-     "/domains/diku-alfa/etc/magic_user.c"->SpellCombat(this_object());
+     "/powers/npc/magic_user.c"->SpellCombat(this_object());
 }
 
 /* Extra Information Original Diku Output 

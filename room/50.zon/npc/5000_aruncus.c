@@ -16,14 +16,15 @@ inherit LIB_SENTIENT;
 static void create(){
     sentient::create();
 
-    SetKeyName("aruncus the Druid");
+    SetKeyName("aruncus");
     SetId(({"druid", "aruncus"}));
     SetAdjectives(({"", ""}));
     SetShort("Aruncus the Druid");
     SetLong("Aruncus the Druid is walking around here, searching for herbs.");
-    SetCanBite(0); //Default is no biting; Set to '1' if can bite
+    SetCanBite(0);
     SetInventory( ([" " : " "] ));
-    SetRace("human"); //check for appropriate race
+    SetRace("human");
+    SetClass("cleric");
     SetLevel(13);
     SetMorality(-1250);
     AddCurrency("gold" , 500);

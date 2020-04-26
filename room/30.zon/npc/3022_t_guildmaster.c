@@ -17,7 +17,7 @@
 #include <objects.h>
 #include <daemons.h>
 
-inherit "/domains/diku-alfa/etc/trainer.c";
+inherit LIB_TRAINER;
 
 int AdvanceDude(mixed arg);
 mapping advancement, Levels;

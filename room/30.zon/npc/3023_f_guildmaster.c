@@ -17,7 +17,7 @@
 #include <objects.h>
 #include <daemons.h>
 
-inherit "/domains/diku-alfa/etc/trainer.c";
+inherit LIB_TRAINER;
 
 int AdvanceDude(mixed arg);
 mapping advancement, Levels;
@@ -27,13 +27,13 @@ void create(){
     trainer::create();
     Levels = PLAYERS_D->GetLevelList();
     advancement = ([]);
-    SetKeyName("balcor");
-    SetId("guildmaster", "master", "Balcor", "balcor", "fighter","warrior","trainer");
+    SetKeyName("corbyn");
+    SetId("guildmaster", "master", "Corbyn", "corbyn", "fighter","warrior","trainer");
     SetAdjectives(({"strong","friendly","trustworthy"}));
     SetGender("male");
     SetRace("human");
     SetNoSpells(1);
-    SetShort("Balcor the Warrior");
+    SetShort("Corbyn the Warrior");
     SetLong("This is your master. Big and strong with bulging muscles. Several scars\n"+
             "across his body proves that he was using arms before you were born. He\n"+
             "has a calm look on his face."); 
@@ -78,7 +78,7 @@ void create(){
 void init() {
     trainer::init();
     SetSmell(([  "default" : "Leather, metal, and sweat greet your nostrils."]));
-    SetListen(([  "default" : "Balcor is singing a war anthem quietly to himself."]));
+    SetListen(([  "default" : "Corbyn is singing a war anthem quietly to himself."]));
 }
 
 int AdvanceDude(mixed arg){
@@ -133,8 +133,8 @@ int AdvanceDude(mixed arg){
         this_player()->save_player(this_player()->GetKeyName());
 
         if(level == MAX_NEWBIE_LEVEL){
-            write("\nBalcor raises his hand and sternly points to you.\n");
-            say("\nBalcor raises his hand and sternly points to "+
+            write("\nCorbyn raises his hand and sternly points to you.\n");
+            say("\nCorbyn raises his hand and sternly points to "+
                     this_player()->GetName()+".\n");
             this_object()->eventForce("say "+this_player()->GetName()+","+
                     " you are no longer a newbie. From now on, you will need"+

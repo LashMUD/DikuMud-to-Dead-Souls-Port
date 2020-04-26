@@ -25,7 +25,7 @@ void create(){
     SetShort("a broad silver belt");
     SetLong("It is a broad belt made from tiny silver rings woven together.");
     SetMass(40);
-    SetBaseCost("gold", 5000);
+    SetBaseCost("silver", 5000);
     SetDamagePoints(62);
     SetProtection(BLUNT, 6); //change as necessary
     SetProtection(BLADE, 12); //change as necessary

@@ -23,14 +23,13 @@ static void create(){
     SetAdjectives(({"", ""}));
     SetShort("The Great Sewer Rat");
     SetLong("The Huge Hungry-looking Sewer Rat sits here.");
-    SetRace("rodent"); //check for appropriate race
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
-    SetGender("male");
-    SetLevel(5);
-    SetMelee(1);  // added to classes that aren't "fighters"
+    SetRace("rodent");
+    SetClass("npc_melee"); 
+    SetLevel(12);
     SetInventory( ([
         "/domains/diku-alfa/room/72.zon/armor/7190_ring_silver" : 1,
         ]) );
+    SetGender("male");
     SetMorality(-2500);    
     AddCurrency("gold" , 40);
     SetWander(5);  //if mob is NOT a SENTINEL

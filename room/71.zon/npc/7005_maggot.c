@@ -16,20 +16,19 @@ inherit LIB_SENTIENT;
 static void create(){
     sentient::create();
     
-    SetKeyName("maggot");
+    SetKeyName("sewer maggot");
     SetId(({"maggot"}));
     SetAdjectives(({"", ""}));
-    SetShort("The maggot");
+    SetShort("the Maggot");
     SetLong("The Giant Maggot.");
-    SetRace("insect"); //check for appropriate race
+    SetRace("insect");
+    SetClass("npc_melee");
+    SetLevel(9);
     SetGender("male");
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
     AddCurrency("gold" , 2);
-    SetLevel(3);
-    SetMelee(1);  // added to classes that aren't "fighters"
     SetMorality(750);
-    SetWander(5);  //if mob is NOT a SENTINEL
-}
+    SetWander(5);}
+
 
 void init(){
     ::init();

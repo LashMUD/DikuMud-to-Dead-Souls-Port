@@ -27,7 +27,7 @@ static void create() {
         "/domains/diku-alfa/room/40.zon/meals/4050_purple_potion" : 1,
         ]));
     SetRace("goblin");
-    SetMelee(1);
+    SetClass("fighter");
     SetLevel(10);
     SetGender("male");
     SetMorality(-1250);

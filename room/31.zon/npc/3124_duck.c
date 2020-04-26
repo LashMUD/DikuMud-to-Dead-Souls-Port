@@ -19,11 +19,11 @@ static void create() {
     SetKeyName("the Duck");
     SetId( ({"duck", "bird", "fowl"}) );
     SetAdjectives(({""}));
-    SetShort("a Duck, quacking happily,");
-    SetLong("The duck is quite fat. It looks like it is enjoying life.");
+    SetShort("a Duck");
+    SetLong("The duck is quite fat and quaking happily. It looks like it is enjoying life.");
     SetRace("bird");
+    SetClass("npc_melee");
     SetLevel(1);
-    SetMelee(0);
     SetGender("female");
     SetMorality(2500);
     SetWander(5);

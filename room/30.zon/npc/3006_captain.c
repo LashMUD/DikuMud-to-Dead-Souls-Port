@@ -20,7 +20,7 @@ static void create() {
     SetKeyName("the Captain");
     SetAdjectives( ({"captain", "old salt"}) );
     SetId( ({"captain", "vendor", "shopkeep", "shopkeeper", "owner"}) );
-    SetShort("A retired Captain selling boats,");
+    SetShort("a retired Captain");
     SetLong("This Captain has eaten more sharks than you have killed peas.");
     SetCanBite(0);
     SetRace("human");
@@ -31,8 +31,8 @@ static void create() {
     SetMorality(2250);    
     AddCurrency("gold", 2000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/30.zon/3049-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/30.zon/rm_3049-2");
+    SetMaxItems(50);
     SetVendorType(VT_BOAT);
     SetProperty("no bump", 1);
     SetAttackable(0);

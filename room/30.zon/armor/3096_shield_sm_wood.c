@@ -25,7 +25,7 @@ static void create() {
     SetLong("A small wooden shield.");
     SetDamagePoints(75);
     SetMass(30);
-    SetBaseCost("gold",100);
+    SetBaseCost("silver",100);
     SetArmorType(A_SHIELD);
     SetProtection(BLUNT, 4);
     SetProtection(BLADE, 4);

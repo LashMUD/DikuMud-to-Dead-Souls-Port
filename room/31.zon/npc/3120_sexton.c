@@ -20,13 +20,14 @@ static void create() {
     SetKeyName("the Sexton");
     SetId( ({"sexton"}) );
     SetAdjectives(({""}));
-    SetShort("A Sexton, drinking hot tea,");
-    SetLong("The Sexton looks like he is relaxing after another gravedigging job.");
-    SetRace("human");
-    SetLevel(3);
+    SetShort("a Sexton");
+    SetLong("The Sexton looks like he is relaxing after another gravedigging job.\n"+
+        "He frequents The Park Cafe to enjoy a nice cup of hot tea.");
+    SetRace("human");    
+    SetClass("fighter");
+    SetLevel(5);
     SetPosition(POSITION_SITTING);
     SetAutoStand(0);
-    SetMelee(1);
     SetCanBite(0);
     AddCurrency("gold", 13);
     SetGender("male");

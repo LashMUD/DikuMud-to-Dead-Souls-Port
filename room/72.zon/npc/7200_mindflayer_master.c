@@ -19,24 +19,25 @@ void Scavenge();
 static void create(){
     sentient::create();
 
-    SetKeyName("master mindflayer");
+    SetKeyName("the master mindflayer");
     SetId(({"master", "mind", "mindflayer"}));
     SetAdjectives(({"", ""}));
-    SetShort("The master mindflayer");
+    SetShort("the Master Mindflayer");
     SetLong("The master mindflayer is here, looking at you with an evil look.");
+    SetRace("troll"); //need new 'mindflayer' race
+    SetClass("fighter");
+    SetLevel(18);
     SetInventory( ([
         "/domains/diku-alfa/room/72.zon/weap/7200_rod_devil" : "wield rod",
         "/domains/diku-alfa/room/72.zon/armor/7203_cloak_purple" : "wear cloak",
         "/domains/diku-alfa/room/72.zon/obj/key_7205" : 1,
         ] ));
-    SetRace("troll"); //need new 'mindflayer' race
-    SetClass("fighter");
-    SetLevel(14);
     SetGender("neuter");
     SetMorality(-2000);
-    SetWander(5);  //if mob is NOT a SENTINEL
-    SetEncounter( (:CheckNPC:) );  //mob is AGGRESSIVE
+    SetWander(5);
+    SetEncounter( (:CheckNPC:) );
     SetAction(10, ( :Scavenge: ));
+    //need Mindflayer functions
 }
 
 void init(){

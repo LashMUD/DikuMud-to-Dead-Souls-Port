@@ -18,23 +18,25 @@ void Scavenge();
 static void create(){
     sentient::create();
 
-    SetKeyName("junior mindflayer");
+    SetKeyName("the junior mindflayer");
     SetId(({"junior", "mind", "mindflayer"}));
     SetAdjectives(({"", ""}));
-    SetShort("The junior mindflayer");
-    SetLong("The junior mindflayer is here, watching you carefully from the corner.");
+    SetShort("The Junior Mindflayer");
+    SetLong("The Junior Mindflayer is here, watching you carefully from the corner.");
+    
+    SetRace("troll"); //possible new'mindflayer' race
+    SetClass("fighter");
+    SetLevel(14);
     SetInventory( ([
         "/domains/diku-alfa/room/72.zon/weap/7202_mace_small" : "wield mace",
         ] ));
-    SetRace("troll"); //possible new'mindflayer' race
-    SetClass("fighter");
-    SetLevel(6);
     SetGender("neuter");
     AddCurrency("gold" , 200);
     SetMorality(-875);
-    SetWander(5);  //if mob is NOT a SENTINEL
+    SetWander(5);
     SetAction(10, ( :Scavenge: ));
     SetWimpy(30);
+    //need Mindflayer functions
 }
 
 void init(){

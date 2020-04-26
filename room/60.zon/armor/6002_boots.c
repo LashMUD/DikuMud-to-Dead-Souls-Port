@@ -25,7 +25,7 @@ void create(){
     SetShort("a pair of leather boots");
     SetLong("A pair of leather boots.");
     SetMass(40);
-    SetBaseCost("gold", 60);
+    SetBaseCost("silver", 60);
     SetDamagePoints(56);
     SetProtection(BLUNT, 6); //change as necessary
     SetProtection(BLADE, 6); //change as necessary

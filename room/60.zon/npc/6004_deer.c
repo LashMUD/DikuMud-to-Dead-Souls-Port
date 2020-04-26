@@ -19,14 +19,13 @@ static void create(){
     SetKeyName("deer");
     SetId(({"deer", "fallow"}));
     SetAdjectives(({"", ""}));
-    SetShort("the fallow deer");
+    SetShort("the Fallow Deer");
     SetLong("A fallow deer is grazing peacefully here.");
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
-    SetRace("deer"); //check for appropriate race
-    SetLevel(2);
+    SetRace("deer");
+    SetClass("npc_melee"); 
+    SetLevel(5);
     SetMorality(875);
     SetGender("female");
-    SetMelee(1);
 }
 
 void init(){

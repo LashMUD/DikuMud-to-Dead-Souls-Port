@@ -19,20 +19,19 @@ void CheckPoison(object ob);
 static void create(){
     sentient::create();
 
-    SetKeyName("snake");
+    SetKeyName("sewer snake");
     SetId(({"snake", "slithering"}));
     SetAdjectives(({"", ""}));
-    SetShort("the slithering snake");
+    SetShort("the Slithering Snake");
     SetLong("The snake slithers towards you.");
     SetRace("viper"); //To add poison
+    SetClass("npc_meleee");
+    SetLevel(10);
     SetGender("neuter");
-    SetCanBite(1); //Default is no biting; Set to '1' if can bite
     AddCurrency("gold" , 1);
-    SetLevel(4);
-    SetMelee(1);  // added to classes that aren't "fighters"
     SetMorality(-1250);
-    SetWander(5);  //if mob is NOT a SENTINEL
-    SetEncounter( (:CheckNPC:) );  //mob is AGGRESSIVE
+    SetWander(5);
+    SetEncounter( (:CheckNPC:) );
     SetCombatAction(100, (:CheckPoison:));
 }
 

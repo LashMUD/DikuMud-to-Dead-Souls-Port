@@ -19,8 +19,8 @@ static void create() {
 
     SetKeyName("the wizard");
     SetAdjectives( ({"wizard", "warlock"}) );
-    SetId( ({"wizard", "vendor", "shopkeep", "shopkeeper", "owner"}) );
-    SetShort("A Wizard walking around behind the counter, talking to himself,");
+    SetId( ({ "wizard", "vendor", "shopkeep", "shopkeeper", "owner", "keeper" }) );
+    SetShort("a Wizard");
     SetLong("The wizard looks old and senile, and yet he looks like a very powerful\n"+
         "wizard. He is equipped with fine clothing, and is wearing many fine\n"+
         "rings and bracelets.");
@@ -33,8 +33,8 @@ static void create() {
     SetMorality(2250);
     AddCurrency("gold", 10000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/30.zon/3033-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/30.zon/rm_3033-2");
+    SetMaxItems(600);
     SetVendorType(VT_MAGIC);
     SetProperty("no bump", 1);
     SetAttackable(0);

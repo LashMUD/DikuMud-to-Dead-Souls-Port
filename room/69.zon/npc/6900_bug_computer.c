@@ -19,13 +19,12 @@ static void create(){
     SetKeyName("computer bug");
     SetId(({"bug", "computer", "$%#@$#"}));
     SetAdjectives(({"", ""}));
-    SetShort("the computer bug");
+    SetShort("the Computer Bug");
     SetLong("A little, hairy computer bug is here, trying to mess things up.");
-    SetCanBite(1);
-    SetGender("neuter");
     SetRace("insect"); //check for appropriate race
+    SetClass("npc_melee");
     SetLevel(1);
-    SetMelee(1);
+    SetGender("neuter");
     SetMorality(-125);
     SetWander(5);
     SetProperty("STAY_ZONE", 1);

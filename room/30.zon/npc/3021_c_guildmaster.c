@@ -17,7 +17,7 @@
 #include <objects.h>
 #include <daemons.h>
 
-inherit "/domains/diku-alfa/etc/trainer.c";
+inherit LIB_TRAINER;
 
 int AdvanceDude(mixed arg);
 mapping advancement, Levels;
@@ -27,13 +27,14 @@ void create(){
     trainer::create();
     Levels = PLAYERS_D->GetLevelList();
     advancement = ([]);
-    SetKeyName("henli");
-    SetId("guildmaster", "master", "Henli", "henli", "priest","cleric","trainer");
+    SetKeyName("Liander");
+    SetId("guildmaster", "master", "Liander", "liander", "priest","cleric","trainer");
     SetAdjectives(({"light","holy","pious"}));
+    //SetFactions( (["the order of Ambrial" : 1, "Knights of the Moon": 1 ]) );
     SetGender("male");
     SetRace("human");
     SetNoSpells(0);
-    SetShort("Henli the Devout");
+    SetShort("Liander the Pious");
     SetLong("You are in no doubt that this guildmaster is truly close to your god; he has\n"+
             "a peaceful, loving look. You notice that he is surrounded by a white aura."); 
     SetClass("cleric");
@@ -77,8 +78,8 @@ void create(){
 
 void init() {
     trainer::init();
-    SetSmell(([  "default" : "The pungent odor of incense wafts from Henli's robes."]));
-    SetListen(([  "default" : "Henli is mumbling prayers under his breath."]));
+    SetSmell(([  "default" : "The scent of stale wine is evident."]));
+    SetListen(([  "default" : "Under his breath, Liander is constantly rebuking himself for not being worthy."]));
 }
 
 int AdvanceDude(mixed arg){
@@ -133,8 +134,8 @@ int AdvanceDude(mixed arg){
         this_player()->save_player(this_player()->GetKeyName());
 
         if(level == MAX_NEWBIE_LEVEL){
-            write("\nHenli raises his hand and sternly points to you.\n");
-            say("\nHenli raises his hand and sternly points to "+
+            write("\nLiander raises his hand and sternly points to you.\n");
+            say("\nLiander raises his hand and sternly points to "+
                     this_player()->GetName()+".\n");
             this_object()->eventForce("say "+this_player()->GetName()+","+
                     " you are no longer a newbie. From now on, you will need"+
@@ -166,5 +167,3 @@ int eventHelp(object who, string unused){
                               "information by asking me about levels.");
     return 1;
 }
-
-

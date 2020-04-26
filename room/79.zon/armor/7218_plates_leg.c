@@ -26,7 +26,7 @@ void create(){
     SetShort("some leg plates");
     SetLong("They seem to be made from silver or platinum. You see the outline of a rose.");
     SetMass(400);
-    SetBaseCost("gold", 12500);
+    SetBaseCost("silver", 12500);
     SetDamagePoints(89);
     SetProtection(BLUNT, 18); //change as necessary
     SetProtection(BLADE, 24); //change as necessary

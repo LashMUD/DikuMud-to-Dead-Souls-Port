@@ -19,9 +19,9 @@ static void create() {
 
     SetKeyName("the Armourer");
     SetId( ({ "vendor", "armourer", "owner", "shopkeep", "shopkeeper", "keeper" }) );
-    SetShort("the Armourer");
+    SetShort("an Armourer");
     SetLong("An old but very strong armourer, he has made more armours in his\n"+
-        "lifetime than you have ever seen.");
+            "lifetime than you have ever seen.");
     SetCanBite(0);
     SetInventory( ([
          "/domains/diku-alfa/room/30.zon/weap/3022_longsword" : "wield sword",
@@ -35,8 +35,8 @@ static void create() {
     SetMorality(2250);
     AddCurrency("gold", 10000);
     SetLocalCurrency("gold");
-    SetStorageRoom("/domains/diku-alfa/room/30.zon/3020-2");
-    SetMaxItems(10000);
+    SetStorageRoom("/domains/diku-alfa/room/30.zon/rm_3020-2");
+    SetMaxItems(600);
     SetVendorType(VT_ARMOR);
     SetProperty("no bump", 1);
     SetAttackable(0);

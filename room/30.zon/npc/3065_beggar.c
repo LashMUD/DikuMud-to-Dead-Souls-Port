@@ -19,8 +19,8 @@ static void create() {
     SetKeyName("the Beggar");
     SetId( ({"beggar"}) );
     SetAdjectives(({"non-player", "non player"}));
-    SetShort("A beggar, asking for a few coins,");
-    SetLong("The beggar looks like she is fed up with life.");
+    SetShort("a Beggar");
+    SetLong("The beggar looks like she is fed up with life. She is asking for a few coins.");
     SetRace("human");
     SetLevel(1);
     SetGender("female");

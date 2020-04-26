@@ -25,7 +25,7 @@ void create(){
     SetShort("a large round shield");
     SetLong("It is made from hard wood that has been reinforced with heavy iron bands.");
     SetMass(150);
-    SetBaseCost("gold", 300);
+    SetBaseCost("silver", 300);
     SetDamagePoints(65);
     SetProtection(BLUNT,10); //change as necessary
     SetProtection(BLADE,10); //change as necessary

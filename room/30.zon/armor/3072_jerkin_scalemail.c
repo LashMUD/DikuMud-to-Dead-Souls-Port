@@ -24,7 +24,7 @@ static void create(){
     SetShort("a scale mail jerkin");
     SetLong("A scale mail jerkin.");
     SetMass(200);
-    SetBaseCost("gold",500);
+    SetBaseCost("silver",500);
     SetDamagePoints(80);
     SetProtection(BLUNT,10);
     SetProtection(BLADE,20);

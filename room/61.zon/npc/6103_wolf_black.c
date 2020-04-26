@@ -21,12 +21,11 @@ static void create(){
     SetKeyName("black wolf");
     SetId(({"wolf", "black"}));
     SetAdjectives(({"", ""}));
-    SetShort("the large, black wolf");
+    SetShort("the Large Black Wolf");
     SetLong("A large, black wolf is here, glaring hungrily at you.");
-    SetCanBite(1);
-    SetRace("dog"); //check for appropriate race
-    SetLevel(3);
-    SetMelee(1);    
+    SetRace("dog"); 
+    SetClass("npc_melee");
+    SetLevel(10);
     SetMorality(-375);
     SetGender("neuter");
     SetWander(5);

@@ -25,7 +25,7 @@ void create(){
     SetShort("a glinting ring of silver");
     SetLong("A lovely silver ring");
     SetMass(10);
-    SetBaseCost("gold", 5000);
+    SetBaseCost("silver", 5000);
     SetDamagePoints(50); //arbitrary number
     SetProtection(BLUNT, 1); //change as necessary see below
     SetProtection(BLADE, 1); //change as necessary

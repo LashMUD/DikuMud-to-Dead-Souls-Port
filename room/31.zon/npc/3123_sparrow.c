@@ -20,11 +20,11 @@ static void create() {
     SetKeyName("the Sparrow");
     SetId( ({"sparrow", "bird", "fowl"}) );
     SetAdjectives(({"small", "cute"}));
-    SetShort("the sparrow");
+    SetShort("the Sparrow");
     SetLong("The sparrow looks like it is enjoying life.");
     SetRace("bird");
+    SetClass("npc_melee");
     SetLevel(1);
-    SetMelee(0);
     SetPosition(POSITION_FLYING);
     SetGender("female");
     SetMorality(2500);

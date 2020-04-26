@@ -28,7 +28,7 @@ void create(){
         "making it very comfortable to wear.  The name 'Isha' has been engraved on one\n"+
         "of the scales.");
     SetMass(100);
-    SetBaseCost("gold", 10000);
+    SetBaseCost("silver", 10000);
     SetDamagePoints(188); //black dragon scale
     SetProtection(BLUNT, 30); //AC 6 Item
     SetProtection(BLADE, 30); //AC 6 Item

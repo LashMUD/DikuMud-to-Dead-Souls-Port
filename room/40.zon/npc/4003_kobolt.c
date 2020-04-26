@@ -25,7 +25,8 @@ static void create() {
     SetLong("It looks ugly.");
     SetRace("kobold");
     SetClass("fighter");
-    SetLevel(4);
+    SetLevel(5);
+    SetMelee(1);
     SetGender("male");
     SetMorality(-250);
     AddCurrency("gold", 50);

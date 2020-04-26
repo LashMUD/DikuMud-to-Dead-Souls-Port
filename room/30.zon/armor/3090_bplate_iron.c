@@ -24,8 +24,8 @@ static void create(){
     SetShort("an iron breast plate");
     SetLong("An iron breast plate.");
     SetMass(400);
-    SetBaseCost("gold",10000);
-    SetDamagePoints(95);
+    SetBaseCost("silver",10000);
+    SetDamagePoints(10);
     SetProtection(BLUNT,15);
     SetProtection(BLADE,35);
     SetProtection(KNIFE,35);
