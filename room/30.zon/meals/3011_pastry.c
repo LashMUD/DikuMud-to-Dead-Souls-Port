@@ -18,7 +18,7 @@ static void create() {
     meal::create();
 
     SetKeyName("pastry");
-    SetId( ({"pastry"}) );
+    SetId( ({"pastry", "danish"}) );
     SetShort("a danish pastry");
     SetLong("A nice looking delicious danish pastry.");
     SetMass(1);
