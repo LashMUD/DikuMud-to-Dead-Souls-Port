@@ -1,6 +1,6 @@
 Changelog (year-month-day)
 
-*200-04-26
+*2020-04-26
 - recommit due to  change rooms file name
   error thrown with room file names as numbers (3001.c vs rm_3001.c)
   all other files should remian unchanged
