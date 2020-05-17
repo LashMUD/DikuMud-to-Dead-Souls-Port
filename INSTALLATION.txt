@@ -19,4 +19,4 @@ Version 2 and above as maintained by Cratylus (http://dead-souls.net)
 
 6. The default start room in DikuMud is the Temple of Midgaard. This start room
    can be set on the Dead Souls Mud by using the command:
-   mudconfig startroom domains/diku-alfa/room/30.zon/rm_3001
+   mudconfig startroom /domains/diku-alfa/room/30.zon/rm_3001
