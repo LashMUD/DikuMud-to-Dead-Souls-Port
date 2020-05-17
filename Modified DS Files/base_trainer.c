@@ -7,7 +7,7 @@
 
 #include <lib.h>
 #include <daemons.h>
-#include "include/trainer.h"
+#include "/lib/include/trainer.h"
 
 private string array TrainingSkills;
 private mapping Students;
