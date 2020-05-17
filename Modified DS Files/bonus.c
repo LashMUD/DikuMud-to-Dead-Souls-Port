@@ -1,5 +1,17 @@
+/* /lib/bonus.c
+ * from the dead souls mudlib http://www.dead-souls.net
+ *
+ * modified by Lash (ccoker) for use in The Brass Ring
+ * bug fix: bonus object wasn't being destructed
+ * 2014-12-12
+ * added functionality for setting resistances
+ * 2015-12-28
+ *
+ */
+
 #include <lib.h>
 #include ROOMS_H
+#include <damage_types.h>
 
 inherit LIB_ITEM;
 
@@ -10,6 +22,9 @@ mapping Stats = ([]);
 mapping Points = ([]);
 int Duration = 15;
 string bonusname;
+object whom;
+string brl = " "; //bonus resistance level
+int brt = 0; //bonus resistance type
 
 void create(){
     item::create();
@@ -28,10 +43,15 @@ void init(){
 }
 
 void heart_beat(){
-    if(Duration) Duration--;
-    /* modified by Lash - bonus object wasn't being destructed */
-    else this_object()->eventDestruct(); 
-    /* end mod */
+    if(Duration){
+        Duration--;
+    }
+    else {
+        this_object()->eventDestruct();
+    }
+    if(whom && environment() != whom){
+        this_object()->eventDestruct();
+    }
 }
 
 mapping SetStats(mapping arg){
@@ -78,45 +98,64 @@ int GetBonusDuration(){
 }
 
 int SetBonuses(){
-    object env = environment();
-    if(!env || ! living(env)) return 0;
+    whom = environment();
+    if(!whom || ! living(whom)) return 0;
     if(sizeof(Stats))
         foreach(string key, int val in Stats){
-            env->AddStatBonus(key, val);
+            whom->AddStatBonus(key, val);
         }
     if(sizeof(Skills))
         foreach(string key, int val in Skills){
-            env->AddSkillBonus(key, val);
+            whom->AddSkillBonus(key, val);
         }
     if(sizeof(Points))
         foreach(string key, int val in Points){
             switch(key){
-                case "HP" : env->AddHP(val);break;
-                case "XP" : env->AddExperiencePoints(val);break;
-                case "SP" : env->AddStaminaPoints(val);break;
-                case "MP" : env->AddMagicPoints(val);break;
-                case "poison" : env->AddPoison(val);break;
-                case "caffeine" : env->AddCaffeine(val);break;
-                case "food" : env->AddFood(val);break;
-                case "drink" : env->AddDrink(val);break;
+                case "HP" : whom->AddHP(val);break;
+                case "XP" : whom->AddExperiencePoints(val);break;
+                case "SP" : whom->AddStaminaPoints(val);break;
+                case "MP" : whom->AddMagicPoints(val);break;
+                case "poison" : whom->AddPoison(val);break;
+                case "caffeine" : whom->AddCaffeine(val);break;
+                case "food" : whom->AddFood(val);break;
+                case "drink" : whom->AddDrink(val);break;
                 default : break;
             }
         }
-    return 1;
+    /* see /lib/lib/genetics.c for definition
+     * of the following function 
+     * -lash (ccoker)
+     */
+    if(brt !=0 && brl !=0)
+    whom->SetResistance(brt,brl);
+    
+    return 1;    
 }
 
 int RemoveBonuses(){
-    object env = environment();
-    if(!env || ! living(env)) return 0;
+    if(!whom && environment()) whom = environment();
+    if(!whom || !living(whom)) return 0;
     if(sizeof(Stats))
         foreach(string key, int val in Stats){
-            env->RemoveStatBonus(key);
+            whom->RemoveStatBonus(key);
         }
     if(sizeof(Skills))
         foreach(string key, int val in Skills){
-            env->RemoveSkillBonus(key);
+            whom->RemoveSkillBonus(key);
         }
+    whom->SetResistance(brt,"none");
+    
     return 1;
+}
+
+int eventMove(mixed dest){
+    int ret;
+    if(whom && environment() == whom){
+        RemoveBonuses();
+        whom = 0;
+    }
+    ret = ::eventMove(dest);
+    return ret;
 }
 
 int eventDestruct(){
@@ -132,6 +171,24 @@ string GetBonusName(){
 
 string SetBonusName(string name){
     return bonusname = name;
+}
+
+/* reference lib/body.c and genetics.c 
+ * resistance to damage types (/lib/lib/body.c) in
+ * varargs int eventReceiveDamage(mixed agent, int type,
+ *      int x, int internal, mixed limbs)
+ * resistance to damage (x) is defined by level: 
+ * low - damage x = (3*x)/4
+ * medium - damage x /= 2
+ * high - damage x /= 4
+ * immune - damage x = 0
+ * types are defined in /lib/include/damage_types.h
+ * -lash (ccoker)
+ */
+
+varargs string SetResistance(int type, string level){
+    brt = type;
+    brl = level;    
 }
 
 mixed CanGet(object who){ return 0; }
