@@ -12,9 +12,9 @@ Version 2 and above as maintained by Cratylus (http://dead-souls.net)
 4. Copy (or unzip) the files in this archive to the directory 
    /domains/diku-alfa/ so that the room directory is overwritten.
 
-5. Copy the modified Dead Souls lib files to their respective locations.
-   Read the "Description and Placement of Modified DS base files" and 
-   look at the diffs and Diff Output folder for information on what and 
+5. Copy the modified Dead Souls lib files to their respective locations as
+   described in the "Description and Placement of Modified DS base files" file.
+   Look at the diffs in the Diff_Output folder for information on what and 
    why these files were modified.
 
 6. The default start room in DikuMud is the Temple of Midgaard. This start room
