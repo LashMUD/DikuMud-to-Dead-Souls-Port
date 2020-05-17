@@ -1,5 +1,8 @@
 Placement and description of Modified Base Files
 
+05-16-20
+Updated
+
 11-24-14
 Note: I REALLY need to put this code into the object files instaed of changing
 the Dead Souls lib files.
@@ -22,7 +25,10 @@ knows the spell -"if(playerspells[skill]){
 -bonus.c dsx.x.x/lib/lib
 Modified a bug so that the bonus object is removed from the player
 after the Duration counter times out. Hopefully this fix will
-be added in future Dead Souls releases
+be added in future Dead Souls releases. Added function so that
+resistances to attacks can be added using the SetResistance
+function. See /lib/lib/body.c and /lib/lib genetics.c
+files for info using SetResistance()
 
 -combat.c         dsx.x.x/lib/lib
 Added code to modify player morality based on kills
@@ -57,6 +63,9 @@ added in future Dead Souls releases.
 -npc.c            dsx.x.x/lib/lib
 Added code to allow for "AddActionsMap" ing capability for
 NPC's. See diku-alfa/room/41.zon/npc/4103_thief.c for an example.
+
+-potion.c         dsx.x.x/lib/lib
+Added SetResistance() code as described above for bonus.c
 
 -trainer.c        dsx.x.x/lib/lib
 DO NOT NEED TO REPLACE - is inherited from /diku-alfa/etc directory by guildmaster NPC's
