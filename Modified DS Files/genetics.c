@@ -63,7 +63,7 @@ static void RemoveBlindness(){
 
     Blind = 0;
     if( arrayp(val) ){
-        send_messages(val[0], val[1], this_object());        
+        send_messages(val[0], val[1], this_object());
     }
     else if( functionp(val) && !(functionp(val) & FP_OWNER_DESTED) ){
         evaluate(val, this_object());
@@ -167,7 +167,11 @@ int GetStatLevel(string stat){
     x = (GetBaseStatLevel(stat) + GetStatBonus(stat));
     switch(stat){
         case "coordination": case "wisdom":
-            x -= GetAlcohol();
+            x -= this_object()->GetAlcohol();break;
+        case "strength": case "durability" : case "agility":
+            x -= this_object()->GetPoison();break;
+        case "intelligence": case "speed": case "coordination":
+            x += (this_object()->GetCaffeine() / 10);break;
     }
     return x;
 }
@@ -367,22 +371,13 @@ static void heart_beat(){
         }
     }
     /* added by Lash - this is for tracking duration of the npc 'curse' spell in
-       /domains/diku-alfa/etc/magic_user.c file and counting down the effects 
-       of the 'sanctuary' spell
+       /domains/diku-alfa/etc/magic_user.c file
     */
     if(Cursed){
         Cursed->duration--;
         if(Cursed->duration < 1){
             RemoveCurse();
         }
-    }
-
-    if(this_player()->GetProperty("sanctuary")){
-        int x = this_player()->GetProperty("sanctuary");
-
-        x--;
-        this_player()->SetProperty("sanctuary", x);
-        if(x == 0)this_player()->RemoveProperty("sanctuary");
     }
 }
 /* end add */

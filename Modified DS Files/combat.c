@@ -312,12 +312,12 @@ int GetLevel(){
     return classes::GetLevel();
 }
 
-    int GetInCombat(){
-        return sizeof(filter(GetEnemies(),
-                    (: $1 && ( (environment($1) == environment()) 
-                               || environment() == $1 || environment($1) ==
-                               this_object()) :)));
-    }
+int GetInCombat(){
+    return sizeof(filter(GetEnemies(),
+                (: $1 && ( (environment($1) == environment()) 
+                           || environment() == $1 || environment($1) ==
+                           this_object()) :)));
+}
 
 int GetBaseStatLevel(string stat){
     return race::GetBaseStatLevel(stat);
@@ -610,7 +610,9 @@ int eventExecuteAttack(mixed target){
     else if( !target->eventPreAttack(this_object()) ){
         return 0;
     }
-    this_object()->AddStaminaPoints(-1);
+    if(this_object()->GetClass() != "fighter"){
+        this_object()->AddStaminaPoints(-1);
+    }  
     switch(type){
         case ROUND_UNDEFINED: case ROUND_EXTERNAL:
             if( functionp(f) && !(functionp(f) & FP_OWNER_DESTED) ){
@@ -941,7 +943,6 @@ int eventPreAttack(object agent){
 
 varargs int eventReceiveAttack(int speed, string def, object agent){
     int fail, x, pro, level, bonus, ret;
-    
     if(AttacksPerHB > MAX_ATTACKS_PER_HB) return 0;
     if(Dead) return 0;
     if(GetPenalty() > random(11)) fail = 1;
@@ -1026,7 +1027,7 @@ void eventKillEnemy(object ob){
         this_object()->AddExperiencePoints(reward);
     }
 
-   if( member_array(ob, GetHostiles()) == -1 ){
+    if( member_array(ob, GetHostiles()) == -1 ){
         int x;
 
         if(!estatep(ob)) eventTrainSkill("murder", GetLevel(), level, 1,GetCombatBonus(level)); 
@@ -1056,7 +1057,6 @@ void eventEnemyDied(object ob){
     Hostiles -= ({ ob });
     if(!sizeof(SpecialTargets) || (!sizeof(Enemies) || !sizeof(Hostiles))) 
         NonTargets = ({});
-    
 }
 
 varargs int eventReceiveDamage(mixed agent, int type, int x, int internal,
@@ -1074,20 +1074,12 @@ varargs int eventReceiveDamage(mixed agent, int type, int x, int internal,
     if(encumbrance > 200){
         if(GetInCombat()) tell_object(this_object(),"You try to dodge while weighed down.");
     }
-    tell_player("lash", "\nx = "+x);
-    /* added by Lash for potion conferring 'sanctuary' effect - damage reduced in half */
-    if(GetProperty("sanctuary")){
-        x=x/2; 
-        tell_player("lash", "\n NOW x = "+x);
-    }
-    /* end add */
     x = race::eventReceiveDamage(agent, type, x, internal, limbs);
     if( !Wimpy ) return x;
     if( (hp = GetHealthPoints()) < 1 ) return x;
     if( Wimpy < percent(hp, GetMaxHealthPoints()) )
         return x;
     call_out((: eventWimpy :), 0);
-    
     return x;
 }
 

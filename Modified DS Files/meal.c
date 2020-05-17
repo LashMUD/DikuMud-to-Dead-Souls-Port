@@ -1,5 +1,5 @@
 /*    /lib/meal.c
- *    from the Dead Souls LPC Library
+ *    from the Dead Souls LPC Library http://dead-souls.net
  *    standard food and drink code
  *    created by descartes of Borg 950603
  *    Version: @(#) meal.c 1.3@(#)

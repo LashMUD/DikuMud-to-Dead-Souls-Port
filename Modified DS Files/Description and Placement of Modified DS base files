@@ -1,14 +1,11 @@
 Placement and description of Modified Base Files
 
-05-16-20
+20-05-17
 Updated
 
-11-24-14
-Note: I REALLY need to put this code into the object files instaed of changing
-the Dead Souls lib files.
+diffs are for DeadSouls 3.9 mudlib
 
-12-12-14
-diffs are for DeadSouls 3.8.6 mudlib
+FILES THAT DO NOT NEED TO BE PLACED IN THE LIB 
 
 -base_trainer.c   dsx.x.x/lib/lib
 DO NOT NEED TO REPLACE - is inherited from /diku-alfa/etc directory for guildmaster NPC's
@@ -21,6 +18,20 @@ knows the spell -"if(playerspells[skill]){
                       me->eventForce("say You already know that spell.");
                       return 1;  
                   }
+-trainer.c        dsx.x.x/lib/lib
+DO NOT NEED TO REPLACE - is inherited from /diku-alfa/etc directory by guildmaster NPC's
+Modifed to inherit base_trainer.c.
+
+-vendor_types.h   dsx.x.x/lib/include
+DO NOT NEED TO REPLACE - is inherited from /diku-alfa/etc directory
+Cheated and added a "boat" type object to the header file.
+In order to acces the river in Midgaard the room function
+checks for a "boat" type object in the characters inventory
+to allow access to the room. It is not a "real" boat as pertains
+to the Dead Souls mudlib.
+
+
+FILES TO BE PLACED IN THE LIB IN THEIR RESPECTIVE DIRECTORIES
 
 -bonus.c dsx.x.x/lib/lib
 Modified a bug so that the bonus object is removed from the player
@@ -32,17 +43,10 @@ files for info using SetResistance()
 
 -combat.c         dsx.x.x/lib/lib
 Added code to modify player morality based on kills
-Also added a function to check for the 'sanctuary' effect
-conferred by /domains/diku-alfa/room/40.zon/meals/4050_purple_potion.c
-This object adds the property 'sanctuary' to the player with a time 
-limit. The effect is to reduce damage received by half.
 
 -genetics.c       dsx.x.x/lib/lib
-Added a routine for certain npc's to cast "curse" on players
-during combat. Also see diku-alfa/etc/curse.c and magic_user.c
-for more info. 11-26-14 added SetBlind() function. Added a counter
-to count down the 'sanctuary' effect, as described above, in
-static void heart_beat()
+Added SetBlind() function and code to count down the 
+effects of the curse spell from /etc/magic_user.c
 
 -lead.c           dsx.x.x/lib/lib
 Added some lines to allow for the "pet" routine whereby the pet 
@@ -50,8 +54,7 @@ will still be able to follow the player without evasion even if
 the player moves to a different area.
 
 -light.c          dsx.x.x/lib/secure/sefun
-Added some code to emulate Diku style blindness
-11-26-14 removed unnessary checks
+Added line to let player know if they had been blinded
 
 -meal.c dsx.x.x/lib/lib
 Added functionality that was present in the eventEat() function that was
@@ -67,14 +70,4 @@ NPC's. See diku-alfa/room/41.zon/npc/4103_thief.c for an example.
 -potion.c         dsx.x.x/lib/lib
 Added SetResistance() code as described above for bonus.c
 
--trainer.c        dsx.x.x/lib/lib
-DO NOT NEED TO REPLACE - is inherited from /diku-alfa/etc directory by guildmaster NPC's
-Modifed to inherit base_trainer.c.
 
--vendor_types.h   dsx.x.x/lib/include
-DO NOT NEED TO REPLACE - is inherited from /diku-alfa/etc directory
-Cheated and added a "boat" type object to the header file.
-In order to acces the river in Midgaard the room function
-checks for a "boat" type object in the characters inventory
-to allow access to the room. It is not a "real" boat as pertains
-to the Dead Souls mudlib.

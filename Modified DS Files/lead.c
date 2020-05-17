@@ -97,11 +97,11 @@ varargs mixed CanLead(object ob){
     return 1;
 }
 
-    varargs mixed CanEvade(object ob){
-        if( ob && !ob->IsFollowing(this_object()) )
-            return ob->GetName() + " is not following you.";
-        return 1;
-    }
+varargs mixed CanEvade(object ob){
+    if( ob && !ob->IsFollowing(this_object()) )
+        return ob->GetName() + " is not following you.";
+    return 1;
+}
 
 int eventMoveFollowers(object dest){
     mapping follower;
@@ -126,7 +126,7 @@ int eventMoveFollowers(object dest){
             || pos & badpos)) return 0;
         /* end add */              
         if(ob->GetSleeping() || ob->GetParalyzed() || pos & badpos
-                || this_object()->GetInvis()){
+                || this_object()->GetInvis() ){
             eventEvade(ob);
             RemoveFollower(ob);
             continue;
@@ -143,7 +143,7 @@ int eventMoveFollowers(object dest){
          */
         if(this_player()->GetProperty("pet") == ob ) return 0;
         /* end add */ 
-        else if( follower["lost"]++ && eventEvade(ob)){
+        else if( follower["lost"]++ && eventEvade(ob) ){
             RemoveFollower(ob);
         }
     }

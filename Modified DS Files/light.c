@@ -32,8 +32,8 @@ varargs int total_light(object ob) {
     switch(SEASONS_D->query_time_of_day()) {
         case "day": return x;
         case "night":
-            x += SEASONS_D->GetMoonLight();
-        return x;
+                    x += SEASONS_D->GetMoonLight();
+                    return x;
         case "dawn": case "twilight": return (x-1);
         default: return x;
     }
@@ -61,17 +61,21 @@ mixed check_light(object who) {
             return "You are in serious trouble. Ask an admin for help.";
         }
     }
-   
-    /* added by Lash
-     * modified 11-26-14 removed unnecessary code
-     * Added for Diku return message if a player is blinded       
-     */
-    if(who->GetBlind()){
-        return "You can't see a damn thing, you're blinded!";
-    }    
+    light = who->GetEffectiveVision(env);
+    /* added by lash to let player know if they can't see
+     * due to being blinded */
+    if( who->GetBlind() ) {
+        return "\nYou can't see a damn thing - you've been blinded!\n";
+    }
+    /* end add */
+    if( light < 3 ) {
+        return "It's too dark to see.";
+    }
+    else if( light > 6 ) {
+        return "It's too bright to see.";
+    }
     else {
         return 1;
     }
 }
-    /* end add */
 

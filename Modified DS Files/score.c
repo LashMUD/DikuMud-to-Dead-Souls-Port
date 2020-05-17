@@ -22,9 +22,9 @@ static void create() {
 }
 
 static string *FoodDegree =
-({ "starving!", "very hungry.",
- "hungry.", " partially hungry.",
- "feeling full.", "quite full." });
+({ "starving!", "very hungry",
+ "hungry", "partially hungry",
+ "feeling full", "quite full" });
 
 static string *DrunkDegree =
 ({ "sober", "tipsy", "drunk", "blitzed",
@@ -68,7 +68,7 @@ varargs mixed eventScore(string arg) {
         qual = "qualifies";
         cnj = "s";
     }
-    /* added by Lash */
+    /* revised by Lash */
     str  = ({ "\nName              "+who->GetShort()});
     str += ({ sprintf("Level             Level %d %s%s %s",
               who->GetLevel(), ( who->GetUndead() ? "undead " : ""), capitalize(who->GetRace() || "nothing"),
@@ -98,7 +98,7 @@ varargs mixed eventScore(string arg) {
     if(z) z = (z/17) + 1;
     if( z > sizeof(DrunkDegree) - 1 ) z = (sizeof(DrunkDegree) - 1);
     str += ({ "Hunger            "+FoodDegree[x] });
-    str += ({ sprintf("Thirst            %s and %s\n", DrinkDegree[y], DrunkDegree[z]) });
+    str += ({ sprintf("Thirst            %s and %s", DrinkDegree[y], DrunkDegree[z]) });
     x = who->GetCustomStats();
 
     tmp = ({});
