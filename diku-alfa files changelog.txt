@@ -1,5 +1,10 @@
 Changelog (year-month-day)
 
+*2020-05-17
+- changed /etc/curse.c to give a check if arrays are not filled properly
+- created new diff files
+- edited Description and Placement of Modified DS base files text
+
 *2020-04-26
 - recommit due to  change rooms file name
   error thrown with room file names as numbers (3001.c vs rm_3001.c)
