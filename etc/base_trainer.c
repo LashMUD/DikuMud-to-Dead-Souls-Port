@@ -7,7 +7,7 @@
 
 #include <lib.h>
 #include <daemons.h>
-#include "/lib/include/trainer.h"
+#include "include/trainer.h"
 
 private string array TrainingSkills;
 private mapping Students;
@@ -172,6 +172,7 @@ int eventTrain(object who, string verb, string skill){
             me->eventForce("speak You are not prepared for that spell!");
             return 0;
         }
+
         /*added by Lash - if in players spell book why reteach it?*/
         if(playerspells[skill]){
             me->eventForce("say You already know that spell.");
