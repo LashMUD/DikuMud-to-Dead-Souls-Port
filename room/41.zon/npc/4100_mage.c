@@ -74,7 +74,7 @@ void Scavenge(){
 
 void Spells(){
      //eventForce("\nsay In Spells\n");
-     "/powers/npc/magic_user.c"->SpellCombat(this_object());
+     "/domains/diku-alfa/etc/magic_user.c"->SpellCombat(this_object());
 }
 
 /* Extra Information Original Diku Output 
