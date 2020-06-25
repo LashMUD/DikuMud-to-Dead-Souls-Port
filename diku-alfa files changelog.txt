@@ -1,5 +1,4 @@
 Changelog (year-month-day)
-testing
 *2020-05-17
 - changed /etc/curse.c to give a check if arrays are not filled properly
 - created new diff files
