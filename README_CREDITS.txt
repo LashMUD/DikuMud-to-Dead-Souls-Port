@@ -14,7 +14,7 @@ Programs used to develop this port:
 
 * DikuMud Alfa port for use with contemporary C compilers courtesy
   of Tyche (Jon Lambert). 
-  http://www.mudbytes.net/index.php?a=files&s=viewfile&fid=712
+  http://www.mudbytes.net/files/712/
 
 
 
