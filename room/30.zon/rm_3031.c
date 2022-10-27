@@ -25,15 +25,15 @@ static void create() {
         "various sizes. There is a sign on the wall.");
     SetItems( ([
         "sign" : "The sign reads:\n\n"+
-                 "  Use 'List' to see the available pets.\n"+
-                 "  Use 'Buy <pet>' to buy yourself a pet.\n\n"+
+                 "  Use 'inquire' to see the available pets\n"+
+                 "  Use 'adopt <pet>' to adopt an animal\n\n"+
                  "  Instructions for having pets:\n\n"+
-                 "  You can use 'order <pet> <instructions>' to order your pets around.\n"+
-                 "  If you abuse your pet, it will no longer regard you as its master.\n"+
-                 "  If you have several pets you may use 'order followers <instructions>'\n\n"+
-                 "  You can name the pet you buy as : \"buy <pet> <name>\"\n\n"+
+                 "  You can tell your pet to do things 'say <pet> <command>'\n"+
+                 "  If you abuse your pet, it will no longer regard you as its master\n"+
+                 "  You can only adopt one pet at a time\n\n"+
+                 "  You can name the pet you adopt as : 'adopt <pet> <name>'\n\n"+
                  " Regards,\n\n"+
-                 "  The Shopkeeper",
+                 "  The Shopkeeper\n",
         "south" : "You see the Alley.",
         ]) );
     SetInventory( ([
