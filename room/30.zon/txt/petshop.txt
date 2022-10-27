@@ -1,16 +1,16 @@
 The sign reads:
 
-  Use 'List' to see the available pets.
-  Use 'Buy <pet>' to buy yourself a pet.
+  use "inquire" to get a list of pets available
+  use "adopt <pet>" to purchase an animal
 
   Instructions for having pets:
 
-  You can tell your pet to do things 'say <pet> <instructions>'
+  You can tell your pet to do things 'say <pet> <command>'
   If you abuse your pet, it will no longer regard you as its master.
   You can only buy one pet at a time
 
-  You can name the pet you buy as : "buy <pet> <name>"
-
- Regards,
+  You can name the pet you buy as : "adopt <pet> <name>"
+ 
+  Regards,
 
    The Shopkeeper

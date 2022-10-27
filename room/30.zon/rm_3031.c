@@ -36,6 +36,9 @@ static void create() {
                  "  The Shopkeeper",
         "south" : "You see the Alley.",
         ]) );
+    SetInventory( ([
+        "/domains/diku-alfa/room/30.zon/npc/3095_pet_shop_boy" : 1,
+	    ]) );
     SetExits( ([
                    "south" : "/domains/diku-alfa/room/30.zon/rm_3045",
         ]) );
@@ -50,19 +53,19 @@ mixed ReadSign(){
 
 void init(){
     ::init();
-    add_action("list", "list");
-    add_action("buy", "buy");
+    add_action("list","inquire");
+    add_action("buy","adopt");
 }
 
 int list(string str){
 
     if(!str){
-         tell_player(this_player(), "Available pets are:\n"+
-                                    "    4800 - the Wolf\n"+
-                                    "    2400 - the Rottweiler\n"+
-                                    "     600 - the Beagle\n"+
-                                    "     300 - the Puppy\n"+
-                                    "     300 - the Kitten\n");
+         tell_player(this_player(), "Available pets for ADOPTION are:\n\n"+
+                                    "    Wolf       - 4800 gold\n"+
+                                    "    Rottweiler - 2400 gold\n"+
+                                    "    Beagle     - 600 gold\n"+
+                                    "    Puppy      - 300 gold\n"+
+                                    "    Kitten     - 300 gold\n");
          return 1;
     }
 }
@@ -71,28 +74,31 @@ int buy(string str, string name){
 
     object ob;
     string  *list_items;
+    string *tmpname = ({""});
     list_items = ({"the wolf", "the Wolf", "wolf", "Wolf",
                    "the rottweiler", "the Rottweiler", "rottweiler", "Rottweiler", "rott", "Rott",
                    "the beagle", "the Beagle", "beagle", "Beagle",
                    "the puppy", "the Puppy", "puppy", "Puppy", 
                    "the kitten", "the Kitten", "kitten", "Kitten"
                  });
+    
+    sscanf(str, "%s %s", str, name);
+    //tell_player("lash", "name is "+name);
+    
     if(!str){ 
         tell_player(this_player(), "\nThere is no such pet!\n");
-        return 1;         
-    }
-    sscanf(str, "%s %s", str, name);
-
+    return 1;
+    }         
     if(member_array(str, list_items) == -1){
-        tell_player(this_player(), "\nThere is no such pet!\n");
-        return 1;         
+       tell_player(this_player(), "\nThere is no such pet!\n");
+    return 1;         
     }
     if(this_player()->GetProperty("pet")){
         tell_player(this_player(), "\nYou already own a pet! If you have more than one pet at a time\n"+
-                                   "they don't follow orders too well. Sorry!\n");
-        return 1;         
-    } 
-    
+                               "they don't follow orders too well. Sorry!\n");
+    return 1;         
+    }
+       
     switch(str){
         case "the wolf" :
         case "the Wolf" :
@@ -103,11 +109,17 @@ int buy(string str, string name){
                 return 1;
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3094_wolf");
+            if(!name){
+                ob->SetId( ({"wolf", "dog", "pet", name, capitalize(name)}) );
+                ob->SetShort( "a pet wolf named "+capitalize(name) );
+                ob->SetLong("The  looks like a strong, fierce fighter.\n"+
+                 "It belongs to "+this_player()->GetShort()+"\n");
+            }
             if(name){
                 ob->SetId( ({"wolf", "dog", "pet", name, capitalize(name)}) );
-                ob->SetShort( "A pet wolf named "+capitalize(name) );
-                ob->SetLong("The Wolf looks like a strong, fearless fighter.\n"+
-                    "A small sign on a chain around the neck says 'My Name is "
+                ob->SetShort( "a pet wolf named "+capitalize(name) );
+                ob->SetLong("The  looks like a strong, fierce fighter.\n"+
+                 "A small sign on a chain around the neck says 'My Name is "
                     +capitalize(name)+"\nand I belong to "+this_player()->GetShort()+"'\n");
             }
             this_player()->AddCurrency("gold", -4800);
@@ -127,12 +139,18 @@ int buy(string str, string name){
                 return 1;
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3093_rottweiler");
+            if(!name){
+                ob->SetId( ({"rottweiler", "dog", "pet", name, capitalize(name)}) );
+                ob->SetShort( "a pet rottweiler named "+capitalize(name) );
+                ob->SetLong("The Rottweiler looks like a strong, fierce fighter.\n"+
+                    "It belongs to "+this_player()->GetShort()+"\n");
+            }
             if(name){
                 ob->SetId( ({"rottweiler", "dog", "pet", name, capitalize(name)}) );
-                ob->SetShort( "A pet rottweiler named "+capitalize(name) );
+                ob->SetShort( "a pet rottweiler named "+capitalize(name) );
                 ob->SetLong("The Rottweiler looks like a strong, fierce fighter.\n"+
                     "A small sign on a chain around the neck says 'My Name is "
-                    +capitalize(name)+"\nand I belong to "+this_player()->GetShort()+"'\n");
+                  +capitalize(name)+"\nand I belong to "+this_player()->GetShort()+"'\n");
             }
             ob->eventMove(this_object());
             this_player()->AddCurrency("gold", -2400);
@@ -149,12 +167,21 @@ int buy(string str, string name){
                 return 1;
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3092_beagle");
-            if(name){
-                ob->SetId( ({"beagle", "dog", "pet", name, capitalize(name)}) );
-                ob->SetShort( "A pet beagle named "+capitalize(name) );
+            //tell_player("lash", "name is "+name);
+            if(!name){
+                //tell_player("lash", "strcmp ==0");
+                ob->SetId( ({"beagle", "dog", "pet"}) );
+                ob->SetShort( "a pet beagle" );
                 ob->SetLong("The Beagle looks like a fierce fighter.\n"+
-                    "A small sign on a chain around the neck says 'My Name is "
-                    +capitalize(name)+"\nand I belong to "+this_player()->GetShort()+"'\n");
+                 "It belongs to "+this_player()->GetShort()+"\n");
+            }
+            if(name){
+                //tell_player("lash", "strcmp !=0");
+                ob->SetId( ({"beagle", "dog", "pet"}) );
+                ob->SetShort( "a pet beagle" );
+                ob->SetLong("The Beagle looks like a fierce fighter.\n"+
+                 "A small sign on a chain around the neck says 'My Name is "
+                  +capitalize(name)+"\nand I belong to "+this_player()->GetShort()+"'\n");
             }
             this_player()->AddCurrency("gold", -600);
             ob->eventMove(this_object());
@@ -171,12 +198,18 @@ int buy(string str, string name){
                 return 1;
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3091_puppy");
+            if(!name){
+                ob->SetId( ({"puppy", "dog", "pet", name, capitalize(name)}) );
+                ob->SetShort( "a pet puppy named "+capitalize(name) );
+                ob->SetLong("The Puppy looks like a cute, little, fierce fighter.\n"+
+                    "It belongs to "+this_player()->GetShort()+"\n");
+            }
             if(name){
                 ob->SetId( ({"puppy", "dog", "pet", name, capitalize(name)}) );
-                ob->SetShort( "A pet puppy named "+capitalize(name) );
+                ob->SetShort( "a pet puppy named "+capitalize(name) );
                 ob->SetLong("The Puppy looks like a cute, little, fierce fighter.\n"+
                     "A small sign on a chain around the neck says 'My Name is "
-                    +capitalize(name)+"\nand I belong to "+this_player()->GetShort()+"'\n");
+                  +capitalize(name)+"\nand I belong to "+this_player()->GetShort()+"'\n");
             }
             this_player()->AddCurrency("gold", -300);
             ob->eventMove(this_object());
@@ -193,12 +226,20 @@ int buy(string str, string name){
                 return 1;
             }
             ob = new("/domains/diku-alfa/room/30.zon/npc/3090_kitten");
-            if(name){
+            if(!name){
+                tell_player("lash", "name == 0\n");
                 ob->SetId( ({"kitten", "cat", "pet", name, capitalize(name)}) );
-                ob->SetShort( "A pet kitten named "+capitalize(name) );
-                ob->SetLong("The Kitten looks like a cute, little, fierce fighter.\n"+
+                ob->SetShort( "a pet kitten named "+capitalize(name) );
+                ob->SetLong("The Puppy looks like a cute, little, fierce fighter.\n"+
+                    "It belongs to "+this_player()->GetShort()+"\n");
+            }
+            if(name){
+               tell_player("lash", "name != 0\n");
+                ob->SetId( ({"kitten", "cat", "pet", name, capitalize(name)}) );
+                ob->SetShort( "a pet kitten named "+capitalize(name) );
+                ob->SetLong("The Puppy looks like a cute, little, fierce fighter.\n"+
                     "A small sign on a chain around the neck says 'My Name is "
-                    +capitalize(name)+"\nand I belong to "+this_player()->GetShort()+"'\n");
+                  +capitalize(name)+"\nand I belong to "+this_player()->GetShort()+"'\n");
             }
             this_player()->AddCurrency("gold", -300);
             ob->eventMove(this_object());
