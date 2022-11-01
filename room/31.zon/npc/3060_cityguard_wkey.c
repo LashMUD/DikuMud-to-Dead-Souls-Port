@@ -48,26 +48,26 @@ void init(){
     ::init();
 }
 
-int  checkCombat(){ 
-    object array *tch;
-    object array *evil;
+int checkCombat(){
+    object evil;
+    object array env;
+    env = (get_livings(environment(this_object())));
     
-    /*find out if there are combatants in the surrounding environment*/
-    tch = filter(get_livings(environment(this_object())), 
-        (: $1->GetInCombat() :));
-    
-    if( sizeof(tch) <= 0) return 0;
-
-    /* sort out the bad guys */    
-    evil = filter(tch, (: livings($1) && $1->GetMorality() < 700 :));
-    if (sizeof(evil) <= 0) return 0;
-    /* if the bad guy is killing a good guy then kill the bad guy */
-    if (evil[0]->GetCurrentEnemy() && evil[0]->GetCurrentEnemy()->GetMorality() >=700){
-        eventForce("kill "+evil[0]->GetKeyName());
+    /*find out if there are evil combatants in the surrounding environment*/
+    if(sizeof(env)){
+        foreach(object thing in env){
+            if((thing->GetInCombat()) && (thing->GetMorality() < 700)){
+            evil = thing;
+            break;
+            }
+         }
+    if(evil){
         tell_room(environment(this_object()), 
             "%^BOLD%^%^GREEN%^%^A Cityguard screams 'PROTECT THE "+
             "INNOCENT!  BANZAI!!! CHARGE!!! ARARARAGGGHH!'%^RESET%^", ({this_object()}));
-        return 1;
+        eventForce("kill "+evil->GetShort());
+    }
+    return 1;
     }
 }
 
